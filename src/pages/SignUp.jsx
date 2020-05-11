@@ -67,8 +67,8 @@ export default function SignUp() {
     const dispatch = useDispatch();
     const history = useHistory();
     const [state, setState] = React.useState({
-        age: '',
-        name: 'hai',
+        gender: '',
+        name: '',
     });
 
     const handleToChange = (event) => {
