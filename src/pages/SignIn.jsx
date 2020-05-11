@@ -17,11 +17,11 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import LockIcon from '@material-ui/icons/Lock';
 // import { useDispatch, useSelector } from "react-redux"
-// import { login } from "../redux/actions/SignIn"
+
 
 import { useSelector, useDispatch } from "react-redux"
 import { loginUser } from "../redux/actions/loginActions"
-// import { getUser } from "../redux/actions/userActions"
+import { getUser } from "../redux/actions/userActions"
 
 
 
