@@ -100,7 +100,7 @@ export default function SignIn() {
                         await dispatch(loginUser(values));
                         // console.log(values);
                         
-                        alert(JSON.stringify(values))
+                        alert("Login is succsessful")
 
 
                         // const existingUser = userList.find((element) => element.email === values.email);

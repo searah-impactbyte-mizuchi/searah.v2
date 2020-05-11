@@ -15,6 +15,7 @@ import MaterialLink from "@material-ui/core/Link";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/actions/userActions";
 import CallMergeIcon from '@material-ui/icons/CallMerge';
+import MenuItem from '@material-ui/core/MenuItem';
 
 function Copyright() {
     return (
@@ -164,7 +165,36 @@ export default function SignUp() {
                                         </Grid>
 
                                         <Grid item xs={12} sm={6}>
-                                            <TextField
+                                        <FormControl variant="outlined" className={classes.formControl}>
+                                                <InputLabel htmlFor="outlined-age-native-simple">Gender</InputLabel>
+                                                <Select
+                                                    native
+                                                    value={state.gender}
+                                                    onChange={handleToChange}
+                                                    variant="outlined"
+                                                    // required
+                                                    // fullWidth
+                                                    id="gender"
+                                                    label="gender"
+                                                    type="gender"
+                                                    name="gender"
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    // value={values.gender}
+                                                    className={classes.textField}
+                                                    inputProps={{
+                                                        name: 'gender',
+                                                        id: 'outlined-age-native-simple',
+                                                        shrink: true,
+                                                    }}
+                                                >
+                                                    <option aria-label="None" value="" />
+                                                    <option value={10}>Male</option>
+                                                    <option value={20}>Female</option>
+                                                    {/* <option value={30}>T</option> */}
+                                                </Select>
+                                            </FormControl>
+                                            {/* <TextField
                                                 variant="outlined"
                                                 required
                                                 fullWidth
@@ -181,7 +211,7 @@ export default function SignUp() {
                                                 onBlur={handleBlur}
                                                 value={values.gender}
                                                 
-                                            />
+                                            /> */}
                                             <p
                                                 style={{
                                                     color: "red",
