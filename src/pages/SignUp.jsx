@@ -187,13 +187,13 @@ export default function SignUp() {
                                                     value={state.gender}
                                                     onChange={handleToChange}
                                                     variant="outlined"
-                                                    required
-                                                    fullWidth
+                                                    // required
+                                                    // fullWidth
                                                     id="gender"
                                                     label="gender"
                                                     type="gender"
                                                     name="gender"
-                                                    // onChange={handleChange}
+                                                    onChange={handleChange}
                                                     onBlur={handleBlur}
                                                     // value={values.gender}
                                                     className={classes.textField}
