@@ -6,8 +6,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-// import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -175,12 +173,14 @@ export default function SignUp() {
                                                 type="gender"
                                                 name="gender"
                                                 className={classes.textField}
-                                                InputLabelProps={{
+                                                InputProps={{
                                                     shrink: true,
                                                 }}
+                                                
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 value={values.gender}
+                                                
                                             />
                                             <p
                                                 style={{
