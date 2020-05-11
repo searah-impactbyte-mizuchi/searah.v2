@@ -181,7 +181,7 @@ export default function SignUp() {
 
                                         <Grid item xs={12} sm={6}>
                                             <FormControl variant="outlined" className={classes.formControl}>
-                                                <InputLabel htmlFor="outlined-age-native-simple">Gender</InputLabel>
+                                                <InputLabel htmlFor="outlined-age-native-simple" style= {{marginLeft: "8px"}}>Gender</InputLabel>
                                                 <Select
                                                     native
                                                     value={state.gender}
