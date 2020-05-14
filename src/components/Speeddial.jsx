@@ -13,7 +13,7 @@ import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: 380,
+    height: 150,
     transform: 'translateZ(0px)',
     flexGrow: 1,
   },

@@ -7,23 +7,28 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Logo from './logo/profile.JPG'
 import '../App.css'
 import Chip from '@material-ui/core/Chip';
+import { Typography } from '@material-ui/core';
 
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 385,
+   display: 'flex',
+   
+   
   },
   media: {
-    height: 300,
+    height: 200,
+    width: 200
   },
   text: {
     fontFamily: 'Comfortaa, cursive',
+    marginLeft: 10
   },
   button: {
     fontFamily: 'Comfortaa, cursive',
     fontSize: 10,
     background: "#1F618D",
-    color: "white"
+    color: "white",
   }
 });
 
@@ -32,6 +37,7 @@ export default function MediaCard() {
 
   return (
     <Card className={classes.root}>
+      <div>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -40,15 +46,17 @@ export default function MediaCard() {
         />
         
       </CardActionArea>
+      <Typography className={classes.text}>Popom</Typography>
       <CardActions>
       <Chip 
-          label="Edit Image" 
+          label="View Profile" 
           component="a" 
           href="#chip" 
           clickable
           className={classes.button}
           />
       </CardActions>
+      </div>
     </Card>
   );
 }

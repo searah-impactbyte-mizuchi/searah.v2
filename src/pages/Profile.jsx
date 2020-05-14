@@ -17,6 +17,7 @@ import AvTimerRoundedIcon from '@material-ui/icons/AvTimerRounded';
 import CheckCircleOutlineRoundedIcon from '@material-ui/icons/CheckCircleOutlineRounded';
 import Speeddial from '../components/Speeddial'
 import '../App.css'
+import Cardtrip from '../components/Cardtrip'
 
 
 
@@ -101,28 +102,32 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         overflow: 'auto',
         flexDirection: 'column',
-        background: "#eeb4b4"
+        // background: "#eeb4b4"
     },
     fixedHeight: {
         height: 630,
     },
-    table: {
-        height: 375,
-    },
     font: {
         fontFamily: 'Comfortaa, cursive',
     },
-    spasi: {
-        '& > *': {
-            margin: theme.spacing(1),
-        },
+    font2: {
+        fontFamily: 'Comfortaa, cursive',
+        marginTop: 30,
+        marginLeft: 15,
+        marginBottom: 0
     },
+    trip: {
+        marginTop: 30,
+        display: 'flex',
+        overflow: 'auto',
+        flexDirection: 'column',
+    }
 }));
 
 export default function Dashboard() {
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-    const fixedHeightPaper1 = clsx(classes.paper, classes.table);
+    
     
 
     return (
@@ -137,35 +142,35 @@ export default function Dashboard() {
                     <Grid container spacing={3} >
 
                         <Grid item xs={12} md={4} lg={3} >
-                            <Paper className={fixedHeightPaper1}>
+                            <Paper >
                                     <Cardprf/>
                             </Paper>
                         </Grid>
 
                         <Grid item xs={12} md={8} lg={9}>
-                            <Paper className={fixedHeightPaper}>
+                            <Paper className={classes.paper}>
                                
                             <TableCell className = {classes.font}>
-                                <h1>Diva</h1>
-                                <li style={list}>"Ucing pala berbi"</li>
+                                <h1>Popom</h1>
+                                <li style={list}>"Ucing pala popom"</li>
                             </TableCell>
 
                             <TableCell >
                                 <li className={classes.root}>
                                 <PublicIcon />
-                                <Typography className = {classes.font}>Asal</Typography>
+                                <Typography className = {classes.font}>Jakarta, Indonesia</Typography>
                                 </li>
                                 <li className={classes.root}>
                                 <InsertEmoticonRoundedIcon />
-                                <Typography className = {classes.font}>Gender</Typography>
+                                <Typography className = {classes.font}>  Male</Typography>
                                 </li>
                                 <li className={classes.root}>
                                 <AvTimerRoundedIcon />
-                                <Typography className = {classes.font}>Umur</Typography>
+                                <Typography className = {classes.font}>  Age 20</Typography>
                                 </li>
                                 <li className={classes.root}>
                                 <CheckCircleOutlineRoundedIcon />
-                                <Typography className = {classes.font}>Tahun join</Typography>
+                                <Typography className = {classes.font}>  Joined in 2020</Typography>
                                 </li>
                             </TableCell>
                             
@@ -184,23 +189,32 @@ export default function Dashboard() {
                                     Dinding ba dinding oi dinding ba dinding
                                 </li>
                             </TableCell>
+
+                            <h3 className = {classes.font2}>Trips Created</h3>
+
+                            <Grid container spacing={3} >
+                            <Grid item xs={12} md={4} lg={6} >
+                            <Paper className = {classes.trip}> 
+                            <Cardtrip/>
+                            </Paper>
+                            </Grid>
+
+                            <Grid item xs={12} md={4} lg={6} >
+                            <Paper className = {classes.trip}> 
+                            <Cardtrip/>
+                            </Paper>
+                            </Grid>
+
+                            <Grid item xs={12} md={4} lg={6} >
+                            <Paper className = {classes.trip}> 
+                            <Cardtrip/>
+                            </Paper>
+                            </Grid>
+                            </Grid>
+
                             <Speeddial/>
                             </Paper>
-                        </Grid>
-
-                        <Grid item xs={12} md={4} lg={3} >
-                            <Paper >
-                                    
-                            </Paper>
-                        </Grid>
-
-                        <Grid item xs={12} md={8} lg={9} >
-                            <Paper className={fixedHeightPaper1}> 
-                           
-
-                            </Paper>
-                        </Grid>
-
+                            </Grid>
                     </Grid>
 
                     <Box pt={4}>
