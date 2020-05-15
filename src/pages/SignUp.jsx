@@ -15,7 +15,10 @@ import MaterialLink from "@material-ui/core/Link";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/actions/userActions";
 import CallMergeIcon from '@material-ui/icons/CallMerge';
-import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+
 
 function Copyright() {
     return (
@@ -63,6 +66,18 @@ export default function SignUp() {
     const classes = useStyles();
     const dispatch = useDispatch();
     const history = useHistory();
+    const [state, setState] = React.useState({
+        gender: '',
+        name: '',
+    });
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        setState({
+            ...state,
+            [name]: event.target.value,
+        });
+    };
 
     return (
         <Container component="main" maxWidth="xs">
@@ -144,7 +159,7 @@ export default function SignUp() {
                                                 autoComplete="username"
                                                 name="username"
                                                 variant="outlined"
-                                                required
+                                                // required
                                                 fullWidth
                                                 id="username"
                                                 label="User Name"
@@ -163,17 +178,16 @@ export default function SignUp() {
                                                     errors.username}
                                             </p>
                                         </Grid>
-
                                         <Grid item xs={12} sm={6}>
-                                        <FormControl variant="outlined" className={classes.formControl}>
-                                                <InputLabel htmlFor="outlined-age-native-simple">Gender</InputLabel>
+                                            <FormControl variant="outlined" className={classes.formControl}>
+                                                <InputLabel htmlFor="outlined-age-native-simple" style= {{marginLeft: "8px"}}>Gender</InputLabel>
                                                 <Select
                                                     native
-                                                    value={state.gender}
-                                                    onChange={handleToChange}
+                                                    value={values.gender}
+                                                    // onChange={handleToChange}
                                                     variant="outlined"
                                                     // required
-                                                    // fullWidth
+                                                    fullWidth
                                                     id="gender"
                                                     label="gender"
                                                     type="gender"
@@ -189,8 +203,8 @@ export default function SignUp() {
                                                     }}
                                                 >
                                                     <option aria-label="None" value="" />
-                                                    <option value={10}>Male</option>
-                                                    <option value={20}>Female</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
                                                     {/* <option value={30}>T</option> */}
                                                 </Select>
                                             </FormControl>
