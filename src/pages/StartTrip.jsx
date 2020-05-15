@@ -9,30 +9,21 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepConnector from '@material-ui/core/StepConnector';
-import SettingsIcon from '@material-ui/icons/Settings';
-import GroupAddIcon from '@material-ui/icons/GroupAdd';
-import VideoLabelIcon from '@material-ui/icons/VideoLabel';
+import ExploreIcon from '@material-ui/icons/Explore';
+import CardTravelIcon from '@material-ui/icons/CardTravel';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-// import TextField from '@material-ui/core/TextField';
-// import { green } from '@material-ui/core/colors';
-// import {
-//     MuiPickersUtilsProvider,
-//     KeyboardTimePicker,
-//     KeyboardDatePicker,
-// } from '@material-ui/pickers';
-// import DateFnsUtils from '@date-io/date-fns';
 import 'date-fns';
 import Destination from './components/Destination'
 import DetailTrip from './components/DetailTrip'
 import MeetupPoint from './components/MeetupPoint'
+import Box from '@material-ui/core/Box';
+import Footer from "../components/Footer"
 
-// const list = {
-//     listStyle: 'none',
-// }
 
 const drawerWidth = 240;
 
@@ -106,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         justifyContent: "center",
         width: "100%",
-        flexWrap: "wrap" 
+        flexWrap: "wrap"
     },
     paper: {
         padding: theme.spacing(2),
@@ -186,9 +177,9 @@ function ColorlibStepIcon(props) {
     const { active, completed } = props;
 
     const icons = {
-        1: <SettingsIcon />,
-        2: <GroupAddIcon />,
-        3: <VideoLabelIcon />,
+        1: <ExploreIcon />,
+        2: <CardTravelIcon />,
+        3: <FlightTakeoffIcon />,
     };
 
     return (
@@ -266,16 +257,16 @@ export default function Dashboard() {
     // };
 
     return (
-                <div className={classes.root} style={{display:"flex", justifyContent:"center"}}>
-                    <CssBaseline />
-                    <main className={classes.content}>
+        <div className={classes.root} style={{ display: "flex", justifyContent: "center" }}>
+            <CssBaseline />
+            <main className={classes.content}>
 
-                    <Header />
+                <Header />
 
                 <div className={classes.appBarSpacer} />
                 <div>
                     <Container maxWidth="lg" className={classes.container}>
-                        <Stepper alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />} style={{width: "80%"}}>
+                        <Stepper alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />} style={{ width: "80%" }}>
                             {steps.map((label) => (
                                 <Step key={label}>
                                     <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
@@ -316,6 +307,11 @@ export default function Dashboard() {
 
                             </Paper>
                         </Grid>
+                        <Box pt={4}>
+                            <Grid container spacing={1}>
+                                <Footer />
+                            </Grid>
+                        </Box>
 
                     </Container>
                 </div>
