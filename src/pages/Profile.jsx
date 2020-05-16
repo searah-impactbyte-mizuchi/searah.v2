@@ -1,5 +1,5 @@
 import React from 'react';
-import clsx from 'clsx';
+// import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Box from '@material-ui/core/Box';
@@ -15,9 +15,9 @@ import Typography from '@material-ui/core/Typography';
 import InsertEmoticonRoundedIcon from '@material-ui/icons/InsertEmoticonRounded';
 import AvTimerRoundedIcon from '@material-ui/icons/AvTimerRounded';
 import CheckCircleOutlineRoundedIcon from '@material-ui/icons/CheckCircleOutlineRounded';
-import Speeddial from '../components/Speeddial'
 import '../App.css'
 import Cardtrip from '../components/Cardtrip'
+import Modal from '../components/modal'
 
 
 
@@ -126,7 +126,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
     const classes = useStyles();
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     
     
 
@@ -150,7 +150,7 @@ export default function Dashboard() {
                         <Grid item xs={12} md={8} lg={9}>
                             <Paper className={classes.paper}>
                                
-                            <TableCell className = {classes.font}>
+                            <TableCell className = {classes.font} placeholder="Name">
                                 <h1>Popom</h1>
                                 <li style={list}>"Ucing pala popom"</li>
                             </TableCell>
@@ -212,11 +212,11 @@ export default function Dashboard() {
                             </Grid>
                             </Grid>
 
-                            <Speeddial/>
+                            <Modal/>
                             </Paper>
                             </Grid>
                     </Grid>
-
+                                
                     <Box pt={4}>
                         <Grid container spacing={1}>
                             <Footer />
