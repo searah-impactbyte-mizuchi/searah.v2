@@ -22,6 +22,7 @@ import LockIcon from '@material-ui/icons/Lock';
 import { useSelector, useDispatch } from "react-redux"
 import { loginUser } from "../redux/actions/loginActions"
 import { getUser } from "../redux/actions/userActions"
+import { useHistory } from "react-router-dom"
 
 
 
@@ -63,6 +64,8 @@ export default function SignIn() {
     // const existingUser = useSelector(state => state.existingUser)
     const dispatch = useDispatch();
 
+    const history = useHistory ()
+
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -97,10 +100,14 @@ export default function SignIn() {
                         return errors;
                     }}
                     onSubmit={async(values) => {
-                        const result = await dispatch(loginUser(values));
-
-                
+                         await dispatch(loginUser(values, history));
                         
+                        
+
+
+                        
+
+        
                         // console.log(values);
                         
                         // alert("Login is succsessful")
@@ -211,7 +218,7 @@ export default function SignIn() {
                                     type="submit"
                                     fullWidth
                                     variant="contained"
-                                    color="danger"
+                                    color="primary"
                                     className={classes.submit}
                                     disabled={isSubmitting}
                                 >
