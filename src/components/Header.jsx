@@ -43,24 +43,21 @@ export default function Pricing() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
+      <CssBaseline /> 
       <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle} >
             SEARAH
           </Typography>
           <nav>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+            <Link variant="button" color="textPrimary" href="./main-page" className={classes.link}>
               Home
             </Link>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+            <Link variant="button" color="textPrimary" href="./trips" className={classes.link}>
               Start a trip
             </Link>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+            <Link variant="button" color="textPrimary" href="./profile" className={classes.link}>
               Profile
-            </Link>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link}>
-              Review
             </Link>
           </nav>
         </Toolbar>
