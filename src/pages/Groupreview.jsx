@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -23,6 +23,8 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Checkbox from '../components/Checkbox'
 import Rate from '../components/Rate'
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import { fetchReview } from "../redux/actions/reviewActions"
+import { useDispatch, useSelector } from "react-redux";
 
 
 
@@ -142,10 +144,17 @@ export default function Dashboard() {
     const classes = useStyles();
     // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const fixedHeightPaper1 = clsx(classes.paper, classes.table);
-    
-    
-    
 
+    const review = useSelector((state) => {
+        return state.userReview.data;
+    });
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchReview());
+    }, [dispatch]);
+    // console.log(typeof review);
+    
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -162,33 +171,24 @@ export default function Dashboard() {
                             <Paper className={classes.paper}>
                                
                             <TableCell className = {classes.font}>
-                                <h1>Explore Bali</h1>
+                                <h1>{review!= undefined && review[0].title}</h1>
                             </TableCell>
 
                             <TableCell >
                                 <li className={classes.root}>
                                 <RoomIcon />
-                                <Typography className = {classes.font}>Denpasar city, Bali Island, Indonesia</Typography>
+                                <Typography className = {classes.font}>{review!= undefined && review[0].location}</Typography>
                                 </li>
                                 <li className={classes.root}>
                                 <DateRangeIcon />
-                                <Typography className = {classes.font}>May 12th, 2020</Typography>
+                                <Typography className = {classes.font}>{review!= undefined && review[0].from}</Typography>
                                 </li>
                             </TableCell>
                             
                             <TableCell className = {classes.font}>
                                 <h3>Trip Details :</h3>
                                 <li className={classes.root}>
-                                    1. Dinding ba dinding oi dinding ba dinding
-                                </li>
-                                <li className={classes.root}>
-                                    2. Dinding ba dinding oi dinding ba dinding
-                                </li>
-                                <li className={classes.root}>
-                                    3. Dinding ba dinding oi dinding ba dinding
-                                </li>
-                                <li className={classes.root}>
-                                    4. Dinding ba dinding oi dinding ba dinding
+                                {review!= undefined && review[0].description    }
                                 </li>
                             </TableCell>
 
@@ -196,7 +196,7 @@ export default function Dashboard() {
                                 <h3>Meet up point</h3>
                                 <li className={classes.root}>
                                 <RoomIcon />
-                                <Typography className = {classes.font}>Ngurah Rai International Airport</Typography>
+                                <Typography className = {classes.font}> {review!= undefined && review[0].meetupPoint}</Typography>
                                 </li>
                             </TableCell>
 
