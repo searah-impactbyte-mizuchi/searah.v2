@@ -97,10 +97,14 @@ export default function SignIn() {
                         return errors;
                     }}
                     onSubmit={async(values) => {
-                        await dispatch(loginUser(values));
+                        const result = await dispatch(loginUser(values));
+
+                
+                        
                         // console.log(values);
                         
-                        alert(JSON.stringify(values))
+                        // alert("Login is succsessful")
+                        // this.props.push('./main-page');
 
 
                         // const existingUser = userList.find((element) => element.email === values.email);

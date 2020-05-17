@@ -115,10 +115,9 @@ export default function Pricing() {
 
         <Grid item xs={6} sm={3} className={classes.text}>
           <h3>Menu</h3>
-          <Link color="inherit" href="#"><li style={list}>Home</li></Link>
-          <Link color="inherit" href="#"><li style={list}>Start a trip</li></Link>
-          <Link color="inherit" href="#"><li style={list}>Profile</li></Link>
-          <Link color="inherit" href="#"><li style={list}>Review</li></Link>
+          <Link color="inherit" href="./main-page"><li style={list}>Home</li></Link>
+          <Link color="inherit" href="./trips"><li style={list}>Start a trip</li></Link>
+          <Link color="inherit" href="./profile"><li style={list}>Profile</li></Link>
         </Grid>
 
         <Grid item xs={6} sm={3} className={classes.text}>
@@ -138,12 +137,12 @@ export default function Pricing() {
 
           
           <li style={spacing}>
-          <Link color="inherit" href="#"><img src={Logoig} alt="My logo" className={classes.logo}/></Link>{' '}
-          <Link color="inherit" href="#"><img src={Logofb} alt="My logo" className={classes.logo}/></Link>{' '}
-          <Link color="inherit" href="#"><img src={Logotw} alt="My logo" className={classes.logo}/></Link>{' '}
-          <Link color="inherit" href="#"><img src={Logopi} alt="My logo" className={classes.logo}/></Link>{' '}
-          <Link color="inherit" href="#"><img src={Logogo} alt="My logo" className={classes.logo}/></Link>{' '}
-          <Link color="inherit" href="#"><img src={Logoyo} alt="My logo" className={classes.logo}/></Link>{' '}
+          <Link color="inherit" href="https://www.instagram.com/"><img src={Logoig} alt="My logo" className={classes.logo}/></Link>{' '}
+          <Link color="inherit" href="https://www.facebook.com/"><img src={Logofb} alt="My logo" className={classes.logo}/></Link>{' '}
+          <Link color="inherit" href="https://twitter.com/"><img src={Logotw} alt="My logo" className={classes.logo}/></Link>{' '}
+          <Link color="inherit" href="https://www.pinterest.com/"><img src={Logopi} alt="My logo" className={classes.logo}/></Link>{' '}
+          <Link color="inherit" href="https://www.google.com/"><img src={Logogo} alt="My logo" className={classes.logo}/></Link>{' '}
+          <Link color="inherit" href="https://www.youtube.com/"><img src={Logoyo} alt="My logo" className={classes.logo}/></Link>{' '}
           </li>
           
         </Grid>

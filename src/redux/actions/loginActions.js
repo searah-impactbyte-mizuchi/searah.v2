@@ -6,7 +6,7 @@ export const loginUser = (values) => {
     return (dispatch) => {
         return axios.post(`${apiUrl}/login`, values)
             .then(response => {
-                console.log(response);
+                console.log(response, "response");
                 
                 dispatch(loginSuccess(response.data))
             })
