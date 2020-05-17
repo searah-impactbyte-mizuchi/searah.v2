@@ -36,7 +36,7 @@ export default function ImgMediaCard() {
                     alt="Contemplative Reptile"
                     height="240"
                     image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTpG49OSZb11MZ9KX1aSFly9lnNxBbZck55f9uYpbYEzd9bHO9B&usqp=CAU"
-                    title="Contemplative Reptile"
+                    title="Contemplative Reptile"       
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">

@@ -9,10 +9,10 @@ import FormRow from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper'
 
 import { red } from '@material-ui/core/colors';
-import CityCard from "../components/card"
+import CityCard from "../components/MainCard"
 import SearchInput from "../components/searchbar"
 import ReviewCard from "../components/ReviewCard"
-import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+import SearchIcon from '@material-ui/icons/Search';
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 function StartJourney() {
     return (
-        <Button variant="contained" color="secondary">Start your journey here <DirectionsRunIcon /> </Button>
+        <Button variant="contained" color="secondary">Start your journey here <SearchIcon /> </Button>
 
     )
 }
