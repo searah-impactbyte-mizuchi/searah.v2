@@ -2,16 +2,24 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import SignUp from './pages/SignUp';
-import Mainpage from "./pages/MainPage"
+import Profile from './pages/Profile'
+import Groupreview from './pages/Groupreview'
+import Mainpage from './pages/MainPage'
 
 function App() {
   return (
     <div className="App">
+
+        <Profile/>
+        <Groupreview/>
+
         <Router>
           <Switch>
             <Route exact path="/" component={SignIn} />
             <Route exact path="/sign-up" component={SignUp} />
             <Route exact path="/main-page" component={Mainpage} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/GroupReview" component={Groupreview} />
           </Switch>
         </Router>
     </div>

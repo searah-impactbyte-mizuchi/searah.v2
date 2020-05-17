@@ -9,13 +9,13 @@ import FormRow from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper'
 
 import { red } from '@material-ui/core/colors';
-import CityCard from "./components/card"
-import SearchInput from "./components/searchbar"
-import ReviewCard from "./components/ReviewCard"
+import CityCard from "../components/card"
+import SearchInput from "../components/searchbar"
+import ReviewCard from "../components/ReviewCard"
 import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
 
-import Header from "./components/Header"
-// import Footer from "./components/Footer"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -111,7 +111,7 @@ export default function MainPage() {
                     </Grid>
                 </Container>
             </Container>
-            {/* <Footer /> */}
+            <Footer />
         </form >
     )
 }
