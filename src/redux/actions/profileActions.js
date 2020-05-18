@@ -1,26 +1,27 @@
-export const SET_PROFILE= "SET_PROFILE";
+import axios from "axios"
+const apiUrl = "https://searah.herokuapp.com/users"
 
-export const setReview = (payload) => {
+export const fetchProfile = (id) => {
+    return (dispatch) => {
+        return axios.get(`${apiUrl}/${id}`)
+            .then(response => {
+                console.log(response, "response");
+                dispatch(fetchingSukses(response.data))
+             } )
+            
+            .catch(error => {
+                console.log(error);
+                throw (error)
+                
+            })
+    }
+}
+
+export const fetchingSukses = (data) => {
     return {
-        type: SET_PROFILE,
-        payload,
-    };
-};
-
-export const fetchProfile = () => (dispatch) => {
-    const token = localStorage.getItem("token");
-    const url = "https://5e9407d7c7393c0016de4cfc.mockapi.io/users/${id}";
-    const options = {
-        headers: {
-            Authorization: token,
-        },
-    };
-
-    fetch(url, options)
-        .then((response) => {
-            return response.json();
-        })
-        .then((result) => {
-            dispatch(setReview(result));
-        });
-};
+        type: "SET_PROFILE",
+        payload: {
+            data
+        }
+    }
+}

@@ -22,6 +22,8 @@ import Cardtrip from '../components/Cardtrip';
 import Modal from '../components/modal';
 
 import { getUser } from '../redux/actions/userActions';
+import { fetchProfile } from '../redux/actions/profileActions';
+import { useDispatch, useSelector } from "react-redux";
 
 const list = {
     listStyle: 'none',
@@ -124,19 +126,32 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Dashboard({ user, getUser }) {
-    console.log(user);
-    
+function Dashboard() {
+
     const classes = useStyles();
     // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
+    // useEffect(() => {
+    //     getUser(1);
+
+    // }, []);
+    const profile = useSelector((state) => {
+        return state.userProfile;
+
+    });
+    const dispatch = useDispatch();
+
     useEffect(() => {
+        dispatch(fetchProfile(1));
         getUser(1);
+        console.log(profile,"profile");
         
-    }, []);
+    }, [dispatch]);
+
+    
 
     // console.log(, "name");
-    
+
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -148,7 +163,9 @@ function Dashboard({ user, getUser }) {
                     <Grid container spacing={3}>
                         <Grid item xs={12} md={4} lg={3}>
                             <Paper>
-                                <Cardprf />
+                                <Cardprf
+                                    image={profile.data != undefined ? profile.data.data[0].avatar:null}
+                                />
                             </Paper>
                         </Grid>
 
@@ -158,7 +175,7 @@ function Dashboard({ user, getUser }) {
                                     className={classes.font}
                                     placeholder='Name'
                                 >
-                                    <h1>{user!= undefined && user[0].username}</h1>
+                                    <h1>{profile.data != undefined ? profile.data.data[0].username:null}</h1>    
                                     <li style={list}>"Ucing pala popom"</li>
                                 </TableCell>
 
@@ -244,12 +261,12 @@ function Dashboard({ user, getUser }) {
     );
 }
 
-const mapStateToProps = (state) => {
-    console.log(state.existingUser.data);
-    
-    return {
-        user: state.existingUser.data,
-    };
-};
+// const mapStateToProps = (state) => {
+//     console.log(state.existingUser.data);
 
-export default connect(mapStateToProps, { getUser })(Dashboard);
+//     return {
+//         user: state.existingUser.data,
+//     };
+// };
+
+export default Dashboard;

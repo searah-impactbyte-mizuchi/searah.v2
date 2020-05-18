@@ -12,7 +12,13 @@ const middleware = [thunk, logger];
 const store = createStore(
     allReducer,
     initialState,
-    composeWithDevTools(applyMiddleware(thunk,logger))
+    compose(
+        applyMiddleware(
+          thunk,
+          logger
+        ),
+      ),
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 export default store;

@@ -34,6 +34,8 @@ const useStyles = makeStyles({
 
 export default function MediaCard(props) {
   const classes = useStyles();
+  console.log(props.avatar, "PROPS");
+  
 
   return (
     <Card className={classes.root}>

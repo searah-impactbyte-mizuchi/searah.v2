@@ -9,7 +9,7 @@ import reviewReducers from './reviewReducers'
 const allReducers = combineReducers({
     // menuDrawer : drawerReducer,
     userList: userReducer,
-    existingUser : loginReducer,
+    // existingUser : loginReducer,
     existingUser: userReducer,
     userProfile: profileReducers,
     userReview : reviewReducers

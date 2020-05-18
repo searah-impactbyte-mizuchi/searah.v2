@@ -15,6 +15,7 @@ export const loginUser = (values, history) => {
             })
             .catch(error => {
                 console.log(error);
+                alert(error.message)
                 throw (error)
                 
             })

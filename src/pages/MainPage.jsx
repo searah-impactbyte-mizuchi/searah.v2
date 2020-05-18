@@ -63,50 +63,11 @@ export default function MainPage() {
                     justify="center"
 
                 >
-                    <Grid item xs={3}>
-                        <StartJourney />
-                    </Grid>
                 </Grid>
                 <Container >
                     <Grid container spacing={2} className={classes.paper}>
                         <Grid item xs={3}>
                             <CityCard />
-                        </Grid>
-                        <Grid item xs={3}>
-                            <CityCard />
-                        </Grid>
-                        <Grid item xs={3}>
-                            <CityCard />
-                        </Grid>
-                        <Grid item xs={3}>
-                            <CityCard />
-                        </Grid>
-                    </Grid>
-                </Container>
-                <Grid
-                    container
-                    spacing={0}
-                    direction="column"
-                    alignItems="center"
-                    justify="center"
-                >
-                    <Grid item xs={3}>
-                        <h1> Review </h1>
-                    </Grid>
-                </Grid>
-                <Container >
-                    <Grid container spacing={2} className={classes.paper}>
-                        <Grid item xs={3}>
-                            <ReviewCard />
-                        </Grid>
-                        <Grid item xs={3}>
-                            <ReviewCard />
-                        </Grid>
-                        <Grid item xs={3}>
-                            <ReviewCard />
-                        </Grid>
-                        <Grid item xs={3}>
-                            <ReviewCard />
                         </Grid>
                     </Grid>
                 </Container>

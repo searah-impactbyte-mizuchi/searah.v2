@@ -129,6 +129,15 @@ function FormDialog({ updateUser }) {
                         value={about}
                         onChange={(e) => setAbout(e.target.value)}
                     />
+                          <TextField
+                        margin='dense'
+                        id='Avatar'
+                        label='Avatar'
+                        type='text'
+                        fullWidth
+                        value={avatar}
+                        onChange={(e) => setAvatar(e.target.value)}
+                    />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} color='primary'>

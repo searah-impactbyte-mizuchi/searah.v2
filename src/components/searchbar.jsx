@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Container from "@material-ui/core/Container";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
+import SearchIcon from '@material-ui/icons/Search';
 import { red } from '@material-ui/core/colors';
+import { fetchProfile } from '../redux/actions/profileActions';
+import { useDispatch } from 'react-redux';
+import { fetchTrip } from '../redux/actions/mainAction'
+import { Formik } from "formik";
+import Grid from '@material-ui/core/Grid';
+import {
+    MuiPickersUtilsProvider,
+    // KeyboardTimePicker,
+    KeyboardDatePicker,
+} from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
+// import Date from './date/Date'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -33,38 +45,77 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const location = [
-    { city: "Bali" },
-    { city: "malang" },
-    { city: "Surabaya" },
-    { city: "Bandung" },
-    { city: "Jogjakarta" },
-    { city: "Semarang" },
-    { city: "Papua" },
-    { city: "Citayam" },
-];
-
-
 function SearchInput() {
+    const dispatch = useDispatch()
+
+    // const handleSubmit = (values) => {
+    //     dispatch (fetchTrip(values))
+    // }
     return (
-        <div style={{ width: 300 }}>
-            <Autocomplete
-                freeSolo
-                id="free-solo-2-demo"
-                // onClick={this.handleClick}
-                disableClearable
-                options={location.map((option) => option.city)}
-                renderInput={(params) => (
-                    <TextField
-                        {...params}
-                        label="Search input"
-                        margin="normal"
-                        variant="outlined"
-                        InputProps={{ ...params.InputProps, type: 'search' }}
-                    />
-                )}
-            />
-        </div>
+        <Fragment>
+            <Formik
+                initialValues={{ destination: '' }}
+                // validate={values => {
+                //     const errors = {};
+                //     if (!values.location) {
+                //         errors.location = 'Required';
+                //     }
+                //     if (!values.destination) {
+                //         errors.destination = 'Required'
+                //     }
+                //     return errors;
+                // }}
+                onSubmit={(values) => {
+                    dispatch(fetchTrip(values))
+                    // setTimeout(() => {
+                    //     alert(JSON.stringify(values, null, 2));
+                    //     setSubmitting(false);
+                    // }, 400);
+                }}
+            >
+                {({
+                    values,
+                    errors,
+                    touched,
+                    handleChange,
+                    handleBlur,
+                    handleSubmit,
+                    isSubmitting,
+                    /* and other goodies */
+                }) => (
+                        <form onSubmit={handleSubmit}>
+                            <h3>search disini</h3>
+                            <TextField
+                                id="destination"
+                                name="destination"
+                                // label="Label"
+                                style={{ margin: 8 }}
+                                placeholder="Bali, Malang, Surabaya"
+                                // helperText="Full width!"
+                                fullWidth
+                                margin="normal"
+                                onBlur={handleBlur}
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                variant="outlined"
+                                onChange={handleChange}
+                                value={values.destination}
+                            />
+                            <p style={{ color: "red", fontStyle: "italic", }}>
+                                {errors.destination && touched.destination && errors.destination}
+                            </p>
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                type="submit"
+                            >Start your journey here <SearchIcon />
+                            </Button>
+                        </form>
+                    )}
+            </Formik>
+
+        </Fragment>
     );
 }
 
