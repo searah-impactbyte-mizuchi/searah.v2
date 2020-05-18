@@ -11,6 +11,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import EditIcon from '@material-ui/icons/Edit';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     height: 150,
@@ -66,10 +67,10 @@ export default function OpenIconSpeedDial() {
             key={action.name}
             icon={action.icon}
             tooltipTitle={action.name}
-            onClick={handleClose}
+            onClick={handleOpen}
           />
-        ))}
-      </SpeedDial>
+          ))}
+        </SpeedDial>
     </div>
   );
 }

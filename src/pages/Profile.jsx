@@ -1,31 +1,31 @@
-import React from 'react';
-import clsx from 'clsx';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+// import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Footer from "../components/Footer"
-import Header from "../components/Header"
-import Cardprf from "../components/Cardprf"
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Cardprf from '../components/Cardprf';
 import TableCell from '@material-ui/core/TableCell';
 import PublicIcon from '@material-ui/icons/Public';
 import Typography from '@material-ui/core/Typography';
 import InsertEmoticonRoundedIcon from '@material-ui/icons/InsertEmoticonRounded';
 import AvTimerRoundedIcon from '@material-ui/icons/AvTimerRounded';
 import CheckCircleOutlineRoundedIcon from '@material-ui/icons/CheckCircleOutlineRounded';
-import Speeddial from '../components/Speeddial'
-import '../App.css'
-import Cardtrip from '../components/Cardtrip'
+import '../App.css';
+import Cardtrip from '../components/Cardtrip';
+import Modal from '../components/modal';
 
-
-
-
+import { getUser } from '../redux/actions/userActions';
 
 const list = {
     listStyle: 'none',
-  }
+};
 
 const drawerWidth = 240;
 
@@ -114,107 +114,118 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: 'Comfortaa, cursive',
         marginTop: 30,
         marginLeft: 15,
-        marginBottom: 0
+        marginBottom: 0,
     },
     trip: {
         marginTop: 30,
         display: 'flex',
         overflow: 'auto',
         flexDirection: 'column',
-    }
+    },
 }));
 
-export default function Dashboard() {
+function Dashboard({ user: { name, from, about, age }, getUser }) {
     const classes = useStyles();
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-    
-    
+    // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+    useEffect(() => {
+        getUser(1);
+    }, [name, from, about, age]);
 
     return (
         <div className={classes.root}>
             <CssBaseline />
             <main className={classes.content}>
-
-                <Header/>
+                <Header />
 
                 <div className={classes.appBarSpacer} />
-                <Container maxWidth="lg" className={classes.container}>
-                    <Grid container spacing={3} >
-
-                        <Grid item xs={12} md={4} lg={3} >
-                            <Paper >
-                                    <Cardprf/>
+                <Container maxWidth='lg' className={classes.container}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} md={4} lg={3}>
+                            <Paper>
+                                <Cardprf />
                             </Paper>
                         </Grid>
 
                         <Grid item xs={12} md={8} lg={9}>
                             <Paper className={classes.paper}>
-                               
-                            <TableCell className = {classes.font}>
-                                <h1>Popom</h1>
-                                <li style={list}>"Ucing pala popom"</li>
-                            </TableCell>
+                                <TableCell
+                                    className={classes.font}
+                                    placeholder='Name'
+                                >
+                                    <h1>{name}</h1>
+                                    <li style={list}>"Ucing pala popom"</li>
+                                </TableCell>
 
-                            <TableCell >
-                                <li className={classes.root}>
-                                <PublicIcon />
-                                <Typography className = {classes.font}>Jakarta, Indonesia</Typography>
-                                </li>
-                                <li className={classes.root}>
-                                <InsertEmoticonRoundedIcon />
-                                <Typography className = {classes.font}>  Male</Typography>
-                                </li>
-                                <li className={classes.root}>
-                                <AvTimerRoundedIcon />
-                                <Typography className = {classes.font}>  Age 20</Typography>
-                                </li>
-                                <li className={classes.root}>
-                                <CheckCircleOutlineRoundedIcon />
-                                <Typography className = {classes.font}>  Joined in 2020</Typography>
-                                </li>
-                            </TableCell>
-                            
-                            <TableCell className = {classes.font}>
-                                <h3>About :</h3>
-                                <li className={classes.root}>
-                                    Dinding ba dinding oi dinding ba dinding
-                                </li>
-                                <li className={classes.root}>
-                                    Dinding ba dinding oi dinding ba dinding
-                                </li>
-                                <li className={classes.root}>
-                                    Dinding ba dinding oi dinding ba dinding
-                                </li>
-                                <li className={classes.root}>
-                                    Dinding ba dinding oi dinding ba dinding
-                                </li>
-                            </TableCell>
+                                <TableCell>
+                                    <li className={classes.root}>
+                                        <PublicIcon />
+                                        <Typography className={classes.font}>
+                                            {from}
+                                        </Typography>
+                                    </li>
+                                    <li className={classes.root}>
+                                        <InsertEmoticonRoundedIcon />
+                                        <Typography className={classes.font}>
+                                            {' '}
+                                            Male
+                                        </Typography>
+                                    </li>
+                                    <li className={classes.root}>
+                                        <AvTimerRoundedIcon />
+                                        <Typography className={classes.font}>
+                                            {' '}
+                                            Age {age}
+                                        </Typography>
+                                    </li>
+                                    <li className={classes.root}>
+                                        <CheckCircleOutlineRoundedIcon />
+                                        <Typography className={classes.font}>
+                                            {' '}
+                                            Joined in 2020
+                                        </Typography>
+                                    </li>
+                                </TableCell>
 
-                            <h3 className = {classes.font2}>Trips Created</h3>
+                                <TableCell className={classes.font}>
+                                    <h3>About :</h3>
+                                    <li className={classes.root}>{about}</li>
+                                    <li className={classes.root}>
+                                        Dinding ba dinding oi dinding ba dinding
+                                    </li>
+                                    <li className={classes.root}>
+                                        Dinding ba dinding oi dinding ba dinding
+                                    </li>
+                                    <li className={classes.root}>
+                                        Dinding ba dinding oi dinding ba dinding
+                                    </li>
+                                </TableCell>
 
-                            <Grid container spacing={3} >
-                            <Grid item xs={12} md={4} lg={6} >
-                            <Paper className = {classes.trip}> 
-                            <Cardtrip/>
+                                <h3 className={classes.font2}>Trips Created</h3>
+
+                                <Grid container spacing={3}>
+                                    <Grid item xs={12} md={4} lg={6}>
+                                        <Paper className={classes.trip}>
+                                            <Cardtrip />
+                                        </Paper>
+                                    </Grid>
+
+                                    <Grid item xs={12} md={4} lg={6}>
+                                        <Paper className={classes.trip}>
+                                            <Cardtrip />
+                                        </Paper>
+                                    </Grid>
+
+                                    <Grid item xs={12} md={4} lg={6}>
+                                        <Paper className={classes.trip}>
+                                            <Cardtrip />
+                                        </Paper>
+                                    </Grid>
+                                </Grid>
+
+                                <Modal />
                             </Paper>
-                            </Grid>
-
-                            <Grid item xs={12} md={4} lg={6} >
-                            <Paper className = {classes.trip}> 
-                            <Cardtrip/>
-                            </Paper>
-                            </Grid>
-
-                            <Grid item xs={12} md={4} lg={6} >
-                            <Paper className = {classes.trip}> 
-                            <Cardtrip/>
-                            </Paper>
-                            </Grid>
-                            </Grid>
-
-                            <Speeddial/>
-                            </Paper>
-                            </Grid>
+                        </Grid>
                     </Grid>
 
                     <Box pt={4}>
@@ -222,9 +233,16 @@ export default function Dashboard() {
                             <Footer />
                         </Grid>
                     </Box>
-
                 </Container>
             </main>
         </div>
     );
 }
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.existingUser,
+    };
+};
+
+export default connect(mapStateToProps, { getUser })(Dashboard);
