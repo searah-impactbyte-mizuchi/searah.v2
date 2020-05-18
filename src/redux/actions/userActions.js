@@ -73,8 +73,13 @@ export const updateUser = (userProfile) => async (dispatch) => {
 
         dispatch({
             type: UPDATE_USER,
-            payload: data,
+            payload: data.data.data,
         });
+        dispatch({
+            type: GET_USER,
+            payload: data.data.data,
+        });
+        getUser(id)
     } catch (err) {
         console.error(err.message);
     }

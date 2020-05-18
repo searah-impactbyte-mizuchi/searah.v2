@@ -12,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import EditIcon from '@material-ui/icons/Edit';
 
-import { updateUser } from '../redux/actions/userActions';
+import { updateUser,getUser } from '../redux/actions/userActions';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 function FormDialog({ updateUser }) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-    const [name, setName] = React.useState('');
+    const [username, setName] = React.useState('');
     const [avatar, setAvatar] = React.useState('');
     const [from, setFrom] = React.useState('');
     const [age, setAge] = React.useState(null);
@@ -54,7 +54,7 @@ function FormDialog({ updateUser }) {
     const handleSave = async () => {
         const userProfile = {
             id: '1',
-            name,
+            username,
             from,
             avatar,
             age,
@@ -62,6 +62,9 @@ function FormDialog({ updateUser }) {
         };
 
         updateUser(userProfile);
+        console.log(getUser);
+        
+        getUser(userProfile.id);
 
         setOpen(false);
     };
@@ -96,7 +99,7 @@ function FormDialog({ updateUser }) {
                         label='Name'
                         type='text'
                         fullWidth
-                        value={name}
+                        value={username}
                         onChange={(e) => setName(e.target.value)}
                     />
                     <TextField

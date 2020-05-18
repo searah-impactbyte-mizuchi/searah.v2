@@ -124,15 +124,18 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Dashboard({ user: { username}, getUser }) {
+function Dashboard({ user, getUser }) {
+    console.log(user);
+    
     const classes = useStyles();
     // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     useEffect(() => {
         getUser(1);
-    }, [username]);
+        
+    }, []);
 
-    console.log(username);
+    // console.log(, "name");
     
     return (
         <div className={classes.root}>
@@ -155,7 +158,7 @@ function Dashboard({ user: { username}, getUser }) {
                                     className={classes.font}
                                     placeholder='Name'
                                 >
-                                    <h1>{username}</h1>
+                                    <h1>{user!= undefined && user[0].username}</h1>
                                     <li style={list}>"Ucing pala popom"</li>
                                 </TableCell>
 
@@ -242,8 +245,10 @@ function Dashboard({ user: { username}, getUser }) {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state.existingUser.data);
+    
     return {
-        user: state.existingUser,
+        user: state.existingUser.data,
     };
 };
 
