@@ -32,7 +32,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function MediaCard() {
+export default function MediaCard(props) {
   const classes = useStyles();
 
   return (
@@ -41,12 +41,12 @@ export default function MediaCard() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image= {Logo}
+          image= {props.avatar != null? props.avatar:Logo}
           title="Contemplative Reptile"
         />
         
       </CardActionArea>
-      <Typography className={classes.text}>Popom</Typography>
+      <Typography className={classes.text}>{props.username}</Typography>
       <CardActions>
       <Chip 
           label="View Profile" 
