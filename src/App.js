@@ -4,7 +4,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from './pages/SignUp';
 import Profile from './pages/Profile'
 import Groupreview from './pages/Groupreview'
-import Mainpage from './pages/MainPage'
+import Mainpage from './pages/Newmainpage'
 import StartTrip from './pages/StartTrip'
 
 function App() {

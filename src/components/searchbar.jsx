@@ -46,8 +46,10 @@ const location = [
 
 
 function SearchInput() {
+    const classes = useStyles();
+
     return (
-        <div style={{ width: 300 }}>
+        <div className={classes.root} >
             <Autocomplete
                 freeSolo
                 id="free-solo-2-demo"
