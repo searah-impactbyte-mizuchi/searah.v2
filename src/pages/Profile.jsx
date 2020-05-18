@@ -124,14 +124,16 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Dashboard({ user: { name, from, about, age }, getUser }) {
+function Dashboard({ user: { username}, getUser }) {
     const classes = useStyles();
     // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     useEffect(() => {
         getUser(1);
-    }, [name, from, about, age]);
+    }, [username]);
 
+    console.log(username);
+    
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -153,7 +155,7 @@ function Dashboard({ user: { name, from, about, age }, getUser }) {
                                     className={classes.font}
                                     placeholder='Name'
                                 >
-                                    <h1>{name}</h1>
+                                    <h1>{username}</h1>
                                     <li style={list}>"Ucing pala popom"</li>
                                 </TableCell>
 
@@ -161,7 +163,7 @@ function Dashboard({ user: { name, from, about, age }, getUser }) {
                                     <li className={classes.root}>
                                         <PublicIcon />
                                         <Typography className={classes.font}>
-                                            {from}
+                                            {/* {from} */}
                                         </Typography>
                                     </li>
                                     <li className={classes.root}>
@@ -175,7 +177,7 @@ function Dashboard({ user: { name, from, about, age }, getUser }) {
                                         <AvTimerRoundedIcon />
                                         <Typography className={classes.font}>
                                             {' '}
-                                            Age {age}
+                                            {/* Age {age} */}
                                         </Typography>
                                     </li>
                                     <li className={classes.root}>
@@ -189,7 +191,7 @@ function Dashboard({ user: { name, from, about, age }, getUser }) {
 
                                 <TableCell className={classes.font}>
                                     <h3>About :</h3>
-                                    <li className={classes.root}>{about}</li>
+                                    {/* <li className={classes.root}>{about}</li> */}
                                     <li className={classes.root}>
                                         Dinding ba dinding oi dinding ba dinding
                                     </li>
@@ -245,4 +247,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, {   })(Dashboard);
+export default connect(mapStateToProps, { getUser })(Dashboard);
