@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 // import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -124,16 +124,21 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Dashboard({ user: { username}, getUser }) {
+function Dashboard({ dispatch, user, ...props }) {
+    const [username, setUsername] = useState();
     const classes = useStyles();
     // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     useEffect(() => {
-        getUser(1);
-    }, [username]);
+        getUser(1)(dispatch);
+    }, []);
 
-    console.log(username);
-    
+    useEffect(() => {
+        if (user.data) {
+            setUsername(user.data[0].username);
+        }
+    }, [user]);
+
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -247,4 +252,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { getUser })(Dashboard);
+export default connect(mapStateToProps)(Dashboard);
