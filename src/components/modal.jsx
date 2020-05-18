@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 function FormDialog({ updateUser }) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-    const [name, setName] = React.useState('');
+    const [username, setUsername] = React.useState('');
     const [avatar, setAvatar] = React.useState('');
     const [from, setFrom] = React.useState('');
     const [age, setAge] = React.useState(null);
@@ -54,11 +54,7 @@ function FormDialog({ updateUser }) {
     const handleSave = async () => {
         const userProfile = {
             id: '1',
-            name,
-            from,
-            avatar,
-            age,
-            about,
+            username,
         };
 
         updateUser(userProfile);
@@ -96,8 +92,8 @@ function FormDialog({ updateUser }) {
                         label='Name'
                         type='text'
                         fullWidth
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                     <TextField
                         margin='dense'

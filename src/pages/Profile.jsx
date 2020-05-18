@@ -131,12 +131,12 @@ function Dashboard({ dispatch, user, ...props }) {
 
     useEffect(() => {
         getUser(1)(dispatch);
-    }, []);
 
-    useEffect(() => {
         if (user.data) {
             setUsername(user.data[0].username);
         }
+
+        // eslint-disable-next-line
     }, [user]);
 
     return (
@@ -230,7 +230,7 @@ function Dashboard({ dispatch, user, ...props }) {
                                     </Grid>
                                 </Grid>
 
-                                <Modal />
+                                <Modal onReload />
                             </Paper>
                         </Grid>
                     </Grid>
