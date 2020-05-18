@@ -1,15 +1,15 @@
-export const SET_REVIEW = "SET_REVIEW";
+export const SET_PROFILE= "SET_PROFILE";
 
 export const setReview = (payload) => {
     return {
-        type: SET_REVIEW,
+        type: SET_PROFILE,
         payload,
     };
 };
 
-export const fetchReview = () => (dispatch) => {
+export const fetchProfile = () => (dispatch) => {
     const token = localStorage.getItem("token");
-    const url = "https://searah.herokuapp.com/trips/41";
+    const url = "https://5e9407d7c7393c0016de4cfc.mockapi.io/users/${id}";
     const options = {
         headers: {
             Authorization: token,
@@ -21,6 +21,6 @@ export const fetchReview = () => (dispatch) => {
             return response.json();
         })
         .then((result) => {
-            dispatch(setReview(result.data));
+            dispatch(setReview(result));
         });
 };

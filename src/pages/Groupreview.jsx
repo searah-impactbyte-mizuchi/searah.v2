@@ -146,7 +146,10 @@ export default function Dashboard() {
     const fixedHeightPaper1 = clsx(classes.paper, classes.table);
 
     const review = useSelector((state) => {
-        return state.userReview.data;
+        console.log(state);
+        
+        return state.userReview;
+        
     });
     const dispatch = useDispatch();
 
@@ -171,24 +174,24 @@ export default function Dashboard() {
                             <Paper className={classes.paper}>
                                
                             <TableCell className = {classes.font}>
-                                <h1>{review!= undefined && review[0].title}</h1>
+                                <h1>{review.length > 0 && review[0].title}</h1>
                             </TableCell>
 
                             <TableCell >
                                 <li className={classes.root}>
                                 <RoomIcon />
-                                <Typography className = {classes.font}>{review!= undefined && review[0].location}</Typography>
+                                <Typography className = {classes.font}>{review.length > 0 && review[0].location}</Typography>
                                 </li>
                                 <li className={classes.root}>
                                 <DateRangeIcon />
-                                <Typography className = {classes.font}>{review!= undefined && review[0].from}</Typography>
+                                <Typography className = {classes.font}>{review.length > 0 && review[0].from}</Typography>
                                 </li>
                             </TableCell>
                             
                             <TableCell className = {classes.font}>
                                 <h3>Trip Details :</h3>
                                 <li className={classes.root}>
-                                {review!= undefined && review[0].description    }
+                                {review.length > 0 && review[0].description    }
                                 </li>
                             </TableCell>
 
@@ -196,7 +199,7 @@ export default function Dashboard() {
                                 <h3>Meet up point</h3>
                                 <li className={classes.root}>
                                 <RoomIcon />
-                                <Typography className = {classes.font}> {review!= undefined && review[0].meetupPoint}</Typography>
+                                <Typography className = {classes.font}> {review.length > 0 && review[0].meetupPoint}</Typography>
                                 </li>
                             </TableCell>
 

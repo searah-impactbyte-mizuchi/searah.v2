@@ -11,9 +11,6 @@ function App() {
   return (
     <div className="App">
 
-        {/* <Profile/> */}
-        {/* <Groupreview/> */}
-
         <Router>
           <Switch>
             <Route exact path="/" component={SignIn} />

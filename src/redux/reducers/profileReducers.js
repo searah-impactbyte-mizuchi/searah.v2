@@ -1,12 +1,12 @@
 const initialState = [];
 
-const reviewReducers = (state = initialState, actions) => {
+const profileReducers = (state = initialState, actions) => {
     switch (actions.type) {
-        case "SET_REVIEW":
+        case "SET_PROFILE":
             return actions.payload;
         default:
             return state;
     }
 };
 
-export default reviewReducers
+export default profileReducers
