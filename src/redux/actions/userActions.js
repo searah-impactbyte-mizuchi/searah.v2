@@ -7,7 +7,7 @@ const apiUrl = 'https://searah.herokuapp.com/users';
 // Get user data from API
 export const getUser = (id) => {
     return (dispatch) => {
-        const url = `https://5e9407d7c7393c0016de4cfc.mockapi.io/users/${id}`;
+        const url = `https://searah.herokuapp.com/users/${id}`;
 
         axios
             .get(url)
@@ -64,7 +64,7 @@ export const addUserSuccess = (data) => {
 export const updateUser = (userProfile) => async (dispatch) => {
     const { id } = userProfile;
 
-    const url = `https://5e9407d7c7393c0016de4cfc.mockapi.io/users/${id}`;
+    const url = `https://searah.herokuapp.com/users/${id}`;
 
     try {
         const data = await axios.put(url, userProfile);

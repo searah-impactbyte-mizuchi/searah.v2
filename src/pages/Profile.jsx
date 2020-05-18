@@ -245,4 +245,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { getUser })(Dashboard);
+export default connect(mapStateToProps, {   })(Dashboard);
