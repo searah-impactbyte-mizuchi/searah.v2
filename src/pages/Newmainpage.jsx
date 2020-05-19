@@ -95,6 +95,7 @@ const useStyles = makeStyles((theme) => ({
     },
     fixedHeight: {
         height: 180,
+        opacity: 0.5
     },
 }));
 
@@ -120,37 +121,39 @@ export default function MainPage() {
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3} alignItems="center" justify="center" direction="column">
                         <Grid item xs={12} md={4} lg={4} >
-                            <Paper className={classes.paper} style={{marginBottom: 50}}>
+                            <div className={classes.paper} style={{marginBottom: 50}}>
+                            {/* <Paper className={fixedHeightPaper} style={{marginBottom: 50}}> */}
                             <SearchInput />
                             <StartJourney />
-                            </Paper>
+                            {/* </Paper> */}
+                            </div>
                         </Grid>
                         </Grid>
                    
 
                     <Grid container spacing={3}>
                         <Grid item xs={12} md={4} lg={3} >
-                            <Paper className={classes.paper}>
+                        <div className={classes.paper}>
                             <CityCard />
-                            </Paper>
+                        </div>
                         </Grid>
 
                         <Grid item xs={12} md={4} lg={3} >
-                            <Paper className={classes.paper}>
+                        <div className={classes.paper}>
                             <CityCard />
-                            </Paper>
+                        </div>
                         </Grid>
 
                         <Grid item xs={12} md={4} lg={3} >
-                            <Paper className={classes.paper}>
+                        <div className={classes.paper}>
                             <CityCard />
-                            </Paper>
+                        </div>
                         </Grid>
 
                         <Grid item xs={12} md={4} lg={3} >
-                            <Paper className={classes.paper}>
+                        <div className={classes.paper}>
                             <CityCard />
-                            </Paper>
+                        </div>
                         </Grid>
                         </Grid>
 
@@ -158,27 +161,27 @@ export default function MainPage() {
 
                         <Grid container spacing={3}>
                         <Grid item xs={12} md={4} lg={3} >
-                            <Paper className={classes.paper}>
-                            <ReviewCard />
-                            </Paper>
+                        <div className={classes.paper}>
+                        <ReviewCard />
+                        </div>
                         </Grid>
 
                         <Grid item xs={12} md={4} lg={3} >
-                            <Paper className={classes.paper}>
-                            <ReviewCard />
-                            </Paper>
+                        <div className={classes.paper}>
+                        <ReviewCard />
+                        </div>
                         </Grid>
 
                         <Grid item xs={12} md={4} lg={3} >
-                            <Paper className={classes.paper}>
-                            <ReviewCard />
-                            </Paper>
+                        <div className={classes.paper}>
+                        <ReviewCard />
+                        </div>
                         </Grid>
 
                         <Grid item xs={12} md={4} lg={3} >
-                            <Paper className={classes.paper}>
-                            <ReviewCard />
-                            </Paper>
+                        <div className={classes.paper}>
+                        <ReviewCard />
+                        </div>
                         </Grid>
                         </Grid>
 
