@@ -30,7 +30,11 @@ const useStyles = makeStyles((theme) => ({
     },
     border: {
         border: "solid",
-        // color: "blue"
+        color: "#fae7c5"
+    },
+    floatingLabelFocusStyle: {
+        color: "#fae7c5",
+        fontFamily: 'Comfortaa, cursive'
     },
 }));
 
@@ -68,6 +72,9 @@ function SearchInput() {
                         variant="outlined"
                         InputProps={{ ...params.InputProps, type: 'search' }}
                         className={classes.border}
+                        InputLabelProps={{
+                            className: classes.floatingLabelFocusStyle,
+                        }}
                     />
                 )}
             />

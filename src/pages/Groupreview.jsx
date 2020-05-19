@@ -107,6 +107,7 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'auto',
         flexDirection: 'column',
         // background: "#fafafa"
+        
     },
     fixedHeight: {
         height: 1000,
@@ -118,9 +119,9 @@ const useStyles = makeStyles((theme) => ({
         height: 300
     },
     pad: {
-        padding: 20,
+        // padding: 20,
         marginRight: 40,
-        maxWidth: 300
+        maxWidth: 200
     },
     button: {
         fontFamily: 'Comfortaa, cursive',
@@ -157,8 +158,14 @@ export default function Dashboard() {
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3} >
 
+                    <Grid item xs={12} md={1} lg={1} >
+                            <div >
+                               
+                            </div>
+                        </Grid>
 
-                        <Grid item xs={12} md={8} lg={9}>
+
+                        <Grid item xs={12} md={9} lg={9}>
                             <Paper className={classes.paper}>
                                
                             <TableCell className = {classes.font}>
@@ -234,65 +241,66 @@ export default function Dashboard() {
                             </Paper>
                         </Grid>
 
-                        <Grid item xs={12} md={4} lg={3} >
-                            <Paper className = {fixedHeightPaper1}>
-                               
-                            </Paper>
+                        <Grid item xs={12} md={1} lg={1} >
+                            <div >
+
+                            </div>
                         </Grid>
 
                         <h3 className = {classes.members}>Members :</h3>
                         <Grid container spacing={3} >
-                            <Grid item xs={6} md={3} lg={2} >
-                            <Paper > 
+                            <Grid item xs={12} md={3} lg={2} >
+                            <div >
                             <Cardgroup/>
-                            </Paper>
+                            </div>
                             </Grid>
 
-                            <Grid item xs={6} md={3} lg={2} >
-                            <Paper > 
+                            <Grid item xs={12} md={3} lg={2} >
+                            <div>
                             <Cardgroup/>
-                            </Paper>
+                            </div>
                             </Grid>
 
-                            <Grid item xs={6} md={3} lg={2} >
-                            <Paper > 
+                            <Grid item xs={12} md={3} lg={2} >
+                            <div>
                             <Cardgroup/>
-                            </Paper>
+                            </div>
                             </Grid>
 
-                            <Grid item xs={6} md={3} lg={2} >
-                            <Paper > 
+                            <Grid item xs={12} md={3} lg={2} >
+                            <div>
                             <Cardgroup/>
-                            </Paper>
+                            </div>
                             </Grid>
 
-                            <Grid item xs={6} md={3} lg={2} >
-                            <Paper > 
+                            <Grid item xs={12} md={3} lg={2} >
+                            <div>
                             <Cardgroup/>
-                            </Paper>
+                            </div>
                             </Grid>
 
-                            <Grid item xs={6} md={3} lg={2} >
-                            <Paper > 
+                            <Grid item xs={12} md={3} lg={2} >
+                            <div>
                             <Cardgroup/>
-                            </Paper>
-                            </Grid>
-                            <Grid item xs={6} md={3} lg={2} >
-                            <Paper > 
-                            <Cardgroup/>
-                            </Paper>
+                            </div>
                             </Grid>
 
-                            <Grid item xs={6} md={3} lg={2} >
-                            <Paper > 
+                            <Grid item xs={12} md={3} lg={2} >
+                           <div>
                             <Cardgroup/>
-                            </Paper>
+                            </div>
                             </Grid>
 
-                            <Grid item xs={6} md={3} lg={2} >
-                            <Paper > 
+                            <Grid item xs={12} md={3} lg={2} >
+                            <div>
                             <Cardgroup/>
-                            </Paper>
+                            </div>
+                            </Grid>
+
+                            <Grid item xs={12} md={3} lg={2} >
+                            <div>
+                            <Cardgroup/>
+                            </div>
                             </Grid>
                             </Grid>
 

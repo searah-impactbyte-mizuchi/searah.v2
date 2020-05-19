@@ -25,20 +25,20 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
-    background: '#1F618D'
+    background: '#0c3854'
   },
   toolbar: {
     flexWrap: 'wrap',
   },
   toolbarTitle: {
     flexGrow: 1,
-    color: 'white',
+    color: '#fae7c5',
     fontFamily: 'Fredericka the Great, cursive',
     fontSize: 40
   },
   link: {
     margin: theme.spacing(1, 1.5),
-    color: 'white',
+    color: '#fae7c5',
     fontFamily: 'Comfortaa, cursive',
   },
   image: {

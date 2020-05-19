@@ -59,30 +59,31 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
-        fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
+        // fontFamily: 'Kalam, cursive',
         backgroundColor: "#8ccdc2",
         background:"linear-gradient(rgba(81, 86, 137),rgba(102, 151, 167, 0.5),transparent)",
         color: "whitesmoke"
     },
     font: {
-        fontFamily: 'Kalam, cursive',
-        // fontFamily: 'Comfortaa, cursive',
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
         // backgroundColor: "whitesmoke"
     },
     font2: {
-        fontFamily: 'Kalam, cursive',
-        // fontFamily: 'Comfortaa, cursive',
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
         color: "whitesmoke",
         marginTop: 10,
     },
     font3: {
-        fontFamily: 'Kalam, cursive',
-        // fontFamily: 'Comfortaa, cursive',
-        color: "whitesmoke"
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
+        // color: "whitesmoke"
     },
     font4: {
-        fontFamily: 'Kalam, cursive',
-        // fontFamily: 'Comfortaa, cursive',
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
         color: "whitesmoke",
         marginBottom: 20,
     },
@@ -91,6 +92,10 @@ const useStyles = makeStyles((theme) => ({
         height: theme.spacing(20),
         margin: 20,
       },
+      floatingLabelFocusStyle: {
+        color: "#0c3854",
+        fontFamily: 'Comfortaa, cursive'
+    },
 }));
 
 export default function SignIn() {
@@ -190,13 +195,16 @@ export default function SignIn() {
                                     variant="outlined"
                                     className={classes.margin}
                                     id="email"
-                                    placeholder="Email"
+                                    label="Email"
                                     fullWidth
                                     name="email"     
                                     type="email"
                                     autoComplete="current-email"
                                     onChange={handleChange}
                                     value={values.email}
+                                    InputLabelProps={{
+                                        className: classes.floatingLabelFocusStyle,
+                                    }}
                                     
                                     // InputProps={{
                                     //     startAdornment: (
@@ -222,12 +230,15 @@ export default function SignIn() {
                                     required
                                     fullWidth
                                     name="password"
-                                    placeholder="Password"
+                                    label="Password"
                                     type="password"
                                     id="password"
                                     autoComplete="current-password"
                                     onChange={handleChange}
                                     value={values.password}
+                                    InputLabelProps={{
+                                        className: classes.floatingLabelFocusStyle,
+                                    }}
 
                                     // InputProps={{
                                     //     startAdornment: (

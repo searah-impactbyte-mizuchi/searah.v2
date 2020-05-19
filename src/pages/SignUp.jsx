@@ -60,8 +60,8 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
-        fontFamily: 'Kalam, cursive',
-        // fontFamily: 'Comfortaa, cursive',
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
         backgroundColor: "#8ccdc2",
         background:"linear-gradient(rgba(81, 86, 137),rgba(102, 151, 167, 0.5),transparent)",
         color: "whitesmoke"
@@ -82,27 +82,31 @@ const useStyles = makeStyles((theme) => ({
         margin: 20,
       },
       font: {
-        fontFamily: 'Kalam, cursive',
-        // fontFamily: 'Comfortaa, cursive',
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
         // backgroundColor: "whitesmoke"
     },
     font2: {
-        fontFamily: 'Kalam, cursive',
-        // fontFamily: 'Comfortaa, cursive',
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
         color: "whitesmoke",
         marginTop: 10,
     },
     font3: {
-        fontFamily: 'Kalam, cursive',
-        // fontFamily: 'Comfortaa, cursive',
-        color: "whitesmoke"
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
+        // color: "whitesmoke"
     },
     background: {
         display: "flex",
         flexDirection: "column",
         marginTop: theme.spacing(8),
         alignItems: "center",
-    }
+    },
+    floatingLabelFocusStyle: {
+        color: "#0c3854",
+        fontFamily: 'Comfortaa, cursive'
+    },
 }));
 
 export default function SignUp() {
@@ -216,6 +220,9 @@ export default function SignUp() {
                                                 value={values.username}
                                                 onBlur={handleBlur}
                                                 className={classes.font}
+                                                InputLabelProps={{
+                                                    className: classes.floatingLabelFocusStyle,
+                                                }}
 
                                             />
                                             <p
@@ -231,7 +238,7 @@ export default function SignUp() {
                                         </Grid>
                                         <Grid item xs={12} sm={6}>
                                             <FormControl variant="outlined" className={classes.formControl}>
-                                                <InputLabel htmlFor="outlined-age-native-simple" style= {{marginLeft: "8px"}}>Gender</InputLabel>
+                                                <InputLabel htmlFor="outlined-age-native-simple" style= {{marginLeft: "8px"}} className={classes.floatingLabelFocusStyle}>Gender</InputLabel>
                                                 <Select
                                                     native
                                                     value={values.gender}
@@ -301,6 +308,9 @@ export default function SignUp() {
                                                 onBlur={handleBlur}
                                                 value={values.email}
                                                 className={classes.font}
+                                                InputLabelProps={{
+                                                    className: classes.floatingLabelFocusStyle,
+                                                }}
                                             />
                                             <p
                                                 style={{
@@ -327,6 +337,9 @@ export default function SignUp() {
                                                 onBlur={handleBlur}
                                                 value={values.password}
                                                 className={classes.font}
+                                                InputLabelProps={{
+                                                    className: classes.floatingLabelFocusStyle,
+                                                }}
                                             />
                                             <p
                                                 style={{
