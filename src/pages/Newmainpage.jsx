@@ -101,7 +101,11 @@ const useStyles = makeStyles((theme) => ({
 
 function StartJourney() {
     return (
-        <Button variant="contained" color="secondary">Start your journey here <SearchIcon /> </Button>
+        <Button 
+        variant="contained" 
+        color="secondary"
+        style={{fontFamily: 'Comfortaa, cursive'}}
+        >Start your journey here <SearchIcon /> </Button>
 
     )
 }
@@ -157,7 +161,7 @@ export default function MainPage() {
                         </Grid>
                         </Grid>
 
-                        <h1 style={{textAlign: "center", padding: 50}}> Review </h1>
+                        <h1 style={{textAlign: "center", padding: 50, fontFamily: 'Comfortaa, cursive'}}> Review </h1>
 
                         <Grid container spacing={3}>
                         <Grid item xs={12} md={4} lg={3} >

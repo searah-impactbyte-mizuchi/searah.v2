@@ -28,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
     avatar: {
         backgroundColor: red[500],
     },
+    border: {
+        border: "solid",
+        // color: "blue"
+    },
 }));
 
 
@@ -63,6 +67,7 @@ function SearchInput() {
                         margin="normal"
                         variant="outlined"
                         InputProps={{ ...params.InputProps, type: 'search' }}
+                        className={classes.border}
                     />
                 )}
             />
