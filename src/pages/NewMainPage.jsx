@@ -140,6 +140,8 @@ export default function MainPage() {
                     <Grid container spacing={3}>
                         {result.data !== undefined &&
                             result.data.map((item) => {
+                                console.log(item);
+                                
                                 return (
                                     <Grid
                                         item
@@ -152,6 +154,7 @@ export default function MainPage() {
                                             <CityCard
                                                 destination={item.destination}
                                                 description={item.description}
+                                            
                                             />
                                         </div>
                                     </Grid>
