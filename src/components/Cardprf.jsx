@@ -33,7 +33,7 @@ export default function MediaCard(props) {
             <CardActionArea>
                 <CardMedia
                     className={classes.media}
-                    image={props.image}
+                    image={`${props.image}`}
                     title="Contemplative Reptile"
                 />
             </CardActionArea>

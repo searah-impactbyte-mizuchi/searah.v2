@@ -9,6 +9,9 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Cardprf from "../components/Cardprf";
 import TableCell from "@material-ui/core/TableCell";
+import Table from "@material-ui/core/Table";
+import TableRow from "@material-ui/core/TableRow";
+import TableBody from "@material-ui/core/TableBody";
 import PublicIcon from "@material-ui/icons/Public";
 import Typography from "@material-ui/core/Typography";
 import InsertEmoticonRoundedIcon from "@material-ui/icons/InsertEmoticonRounded";
@@ -99,7 +102,6 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         overflow: "auto",
         flexDirection: "column",
-        // background: "#eeb4b4"
     },
     fixedHeight: {
         height: 630,
@@ -157,61 +159,81 @@ function Dashboard() {
 
                         <Grid item xs={12} md={8} lg={9}>
                             <Paper className={classes.paper}>
-                                <TableCell
-                                    className={classes.font}
-                                    placeholder="Name"
-                                >
-                                    <h1>
-                                        {profile.data !== undefined
-                                            ? profile.data.data[0].username
-                                            : null}
-                                    </h1>
-                                    <li style={list}>"Ucing pala popom"</li>
-                                </TableCell>
+                                <Table>
+                                    <TableBody>
+                                        <TableRow>
+                                            <TableCell
+                                                className={classes.font}
+                                                placeholder="Name"
+                                            >
+                                                <h1>
+                                                    {profile.data !== undefined
+                                                        ? profile.data.data[0]
+                                                              .username
+                                                        : null}
+                                                </h1>
+                                                <li style={list}>
+                                                    "Ucing pala popom"
+                                                </li>
+                                            </TableCell>
+                                        </TableRow>
 
-                                <TableCell>
-                                    <li className={classes.root}>
-                                        <PublicIcon />
-                                        <Typography className={classes.font}>
-                                            {/* {from} */}
-                                        </Typography>
-                                    </li>
-                                    <li className={classes.root}>
-                                        <InsertEmoticonRoundedIcon />
-                                        <Typography className={classes.font}>
-                                            {" "}
-                                            Male
-                                        </Typography>
-                                    </li>
-                                    <li className={classes.root}>
-                                        <AvTimerRoundedIcon />
-                                        <Typography className={classes.font}>
-                                            {" "}
-                                            {/* Age {age} */}
-                                        </Typography>
-                                    </li>
-                                    <li className={classes.root}>
-                                        <CheckCircleOutlineRoundedIcon />
-                                        <Typography className={classes.font}>
-                                            {" "}
-                                            Joined in 2020
-                                        </Typography>
-                                    </li>
-                                </TableCell>
+                                        <TableRow>
+                                            <TableCell>
+                                                <li className={classes.root}>
+                                                    <PublicIcon />
+                                                    <Typography
+                                                        className={classes.font}
+                                                    >
+                                                        {/* {from} */}
+                                                    </Typography>
+                                                </li>
+                                                <li className={classes.root}>
+                                                    <InsertEmoticonRoundedIcon />
+                                                    <Typography
+                                                        className={classes.font}
+                                                    >
+                                                        Male
+                                                    </Typography>
+                                                </li>
+                                                <li className={classes.root}>
+                                                    <AvTimerRoundedIcon />
+                                                    <Typography
+                                                        className={classes.font}
+                                                    >
+                                                        {/* Age {age} */}
+                                                    </Typography>
+                                                </li>
+                                                <li className={classes.root}>
+                                                    <CheckCircleOutlineRoundedIcon />
+                                                    <Typography
+                                                        className={classes.font}
+                                                    >
+                                                        Joined in 2020
+                                                    </Typography>
+                                                </li>
+                                            </TableCell>
+                                        </TableRow>
 
-                                <TableCell className={classes.font}>
-                                    <h3>About :</h3>
-                                    {/* <li className={classes.root}>{about}</li> */}
-                                    <li className={classes.root}>
-                                        Dinding ba dinding oi dinding ba dinding
-                                    </li>
-                                    <li className={classes.root}>
-                                        Dinding ba dinding oi dinding ba dinding
-                                    </li>
-                                    <li className={classes.root}>
-                                        Dinding ba dinding oi dinding ba dinding
-                                    </li>
-                                </TableCell>
+                                        <TableRow>
+                                            <TableCell className={classes.font}>
+                                                <h3>About :</h3>
+                                                <li className={classes.root}>
+                                                    Dinding ba dinding oi
+                                                    dinding ba dinding
+                                                </li>
+                                                <li className={classes.root}>
+                                                    Dinding ba dinding oi
+                                                    dinding ba dinding
+                                                </li>
+                                                <li className={classes.root}>
+                                                    Dinding ba dinding oi
+                                                    dinding ba dinding
+                                                </li>
+                                            </TableCell>
+                                        </TableRow>
+                                    </TableBody>
+                                </Table>
 
                                 <h3 className={classes.font2}>Trips Created</h3>
 
