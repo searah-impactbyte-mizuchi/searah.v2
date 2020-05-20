@@ -18,6 +18,8 @@ import CallMergeIcon from '@material-ui/icons/CallMerge';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import Logo from '../components/logo/Tourist.jpg'
 
 
 function Copyright() {
@@ -25,7 +27,7 @@ function Copyright() {
         <Typography variant="body2" color="textSecondary" align="center">
             {"Copyright © "}
             <MaterialLink color="inherit" href="https://material-ui.com/">
-                Impactbyte Mizuchi
+                SEARAH
             </MaterialLink>{" "}
             {new Date().getFullYear()}
             {"."}
@@ -35,10 +37,16 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        marginTop: theme.spacing(8),
+        marginTop: theme.spacing(16),
+        marginBottom: theme.spacing(16),
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        background:"linear-gradient(rgba(81, 86, 137),rgba(102, 151, 167),rgba(140, 205, 194),rgba(190, 218, 199),rgba(250, 235, 208),transparent)",
+        // background:"linear-gradient(rgba(255, 209, 176),rgba(255, 130, 154),rgba(226, 125, 161),rgba(132, 108, 152),rgba(53, 110, 154),transparent)",
+        // backgroundColor: "#faebd0",
+        padding: 5,
+        
     },
     avatar: {
         margin: theme.spacing(1),
@@ -47,9 +55,16 @@ const useStyles = makeStyles((theme) => ({
     form: {
         width: "100%", // Fix IE 11 issue.
         marginTop: theme.spacing(3),
+        
+        
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
+        backgroundColor: "#8ccdc2",
+        background:"linear-gradient(rgba(81, 86, 137),rgba(102, 151, 167, 0.5),transparent)",
+        color: "whitesmoke"
     },
     container: {
         display: 'flex',
@@ -58,7 +73,39 @@ const useStyles = makeStyles((theme) => ({
     textField: {
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
-        width: 200,
+        width: 178,
+        // backgroundColor: "whitesmoke"
+    },
+    large: {
+        width: theme.spacing(20),
+        height: theme.spacing(20),
+        margin: 20,
+      },
+      font: {
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
+        // backgroundColor: "whitesmoke"
+    },
+    font2: {
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
+        color: "whitesmoke",
+        marginTop: 10,
+    },
+    font3: {
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
+        // color: "whitesmoke"
+    },
+    background: {
+        display: "flex",
+        flexDirection: "column",
+        marginTop: theme.spacing(8),
+        alignItems: "center",
+    },
+    floatingLabelFocusStyle: {
+        color: "#0c3854",
+        fontFamily: 'Comfortaa, cursive'
     },
 }));
 
@@ -82,14 +129,16 @@ export default function SignUp() {
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
-            <div className={classes.paper}>
-                <Typography component="h1" variant="h4">
+            <div className={classes.paper} >
+                
+                <Typography component="h1" variant="h4" className={classes.font2}>
                     SEARAH
                 </Typography>
-                <Avatar className={classes.avatar} style={{ backgroundColor: "#33CC33" }}>
+                <Avatar alt="Remy Sharp" src={Logo} className={classes.large} />
+                {/* <Avatar className={classes.avatar} style={{ backgroundColor: "#33CC33" }}>
                     <CallMergeIcon />
-                </Avatar>
-                <Typography component="h1" variant="h5">
+                </Avatar> */}
+                <Typography component="h1" variant="h5" className={classes.font2}>
                     Sign up
                 </Typography>
                 <Formik
@@ -146,19 +195,23 @@ export default function SignUp() {
 
                     }) => {
                         return (
-                            <div>
-
+                            <div >
+                               
                                 <form
                                     className={classes.form}
                                     noValidate
                                     onSubmit={handleSubmit}
+                                    
                                 >
+                                    
                                     <Grid container spacing={2}>
                                         <Grid item xs={12} sm={6}>
                                             <TextField
                                                 autoComplete="username"
                                                 name="username"
                                                 variant="outlined"
+                                            
+
                                                 // required
                                                 fullWidth
                                                 id="username"
@@ -166,6 +219,11 @@ export default function SignUp() {
                                                 onChange={handleChange}
                                                 value={values.username}
                                                 onBlur={handleBlur}
+                                                className={classes.font}
+                                                InputLabelProps={{
+                                                    className: classes.floatingLabelFocusStyle,
+                                                }}
+
                                             />
                                             <p
                                                 style={{
@@ -180,7 +238,7 @@ export default function SignUp() {
                                         </Grid>
                                         <Grid item xs={12} sm={6}>
                                             <FormControl variant="outlined" className={classes.formControl}>
-                                                <InputLabel htmlFor="outlined-age-native-simple" style= {{marginLeft: "8px"}}>Gender</InputLabel>
+                                                <InputLabel htmlFor="outlined-age-native-simple" style= {{marginLeft: "8px"}} className={classes.floatingLabelFocusStyle}>Gender</InputLabel>
                                                 <Select
                                                     native
                                                     value={values.gender}
@@ -249,6 +307,10 @@ export default function SignUp() {
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 value={values.email}
+                                                className={classes.font}
+                                                InputLabelProps={{
+                                                    className: classes.floatingLabelFocusStyle,
+                                                }}
                                             />
                                             <p
                                                 style={{
@@ -274,6 +336,10 @@ export default function SignUp() {
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 value={values.password}
+                                                className={classes.font}
+                                                InputLabelProps={{
+                                                    className: classes.floatingLabelFocusStyle,
+                                                }}
                                             />
                                             <p
                                                 style={{
@@ -291,12 +357,14 @@ export default function SignUp() {
                                         type="submit"
                                         fullWidth
                                         variant="contained"
-                                        color="primary"
+                                        // color="#c78daa"
                                         className={classes.submit}
                                         disabled={isSubmitting}
+                                        
                                     >
                                         Sign Up
                                 </Button>
+                               
 
                                 </form>
 
@@ -309,15 +377,16 @@ export default function SignUp() {
                         <Link
                             to="/"
                             style={{ textDecoration: "none" }}
+                            className={classes.font3}
                         >
                             Already have an account? Sign in
                         </Link>
                     </Grid>
                 </Grid>
-            </div>
             <Box mt={5}>
                 <Copyright />
             </Box>
+            </div>
         </Container>
     );
 }

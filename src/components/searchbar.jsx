@@ -40,6 +40,14 @@ const useStyles = makeStyles((theme) => ({
     avatar: {
         backgroundColor: red[500],
     },
+    border: {
+        border: "solid",
+        color: "#fae7c5"
+    },
+    floatingLabelFocusStyle: {
+        color: "#fae7c5",
+        fontFamily: 'Comfortaa, cursive'
+    },
 }));
 
 

@@ -18,6 +18,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import LockIcon from '@material-ui/icons/Lock';
 
 // import { useDispatch, useSelector } from "react-redux"
+import Logo from '../components/logo/Tourist2.jpg'
 
 
 import { useSelector, useDispatch } from "react-redux"
@@ -42,10 +43,13 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        marginTop: theme.spacing(8),
+        marginTop: theme.spacing(16),
+        marginBottom: theme.spacing(16),
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        background:"linear-gradient(rgba(81, 86, 137),rgba(102, 151, 167),rgba(140, 205, 194),rgba(190, 218, 199),rgba(250, 235, 208),transparent)",
+        padding: 5,
     },
     avatar: {
         margin: theme.spacing(1),
@@ -57,6 +61,42 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
+        fontFamily: 'Comfortaa, cursive',
+        // fontFamily: 'Kalam, cursive',
+        backgroundColor: "#8ccdc2",
+        background:"linear-gradient(rgba(81, 86, 137),rgba(102, 151, 167, 0.5),transparent)",
+        color: "whitesmoke"
+    },
+    font: {
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
+        // backgroundColor: "whitesmoke"
+    },
+    font2: {
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
+        color: "whitesmoke",
+        marginTop: 10,
+    },
+    font3: {
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
+        // color: "whitesmoke"
+    },
+    font4: {
+        // fontFamily: 'Kalam, cursive',
+        fontFamily: 'Comfortaa, cursive',
+        color: "whitesmoke",
+        marginBottom: 20,
+    },
+    large: {
+        width: theme.spacing(20),
+        height: theme.spacing(20),
+        margin: 20,
+      },
+      floatingLabelFocusStyle: {
+        color: "#0c3854",
+        fontFamily: 'Comfortaa, cursive'
     },
 }));
 
@@ -73,12 +113,16 @@ export default function SignIn() {
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
-                <Typography component="h1" variant="h4">
+                <Typography component="h1" variant="h4" className={classes.font2}>
                     SEARAH
                 </Typography>
-                <Avatar className={classes.avatar}>
+                <Avatar alt="Remy Sharp" src={Logo} className={classes.large} />
+                {/* <Avatar className={classes.avatar}>
                     <CallMergeIcon />
-                </Avatar>
+                </Avatar> */}
+                <Typography component="h1" variant="h5" className={classes.font4}>
+                    Sign in
+                </Typography>
                 <Formik
                     initialValues={{
                         email: "",
@@ -160,23 +204,27 @@ export default function SignIn() {
                                 onSubmit={handleSubmit}
                             >
                                 <TextField
+                                    variant="outlined"
                                     className={classes.margin}
                                     id="email"
-                                    placeholder="Email"
+                                    label="Email"
                                     fullWidth
                                     name="email"     
                                     type="email"
                                     autoComplete="current-email"
                                     onChange={handleChange}
                                     value={values.email}
-                                    
-                                    InputProps={{
-                                        startAdornment: (
-                                            <InputAdornment position="start">
-                                                <AccountCircle />
-                                            </InputAdornment>
-                                        ),
+                                    InputLabelProps={{
+                                        className: classes.floatingLabelFocusStyle,
                                     }}
+                                    
+                                    // InputProps={{
+                                    //     startAdornment: (
+                                    //         <InputAdornment position="start">
+                                    //             <AccountCircle />
+                                    //         </InputAdornment>
+                                    //     ),
+                                    // }}
                                 />
                                 <p
                                     style={{
@@ -189,25 +237,28 @@ export default function SignIn() {
                                         errors.email}
                                 </p>
                                 <TextField
-                                
+                                    variant="outlined"
                                     margin="normal"
                                     required
                                     fullWidth
                                     name="password"
-                                    placeholder="Password"
+                                    label="Password"
                                     type="password"
                                     id="password"
                                     autoComplete="current-password"
                                     onChange={handleChange}
                                     value={values.password}
-
-                                    InputProps={{
-                                        startAdornment: (
-                                            <InputAdornment position="start">
-                                                <LockIcon />
-                                            </InputAdornment>
-                                        ),
+                                    InputLabelProps={{
+                                        className: classes.floatingLabelFocusStyle,
                                     }}
+
+                                    // InputProps={{
+                                    //     startAdornment: (
+                                    //         <InputAdornment position="start">
+                                    //             <LockIcon />
+                                    //         </InputAdornment>
+                                    //     ),
+                                    // }}
                                 />
                                 <p
                                     style={{
@@ -234,6 +285,7 @@ export default function SignIn() {
                                         <Link
                                             to="/sign-up"
                                             style={{ textDecoration: "none" }}
+                                            className={classes.font3}
                                         >
                                             {"Don't have an account? Sign Up"}
                                         </Link>
@@ -243,10 +295,11 @@ export default function SignIn() {
                         );
                     }}
                 </Formik>
-            </div>
+            
             <Box mt={8}>
                 <Copyright />
             </Box>
+            </div>
         </Container>
     );
 }

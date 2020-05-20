@@ -6,12 +6,12 @@ import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-import Logoig from './logo/instagram.png'
-import Logofb from './logo/facebook.png'
-import Logotw from './logo/twitter.png'
-import Logopi from './logo/pinterest.png'
-import Logogo from './logo/google.png'
-import Logoyo from './logo/youtube.png'
+import Logoig from './logo/instagram1.png'
+import Logofb from './logo/facebook1.png'
+import Logotw from './logo/twitter1.png'
+import Logopi from './logo/pinterest1.png'
+import Logogo from './logo/google1.png'
+import Logoyo from './logo/youtube1.png'
 import '../App.css'
 
 
@@ -31,7 +31,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Mizuchi
+        SEARAH
       </Link>{' '}
       {new Date().getFullYear()}
       {'. All rights reserved.'} | <Link color="inherit" href="#">{'Term and Conditions'}</Link> | <Link color="inherit" href="#">{'Privacy Policy'}</Link>
@@ -93,6 +93,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     fontFamily: 'Comfortaa, cursive',
+    color: "#fae7c5"
   }
 }));
 
@@ -108,9 +109,7 @@ export default function Pricing() {
 
         <Grid item xs={6} sm={3} className={classes.text}>
           <h3>Searah</h3>
-          <li style={list}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-          Esse dolor voluptate sunt, saepe explicabo possimus adipisci totam. 
-          Iure ipsum officiis ex, esse molestiae assumenda sint itaque quae odio fuga vero.</li>
+          <li style={list}>"Searah" is a digital platform to bring together someone who is looking for a friend to go on vacation, to surround a certain place or city.</li>
         </Grid>
 
         <Grid item xs={6} sm={3} className={classes.text}>
@@ -118,13 +117,12 @@ export default function Pricing() {
           <Link color="inherit" href="./main-page"><li style={list}>Home</li></Link>
           <Link color="inherit" href="./trips"><li style={list}>Start a trip</li></Link>
           <Link color="inherit" href="./profile"><li style={list}>Profile</li></Link>
+          <Link color="inherit" href=""><li style={list}>Logout</li></Link>
         </Grid>
 
         <Grid item xs={6} sm={3} className={classes.text}>
-          <h3>Searah</h3>
-          <li style={list}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-          Esse dolor voluptate sunt, saepe explicabo possimus adipisci totam. 
-          Iure ipsum officiis ex, esse molestiae assumenda sint itaque quae odio fuga vero.</li>
+          <h3>Happiness</h3>
+          <li style={list}>Go to see the beauty of nature, try different types of food, take photos and many other things you can do with your friends. So what are you waiting for, find your travel's friend here.</li>
         </Grid>
 
         <Grid item xs={6} sm={3} className={classes.text} >

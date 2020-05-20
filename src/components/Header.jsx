@@ -6,10 +6,16 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import '../App.css'
+import Logo from './logo/avatar3.jpg'
 
 
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap'
+},
+
   '@global': {
     ul: {
       margin: 0,
@@ -19,22 +25,26 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
-    background: '#1F618D'
+    background: '#0c3854'
   },
   toolbar: {
     flexWrap: 'wrap',
   },
   toolbarTitle: {
     flexGrow: 1,
-    color: 'white',
+    color: '#fae7c5',
     fontFamily: 'Fredericka the Great, cursive',
     fontSize: 40
   },
   link: {
     margin: theme.spacing(1, 1.5),
-    color: 'white',
+    color: '#fae7c5',
     fontFamily: 'Comfortaa, cursive',
   },
+  image: {
+    maxWidth: 80,
+    
+  }
 }));
 
 
@@ -42,14 +52,17 @@ export default function Pricing() {
   const classes = useStyles();
 
   return (
+    <div className={classes.root}>
     <React.Fragment>
       <CssBaseline /> 
       <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle} >
-            SEARAH
+          {/* <img src={Logo} alt="" className={classes.image}/> */}
+          SEARAH
           </Typography>
-          <nav>
+          <nav className={classes.root}>
+            
             <Link variant="button" color="textPrimary" href="./main-page" className={classes.link}>
               Home
             </Link>
@@ -59,9 +72,14 @@ export default function Pricing() {
             <Link variant="button" color="textPrimary" href="./profile" className={classes.link}>
               Profile
             </Link>
+            <Link variant="button" color="textPrimary" href="./profile" className={classes.link}>
+              Logout
+            </Link>
+            
           </nav>
         </Toolbar>
       </AppBar>
     </React.Fragment>
+    </div>
   );
 }
