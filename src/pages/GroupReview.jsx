@@ -223,13 +223,14 @@ export default function Dashboard() {
                                                     <Grid>
                                                         <img
                                                             src={
-                                                                review.length >
+                                                                (review.length >
                                                                     0 &&
-                                                                review[0][
-                                                                    "user.avatar"
-                                                                ]
+                                                                    review[0][
+                                                                        "user.avatar"
+                                                                    ]) ||
+                                                                null
                                                             }
-                                                            alt=""
+                                                            alt="User_Avatar"
                                                             className={
                                                                 classes.pad
                                                             }
