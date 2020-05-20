@@ -1,11 +1,10 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 // import drawerReducer from "./drawerReducer"
-import userReducer from './userReducer';
-import loginReducer from './loginReducer';
-import profileReducers from './profileReducers'
-import reviewReducers from './reviewReducers'
+import userReducer from "./userReducer";
+import profileReducers from "./profileReducers";
+import reviewReducers from "./reviewReducers";
 // import reviewReducer from './reviewReducers';
-import mainReducers from './mainReducers'
+import mainReducers from "./mainReducers";
 
 const allReducers = combineReducers({
     // menuDrawer : drawerReducer,
@@ -13,9 +12,8 @@ const allReducers = combineReducers({
     // existingUser : loginReducer,
     existingUser: userReducer,
     userProfile: profileReducers,
-    userReview : reviewReducers,
-    tripView : mainReducers
-
+    userReview: reviewReducers,
+    tripView: mainReducers,
 });
 
 export default allReducers;

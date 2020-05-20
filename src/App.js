@@ -1,31 +1,30 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignIn from "./pages/SignIn";
-import SignUp from './pages/SignUp';
-import Profile from './pages/Profile'
-import Groupreview from './pages/Groupreview'
-import Mainpage from './pages/Newmainpage'
-import StartTrip from './pages/StartTrip'
+import SignUp from "./pages/SignUp";
+import Profile from "./pages/Profile";
+import GroupReview from "./pages/GroupReview";
+import Mainpage from "./pages/NewMainPage";
+import StartTrip from "./pages/StartTrip";
 
 function App() {
-  return (
-    <div className="App">
+    return (
+        <div className="App">
+            {/* <Profile/> */}
+            {/* <Groupreview/> */}
 
-        {/* <Profile/> */}
-        {/* <Groupreview/> */}
-
-        <Router>
-          <Switch>
-            <Route exact path="/" component={SignIn} />
-            <Route exact path="/sign-up" component={SignUp} />
-            <Route exact path="/main-page" component={Mainpage} />
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/review" component={Groupreview} />
-            <Route exact path="/trips" component={StartTrip} />
-          </Switch>
-        </Router>
-    </div>
-  );
+            <Router>
+                <Switch>
+                    <Route exact path="/" component={SignIn} />
+                    <Route exact path="/sign-up" component={SignUp} />
+                    <Route exact path="/main-page" component={Mainpage} />
+                    <Route exact path="/profile" component={Profile} />
+                    <Route exact path="/review" component={GroupReview} />
+                    <Route exact path="/trips" component={StartTrip} />
+                </Switch>
+            </Router>
+        </div>
+    );
 }
 
 export default App;

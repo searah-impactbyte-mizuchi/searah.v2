@@ -1,25 +1,25 @@
 import React, { useEffect } from "react";
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 import Container from "@material-ui/core/Container";
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import FormRow from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper'
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import FormRow from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
 
-import { red } from '@material-ui/core/colors';
-import CityCard from "../components/MainCard"
-import SearchInput from "../components/searchbar"
-import ReviewCard from "../components/ReviewCard"
-import SearchIcon from '@material-ui/icons/Search';
+import { red } from "@material-ui/core/colors";
+import CityCard from "../components/MainCard";
+import SearchInput from "../components/searchbar";
+import ReviewCard from "../components/ReviewCard";
+import SearchIcon from "@material-ui/icons/Search";
 
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllTrip } from '../redux/actions/mainAction';
-import { getUser } from "../redux/actions/userActions"
+import { fetchAllTrip } from "../redux/actions/mainAction";
+import { getUser } from "../redux/actions/userActions";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,34 +27,23 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         padding: theme.spacing(2),
-        textAlign: 'center',
+        textAlign: "center",
         color: theme.palette.text.secondary,
     },
 }));
 
-
 export default function MainPage() {
-
     const result = useSelector((state) => {
-        // console.log(state,"state");
-
         return state.tripView;
-
     });
     const users = useSelector((state) => {
-        console.log(state,"stateuser");
-
         return state.existingUser;
-
     });
     const dispatch = useDispatch();
 
-    // console.log(result.data, "result");
-
     useEffect(() => {
-        dispatch(fetchAllTrip(), getUser(),);
+        dispatch(fetchAllTrip(), getUser());
     }, [dispatch]);
-    // console.log(typeof review);
 
     const classes = useStyles();
     return (
@@ -67,7 +56,6 @@ export default function MainPage() {
                     direction="column"
                     alignItems="center"
                     justify="center"
-
                 >
                     <Grid item xs={3}>
                         <SearchInput />
@@ -79,27 +67,24 @@ export default function MainPage() {
                     direction="column"
                     alignItems="center"
                     justify="center"
-
-                >
-                </Grid>
-                <Container >
+                ></Grid>
+                <Container>
                     <Grid container spacing={2} className={classes.paper}>
-                        {result.data != undefined && result.data.map((item) => {
-                            return (
-                                <Grid item xs={3}>
-                                    <CityCard
-                                        destination={item.destination}
-                                        description={item.description}
-                                    />
-                                </Grid>
-                            )
-                        })}
-
+                        {result.data != undefined &&
+                            result.data.map((item) => {
+                                return (
+                                    <Grid item xs={3} key={item.id}>
+                                        <CityCard
+                                            destination={item.destination}
+                                            description={item.description}
+                                        />
+                                    </Grid>
+                                );
+                            })}
                     </Grid>
                 </Container>
             </Container>
             <Footer />
-        </form >
-    )
+        </form>
+    );
 }
-
