@@ -1,3 +1,4 @@
+ 
 import React from "react";
 import { connect } from "react-redux";
 
@@ -37,12 +38,11 @@ const useStyles = makeStyles((theme) => ({
 function FormDialog({ updateUser }) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-    const [username, setName] = React.useState('');
-    const [avatar, setAvatar] = React.useState('');
-    // const [from, setFrom] = React.useState('');
-    const [age, setAge] = React.useState(null);
-    const [about, setAbout] = React.useState('');
-    const [city, setCity] = React.useState('');
+    const [username, setName] = React.useState("");
+    const [avatar, setAvatar] = React.useState("");
+    const [from, setFrom] = React.useState("");
+    const [age, setAge] = React.useState("");
+    const [about, setAbout] = React.useState("");
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -53,16 +53,28 @@ function FormDialog({ updateUser }) {
     };
 
     const handleSave = async () => {
+
+        const Uid = localStorage.getItem('userid')
+
+        localStorage.getItem('userid', JSON.stringify(Uid))
+
+        console.log(Uid,"uid");
+        
+
         const userProfile = {
-            id: '11',
+            id: Uid,
             username,
+            from,
             avatar,
             age,
             about,
-            city
         };
 
         updateUser(userProfile);
+
+        console.log(userProfile);
+        
+
         getUser(userProfile.id);
 
         setOpen(false);
@@ -107,8 +119,8 @@ function FormDialog({ updateUser }) {
                         label="City"
                         type="text"
                         fullWidth
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
+                        value={from}
+                        onChange={(e) => setFrom(e.target.value)}
                     />
                     <TextField
                         margin="dense"

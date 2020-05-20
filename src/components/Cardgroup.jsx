@@ -38,8 +38,12 @@ export default function MediaCard(props) {
                 <CardActionArea>
                     <CardMedia
                         className={classes.media}
-                        image={props.avatar != null ? props.avatar : Logo}
-                        title="Contemplative Reptile"
+                        image={
+                            props.avatar !== null && props.avatar !== ""
+                                ? props.avatar
+                                : Logo
+                        }
+                        title="Profile_Image"
                     />
                 </CardActionArea>
                 <Typography className={classes.text}>
