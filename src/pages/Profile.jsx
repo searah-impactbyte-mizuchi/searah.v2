@@ -172,9 +172,7 @@ function Dashboard() {
                                                               .username
                                                         : null}
                                                 </h1>
-                                                <li style={list}>
-                                                    "Ucing pala popom"
-                                                </li>
+                                               
                                             </TableCell>
                                         </TableRow>
 

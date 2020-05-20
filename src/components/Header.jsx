@@ -98,6 +98,14 @@ export default function Pricing() {
                                 href="./profile"
                                 className={classes.link}
                             >
+                                About us
+                            </Link>
+                            <Link
+                                variant="button"
+                                color="textPrimary"
+                                href="./profile"
+                                className={classes.link}
+                            >
                                 Logout
                             </Link>
                         </nav>

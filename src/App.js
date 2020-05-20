@@ -6,6 +6,7 @@ import Profile from "./pages/Profile";
 import GroupReview from "./pages/Groupreview";
 import Mainpage from "./pages/NewMainPage";
 import StartTrip from "./pages/StartTrip";
+import AboutUs from "./pages/Aboutus"
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route exact path="/profile" component={Profile} />
                     <Route exact path="/review" component={GroupReview} />
                     <Route exact path="/trips" component={StartTrip} />
+                    <Route exact path="/about" component={AboutUs} />
                 </Switch>
             </Router>
         </div>

@@ -117,6 +117,7 @@ export default function Pricing() {
           <Link color="inherit" href="./main-page"><li style={list}>Home</li></Link>
           <Link color="inherit" href="./trips"><li style={list}>Start a trip</li></Link>
           <Link color="inherit" href="./profile"><li style={list}>Profile</li></Link>
+          <Link color="inherit" href=""><li style={list}>About us</li></Link>
           <Link color="inherit" href=""><li style={list}>Logout</li></Link>
         </Grid>
 
