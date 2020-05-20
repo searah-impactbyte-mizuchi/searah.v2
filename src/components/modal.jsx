@@ -53,13 +53,21 @@ function FormDialog({ updateUser }) {
     };
 
     const handleSave = async () => {
+
+        const Uid = localStorage.getItem('userid')
+
+        localStorage.getItem('userid', JSON.stringify(Uid))
+
+        // console.log(Uid,"uid");
+        
+
         const userProfile = {
-            id: '11',
+            id: Uid,
             username,
+            city,
             avatar,
             age,
             about,
-            city
         };
 
         updateUser(userProfile);

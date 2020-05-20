@@ -112,6 +112,11 @@ export default function MainPage() {
 
     const classes = useStyles();
 
+    const addMember = (id) => {
+        console.log(id);
+        
+    }
+
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -152,6 +157,8 @@ export default function MainPage() {
                                             <CityCard
                                                 destination={item.destination}
                                                 description={item.description}
+                                                addMember={addMember}
+                                                id={item.id}
                                             />
                                         </div>
                                     </Grid>
