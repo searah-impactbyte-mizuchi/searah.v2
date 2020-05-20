@@ -13,8 +13,22 @@ import ReviewCard from "../components/ReviewCard";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllTrip } from "../redux/actions/mainAction";
 import { getUser } from "../redux/actions/userActions";
+import Carousel from "../components/Carousel2"
+import { Paper, TableCell } from "@material-ui/core";
+
 
 const drawerWidth = 240;
+
+const ColoredLine = ({ color }) => (
+    <hr
+        style={{
+            color: color,
+            backgroundColor: color,
+            height: 1,
+            width: 400,
+        }}
+    />
+);
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -81,8 +95,10 @@ const useStyles = makeStyles((theme) => ({
         overflow: "auto",
     },
     container: {
-        paddingTop: theme.spacing(4),
-        paddingBottom: theme.spacing(4),
+        // paddingTop: theme.spacing(4),
+        // paddingBottom: theme.spacing(4),
+        paddingLeft: 0,
+        paddingRight: 0,
     },
     paper: {
         padding: theme.spacing(2),
@@ -116,10 +132,11 @@ export default function MainPage() {
         <div className={classes.root}>
             <CssBaseline />
             <main className={classes.content}>
-                <Header />
 
-                <div className={classes.appBarSpacer} />
-                <Container maxWidth="lg" className={classes.container}>
+                <Container maxWidth="0" className={classes.container}>
+                <Header />
+                        <Carousel/>
+
                     <Grid
                         container
                         spacing={3}
@@ -157,19 +174,22 @@ export default function MainPage() {
                                     </Grid>
                                 );
                             })}
-                    </Grid>
+                    </Grid>                        
 
+                    <div style={{ marginTop: 100, marginBottom: 100}}>  
                     <h1
                         style={{
                             textAlign: "center",
-                            padding: 50,
                             fontFamily: "Comfortaa, cursive",
-                            color: "#fae7c5",
+                            justifyContent: "center"
+                            
                         }}
                     >
                         {" "}
                         Review{" "}
                     </h1>
+                    <ColoredLine color="black" />
+                    </div>
 
                     <Grid container spacing={3}>
                         <Grid item xs={12} md={4} lg={3}>
@@ -197,6 +217,124 @@ export default function MainPage() {
                         </Grid>
                     </Grid>
 
+
+                    {/* <Grid container spacing={3}>
+                        <Grid item xs={12} md={6} lg={6}>
+                            <Paper className={classes.paper}>
+                            <iframe src="https://www.youtube.com/embed/DIuDK9ONLOc" 
+                            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                            </Paper>
+                        </Grid>
+
+                        <Grid item xs={12} md={6} lg={6}>
+                            <div className={classes.paper}>
+                            <iframe src="https://www.youtube.com/embed/DIuDK9ONLOc" 
+                            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                            </div>
+                        </Grid>
+                        </Grid> */}
+
+                        
+                            <Grid container spacing={3} style={{ marginTop: 100}}>
+                            <Grid item xs={12} md={6} lg={3}>
+                            <div
+                                className="video"
+                                style={{
+                                    position: "relative",
+                                    paddingBottom: "56.25%" /* 16:9 */,
+                                    paddingTop: 25,
+                                    height: 0
+                                }}
+                                >
+                                <iframe
+                                    style={{
+                                    position: "absolute",
+                                    top: 0,
+                                    left: 0,
+                                    width: "100%",
+                                    height: "100%"
+                                    }}
+                                    src={`https://www.youtube.com/embed/Zpo4CCYjDb4`}
+                                    frameBorder="0"
+                                />
+                                </div>
+                                </Grid>
+
+                                <Grid item xs={12} md={6} lg={3}>
+                            <div
+                                className="video"
+                                style={{
+                                    position: "relative",
+                                    paddingBottom: "56.25%" /* 16:9 */,
+                                    paddingTop: 25,
+                                    height: 0
+                                }}
+                                >
+                                <iframe
+                                    style={{
+                                    position: "absolute",
+                                    top: 0,
+                                    left: 0,
+                                    width: "100%",
+                                    height: "100%"
+                                    }}
+                                    src={`https://www.youtube.com/embed/oIZsxqqPJvM`}
+                                    frameBorder="0"
+                                />
+                                </div>
+                                </Grid>
+
+                                <Grid item xs={12} md={6} lg={3}>
+                            <div
+                                className="video"
+                                style={{
+                                    position: "relative",
+                                    paddingBottom: "56.25%" /* 16:9 */,
+                                    paddingTop: 25,
+                                    height: 0
+                                }}
+                                >
+                                <iframe
+                                    style={{
+                                    position: "absolute",
+                                    top: 0,
+                                    left: 0,
+                                    width: "100%",
+                                    height: "100%"
+                                    }}
+                                    src={`https://www.youtube.com/embed/PUY26b2JfQY`}
+                                    frameBorder="0"
+                                />
+                                </div>
+                                </Grid>
+
+                                <Grid item xs={12} md={6} lg={3}>
+                            <div
+                                className="video"
+                                style={{
+                                    position: "relative",
+                                    paddingBottom: "56.25%" /* 16:9 */,
+                                    paddingTop: 25,
+                                    height: 0
+                                }}
+                                >
+                                <iframe
+                                    style={{
+                                    position: "absolute",
+                                    top: 0,
+                                    left: 0,
+                                    width: "100%",
+                                    height: "100%"
+                                    }}
+                                    src={`https://www.youtube.com/embed/DB2xG9FAAy8`}
+                                    frameBorder="0"
+                                />
+                                </div>
+                                </Grid>
+                                </Grid>
+
                     <Box pt={4}>
                         <Grid container spacing={1}>
                             <Footer />
@@ -207,3 +345,4 @@ export default function MainPage() {
         </div>
     );
 }
+

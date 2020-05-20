@@ -6,12 +6,12 @@ import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-import Logoig from './logo/instagram1.png'
-import Logofb from './logo/facebook1.png'
-import Logotw from './logo/twitter1.png'
-import Logopi from './logo/pinterest1.png'
-import Logogo from './logo/google1.png'
-import Logoyo from './logo/youtube1.png'
+import Logoig from './logo/instagram.png'
+import Logofb from './logo/facebook.png'
+import Logotw from './logo/twitter.png'
+import Logopi from './logo/pinterest.png'
+import Logogo from './logo/google.png'
+import Logoyo from './logo/youtube.png'
 import '../App.css'
 
 
@@ -93,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     fontFamily: 'Comfortaa, cursive',
-    color: "#fae7c5"
+    // color: "black"
   }
 }));
 
