@@ -7,7 +7,6 @@ export const loginUser = (values, history) => {
         return axios
             .post(`${apiUrl}/login`, values)
             .then((response) => {
-                console.log(response, "response");
                 if (response.status === 200) {
                     dispatch(dispatch(loginSuccess(response.data)));
                     alert("login is succsessfuly");
@@ -17,7 +16,6 @@ export const loginUser = (values, history) => {
                 }
             })
             .catch((error) => {
-                console.log(error);
                 alert(error.message);
                 throw error;
             });

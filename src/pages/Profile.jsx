@@ -123,12 +123,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Dashboard() {
     const classes = useStyles();
-    // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
-    // useEffect(() => {
-    //     getUser(1);
-
-    // }, []);
     const profile = useSelector((state) => {
         return state.userProfile;
     });
@@ -138,7 +132,7 @@ function Dashboard() {
 
     useEffect(() => {
         dispatch(fetchProfile(getProfile));
-    }, [dispatch]);
+    }, [dispatch, getProfile]);
 
     return (
         <div className={classes.root}>

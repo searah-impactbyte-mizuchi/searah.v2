@@ -135,8 +135,6 @@ export default function Dashboard() {
     const classes = useStyles();
 
     const review = useSelector((state) => {
-        console.log(state, "state review");
-
         return state.userReview;
     });
     const dispatch = useDispatch();
@@ -144,7 +142,6 @@ export default function Dashboard() {
     useEffect(() => {
         dispatch(fetchReview());
     }, [dispatch]);
-    // console.log(typeof review);
 
     return (
         <div className={classes.root}>

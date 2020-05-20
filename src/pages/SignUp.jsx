@@ -166,11 +166,6 @@ export default function SignUp() {
                     onSubmit={async (values) => {
                         await dispatch(addUser(values));
                         history.push("/");
-                        // dispatch(register(values));
-                        // console.log(values);
-
-                        // alert(JSON.stringify(values))
-                        // console.log(JSON.stringify.value);
                     }}
                 >
                     {({

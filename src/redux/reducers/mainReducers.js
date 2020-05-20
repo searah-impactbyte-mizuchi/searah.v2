@@ -1,8 +1,6 @@
 const initialState = [];
 
 const mainReducers = (state = initialState, actions) => {
-    // console.log(actions,"action");
-    
     switch (actions.type) {
         case "SET_MAIN":
             return actions.payload;
@@ -11,4 +9,4 @@ const mainReducers = (state = initialState, actions) => {
     }
 };
 
-export default mainReducers
+export default mainReducers;

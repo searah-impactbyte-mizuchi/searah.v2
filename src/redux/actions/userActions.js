@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
-import { UPDATE_USER, GET_USER } from './types';
+import { UPDATE_USER, GET_USER } from "./types";
 
-const apiUrl = 'https://searah.herokuapp.com/users';
+const apiUrl = "https://searah.herokuapp.com/users";
 
 // Get user data from API
 export const getUser = (id) => {
@@ -30,7 +30,7 @@ export const getUser = (id) => {
 // ini buat apa ya?
 export const getUserSuccess = (users) => {
     return {
-        type: 'GET_USER',
+        type: "GET_USER",
         users,
     };
 };
@@ -38,7 +38,6 @@ export const getUserSuccess = (users) => {
 // Post new user data to API
 export const addUser = (values) => {
     return (dispatch) => {
-        console.log(values);
         return axios
             .post(`${apiUrl}`, values)
             .then((response) => {
@@ -54,7 +53,7 @@ export const addUser = (values) => {
 // This function will automatically executed if addUser function is called
 export const addUserSuccess = (data) => {
     return {
-        type: 'POST_USER',
+        type: "POST_USER",
         payload: {
             data,
         },
@@ -79,7 +78,7 @@ export const updateUser = (userProfile) => async (dispatch) => {
             type: GET_USER,
             payload: data.data.data,
         });
-        getUser(id)
+        getUser(id);
     } catch (err) {
         console.error(err.message);
     }

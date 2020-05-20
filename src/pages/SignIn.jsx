@@ -144,35 +144,6 @@ export default function SignIn() {
                     }}
                     onSubmit={async (values) => {
                         await dispatch(loginUser(values, history));
-
-                        // console.log(values);
-
-                        // alert("Login is succsessful")
-                        // this.props.push('./main-page');
-
-                        // const existingUser = userList.find((element) => element.email === values.email);
-
-                        // if (existingUser === undefined) {
-                        //     alert('user tidak ditemukan');
-                        // } else if (
-                        //     existingUser.password !== values.password ||
-                        //     existingUser.email !== values.email
-                        // ) {
-                        //     alert('email/password salah');
-                        // } else if (
-                        //     existingUser.role === `admin`
-                        // ) {
-                        //     alert('selamat datang admin ');
-                        // } else if (
-                        //     existingUser.status === `pending`
-                        // ) {
-                        //     alert('mohon maaf silahkan tunggu dulu ea');
-                        // } else {
-                        //     localStorage.setItem('isLogin', true);
-                        //     localStorage.setItem('userData', JSON.stringify(existingUser));
-                        //     alert(`selamat datang kembali ${existingUser.name}`);
-                        //     this.props.history.push('/dashboard');
-                        // }
                     }}
                 >
                     {({
