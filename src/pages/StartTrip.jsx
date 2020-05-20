@@ -24,6 +24,10 @@ import MeetupPoint from "./Trip/MeetupPoint";
 import Box from "@material-ui/core/Box";
 import Footer from "../components/Footer";
 import { Formik } from "formik";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { addTrip } from "../redux/actions/tripActions";
+
 
 const drawerWidth = 240;
 
@@ -219,7 +223,8 @@ function getStepContent(
     errors,
     touched,
     handleChange,
-    handleBlur
+    handleBlur,
+    setFieldValue
 ) {
     switch (step) {
         case 0:
@@ -230,6 +235,7 @@ function getStepContent(
                     touched={touched}
                     handleBlur={handleBlur}
                     handleChange={handleChange}
+                    setFieldValue={setFieldValue}
                 />
             );
         case 1:
@@ -240,6 +246,7 @@ function getStepContent(
                     touched={touched}
                     handleBlur={handleBlur}
                     handleChange={handleChange}
+                    setFieldValue={setFieldValue}
                 />
             );
         case 2:
@@ -261,6 +268,8 @@ export default function Dashboard() {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
     const steps = getSteps();
+    const dispatch = useDispatch();
+    const history = useHistory();
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -274,6 +283,8 @@ export default function Dashboard() {
         setActiveStep(0);
     };
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    const Uid = localStorage.getItem('userid')
+    localStorage.getItem('userid', JSON.stringify(Uid))
 
     return (
         <div
@@ -321,6 +332,10 @@ export default function Dashboard() {
                                     description: "",
                                     title: "",
                                     meetupPoint: "",
+                                    user_id: Uid,
+                                    members: "",
+                                    from: new Date("2020-05-01T21:11:54"),
+                                    to: new Date("2020-05-01T21:11:54"),
                                 }}
                                 validate={(values) => {
                                     const errors = {};
@@ -342,12 +357,13 @@ export default function Dashboard() {
 
                                     return errors;
                                 }}
-                                onSubmit={(values) => {
-                                    console.log(values);
-
-                                    setTimeout(() => {
-                                        alert(JSON.stringify(values, null, 2));
-                                    }, 400);
+                                onSubmit={async (values) => {
+                                    // console.log(values);
+                                    await dispatch(addTrip(values));
+                                    history.push("./review");
+                                    // setTimeout(() => {
+                                    alert(JSON.stringify(values, null, 2));
+                                    // }, 400);
                                 }}
                             >
                                 {({
@@ -358,89 +374,91 @@ export default function Dashboard() {
                                     handleBlur,
                                     handleSubmit,
                                     isSubmitting,
+                                    setFieldValue,
                                 }) => (
-                                    <Paper className={fixedHeightPaper}>
-                                        <form onSubmit={handleSubmit}>
-                                            {activeStep === steps.length ? (
-                                                <div>
-                                                    <Typography
-                                                        className={
-                                                            classes.instructions
-                                                        }
-                                                    >
-                                                        All steps completed -
-                                                        you&apos;re finished
-                                                    </Typography>
-                                                    <Button
-                                                        onClick={handleReset}
-                                                        className={
-                                                            classes.button
-                                                        }
-                                                    >
-                                                        Reset
-                                                    </Button>
-                                                </div>
-                                            ) : (
-                                                <React.Fragment>
-                                                    {getStepContent(
-                                                        activeStep,
-                                                        values,
-                                                        errors,
-                                                        touched,
-                                                        handleChange,
-                                                        handleBlur
-                                                    )}
-                                                    <div
-                                                        style={{
-                                                            display: "flex",
-                                                            justifyContent:
-                                                                "center",
-                                                            margin: "50px",
-                                                        }}
-                                                    >
-                                                        <Button
-                                                            disabled={
-                                                                activeStep === 0
+                                        <Paper className={fixedHeightPaper}>
+                                            <form onSubmit={handleSubmit}>
+                                                {activeStep === steps.length ? (
+                                                    <div>
+                                                        <Typography
+                                                            className={
+                                                                classes.instructions
                                                             }
-                                                            onClick={handleBack}
+                                                        >
+                                                            All steps completed -
+                                                            you&apos;re finished
+                                                    </Typography>
+                                                        <Button
+                                                            onClick={handleReset}
                                                             className={
                                                                 classes.button
                                                             }
                                                         >
-                                                            Back
-                                                        </Button>
-                                                        {activeStep ===
-                                                        steps.length - 1 ? (
-                                                            <Button
-                                                                variant="contained"
-                                                                color="primary"
-                                                                type="submit"
-                                                                disabled={
-                                                                    isSubmitting
-                                                                }
-                                                            >
-                                                                Start Trip
-                                                            </Button>
-                                                        ) : (
-                                                            <Button
-                                                                variant="contained"
-                                                                color="primary"
-                                                                onClick={
-                                                                    handleNext
-                                                                }
-                                                                className={
-                                                                    classes.button
-                                                                }
-                                                            >
-                                                                Next
-                                                            </Button>
-                                                        )}
+                                                            Reset
+                                                    </Button>
                                                     </div>
-                                                </React.Fragment>
-                                            )}
-                                        </form>
-                                    </Paper>
-                                )}
+                                                ) : (
+                                                        <React.Fragment>
+                                                            {getStepContent(
+                                                                activeStep,
+                                                                values,
+                                                                errors,
+                                                                touched,
+                                                                handleChange,
+                                                                handleBlur,
+                                                                setFieldValue
+                                                            )}
+                                                            <div
+                                                                style={{
+                                                                    display: "flex",
+                                                                    justifyContent:
+                                                                        "center",
+                                                                    margin: "50px",
+                                                                }}
+                                                            >
+                                                                <Button
+                                                                    disabled={
+                                                                        activeStep === 0
+                                                                    }
+                                                                    onClick={handleBack}
+                                                                    className={
+                                                                        classes.button
+                                                                    }
+                                                                >
+                                                                    Back
+                                                        </Button>
+                                                                {activeStep ===
+                                                                    steps.length - 1 ? (
+                                                                        <Button
+                                                                            variant="contained"
+                                                                            color="primary"
+                                                                            type="submit"
+                                                                            disabled={
+                                                                                isSubmitting
+                                                                            }
+                                                                        >
+                                                                            Start Trip
+                                                            </Button>
+                                                                    ) : (
+                                                                        <Button
+                                                                            variant="contained"
+                                                                            color="primary"
+                                                                            onClick={
+                                                                                handleNext
+                                                                            }
+                                                                            className={
+                                                                                classes.button
+                                                                            }
+                                                                        >
+                                                                            Next
+                                                            </Button>
+                                                                    )}
+                                                            </div>
+                                                        </React.Fragment>
+                                                    )}
+                                            </form>
+                                        </Paper>
+                                    )}
                             </Formik>
                         </Grid>
                         <Box pt={4}>

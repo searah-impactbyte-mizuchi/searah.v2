@@ -57,8 +57,8 @@ export default function ImgMediaCard(props) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
-                    Click to go
+                <Button size="small" color="primary" onClick={() => props.addMember(props.id)}>
+                    Join
                 </Button>
             </CardActions>
         </Card>

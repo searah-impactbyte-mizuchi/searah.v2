@@ -8,20 +8,20 @@ import DateFnsUtils from "@date-io/date-fns";
 import Grid from "@material-ui/core/Grid";
 
 export default function Destination(props) {
-    const { errors, touched, handleBlur, handleChange, values } = props;
-    const [selectedDate, setSelectedDate] = React.useState(
-        new Date("2020-05-01T21:11:54")
-    );
-    const [selectedDate1, setSelectedDate1] = React.useState(
-        new Date("2020-05-01T21:11:54")
-    );
+    const { errors, touched, handleBlur, handleChange, values, setFieldValue } = props;
+    // const [selectedDate, setSelectedDate] = React.useState(
+    //     new Date("2020-05-01T21:11:54")
+    // );
+    // const [selectedDate1, setSelectedDate1] = React.useState(
+    //     new Date("2020-05-01T21:11:54")
+    // );
 
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-    };
-    const handleDateChange1 = (date1) => {
-        setSelectedDate1(date1);
-    };
+    // const handleDateChange = (date) => {
+    //     setSelectedDate(date);
+    // };
+    // const handleDateChange1 = (date1) => {
+    //     setSelectedDate1(date1);
+    // };
 
     return (
         <React.Fragment>
@@ -74,9 +74,11 @@ export default function Destination(props) {
                             margin="normal"
                             id="date-picker-dialog"
                             label="From"
+                            name="from"
                             format="MM/dd/yyyy"
-                            value={selectedDate}
-                            onChange={handleDateChange}
+                            value={values.from}
+                            // onChange={handleDateChange}
+                            onChange={e => setFieldValue('from', e)}
                             KeyboardButtonProps={{
                                 "aria-label": "change date",
                             }}
@@ -85,9 +87,11 @@ export default function Destination(props) {
                             margin="normal"
                             id="date-picker-dialog"
                             label="To"
+                            name="to"
                             format="MM/dd/yyyy"
-                            value={selectedDate1}
-                            onChange={handleDateChange1}
+                            value={values.to}
+                            // onChange={handleDateChange1}
+                            onChange={e => setFieldValue('to', e)}
                             KeyboardButtonProps={{
                                 "aria-label": "change date",
                             }}

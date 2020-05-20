@@ -7,6 +7,7 @@ import GroupReview from "./pages/Groupreview";
 import Mainpage from "./pages/NewMainPage";
 import StartTrip from "./pages/StartTrip";
 
+
 function App() {
     return (
         <div className="App">

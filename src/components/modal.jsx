@@ -40,9 +40,10 @@ function FormDialog({ updateUser }) {
     const [open, setOpen] = React.useState(false);
     const [username, setName] = React.useState("");
     const [avatar, setAvatar] = React.useState("");
-    const [from, setFrom] = React.useState("");
+    const [city, setCity] = React.useState("");
     const [age, setAge] = React.useState("");
     const [about, setAbout] = React.useState("");
+    
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -58,13 +59,13 @@ function FormDialog({ updateUser }) {
 
         localStorage.getItem('userid', JSON.stringify(Uid))
 
-        console.log(Uid,"uid");
+        // console.log(Uid,"uid");
         
 
         const userProfile = {
             id: Uid,
             username,
-            from,
+            city,
             avatar,
             age,
             about,
@@ -119,8 +120,8 @@ function FormDialog({ updateUser }) {
                         label="City"
                         type="text"
                         fullWidth
-                        value={from}
-                        onChange={(e) => setFrom(e.target.value)}
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
                     />
                     <TextField
                         margin="dense"
