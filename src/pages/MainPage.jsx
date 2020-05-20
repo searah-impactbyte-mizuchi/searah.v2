@@ -73,7 +73,7 @@ export default function MainPage() {
                         {result.data != undefined &&
                             result.data.map((item) => {
                                 return (
-                                    <Grid item xs={3}>
+                                    <Grid item xs={3} key={item.id}>
                                         <CityCard
                                             destination={item.destination}
                                             description={item.description}

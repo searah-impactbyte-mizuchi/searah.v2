@@ -257,7 +257,13 @@ export default function Dashboard() {
                             {review.length > 0 &&
                                 review[0].members.map((item) => {
                                     return (
-                                        <Grid item xs={6} md={3} lg={2}>
+                                        <Grid
+                                            item
+                                            xs={6}
+                                            md={3}
+                                            lg={2}
+                                            key={item.id}
+                                        >
                                             <Paper>
                                                 <Cardgroup
                                                     username={item.username}

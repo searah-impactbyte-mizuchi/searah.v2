@@ -141,7 +141,13 @@ export default function MainPage() {
                         {result.data !== undefined &&
                             result.data.map((item) => {
                                 return (
-                                    <Grid item xs={12} md={4} lg={3}>
+                                    <Grid
+                                        item
+                                        xs={12}
+                                        md={4}
+                                        lg={3}
+                                        key={item.id}
+                                    >
                                         <div className={classes.paper}>
                                             <CityCard
                                                 destination={item.destination}
