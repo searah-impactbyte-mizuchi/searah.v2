@@ -11,6 +11,9 @@ export const loginUser = (values, history) => {
                     dispatch(dispatch(loginSuccess(response.data)))
                     alert("login is succsessfuly")
                     history.push('/main-page')
+                    localStorage.setItem('isLogin', true);
+                    localStorage.setItem("userid", response.data.data[0].id);
+                    
                 }
             })
             .catch(error => {

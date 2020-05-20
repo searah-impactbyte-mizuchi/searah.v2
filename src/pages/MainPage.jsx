@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Container from "@material-ui/core/Container";
@@ -17,6 +17,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllTrip } from '../redux/actions/mainAction';
+import { getUser } from "../redux/actions/userActions"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,19 +32,34 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function StartJourney() {
-    return (
-        <Button variant="contained" color="secondary">Start your journey here <SearchIcon /> </Button>
-
-    )
-}
-
 
 export default function MainPage() {
+
+    const result = useSelector((state) => {
+        // console.log(state,"state");
+
+        return state.tripView;
+
+    });
+    const users = useSelector((state) => {
+        console.log(state,"stateuser");
+
+        return state.existingUser;
+
+    });
+    const dispatch = useDispatch();
+
+    // console.log(result.data, "result");
+
+    useEffect(() => {
+        dispatch(fetchAllTrip(), getUser(),);
+    }, [dispatch]);
+    // console.log(typeof review);
+
     const classes = useStyles();
     return (
         <form>
-            <Header/>
+            <Header />
             <Container component="main">
                 <Grid
                     container
@@ -66,9 +84,17 @@ export default function MainPage() {
                 </Grid>
                 <Container >
                     <Grid container spacing={2} className={classes.paper}>
-                        <Grid item xs={3}>
-                            <CityCard />
-                        </Grid>
+                        {result.data != undefined && result.data.map((item) => {
+                            return (
+                                <Grid item xs={3}>
+                                    <CityCard
+                                        destination={item.destination}
+                                        description={item.description}
+                                    />
+                                </Grid>
+                            )
+                        })}
+
                     </Grid>
                 </Container>
             </Container>

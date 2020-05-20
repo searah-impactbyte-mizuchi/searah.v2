@@ -141,14 +141,16 @@ function Dashboard() {
     });
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchProfile(1));
-        getUser(1);
-        console.log(profile,"profile");
-        
-    }, [dispatch]);
+    const getProfile = localStorage.getItem("userid");
 
+    useEffect(() => {
+        dispatch(fetchProfile(getProfile));
+        // getUser(getProfile);
+        console.log(profile, "profile");
+
+    }, [dispatch]);
     
+
 
     // console.log(, "name");
 
@@ -164,7 +166,7 @@ function Dashboard() {
                         <Grid item xs={12} md={4} lg={3}>
                             <Paper>
                                 <Cardprf
-                                    image={profile.data != undefined ? profile.data.data[0].avatar:null}
+                                    image={profile.data != undefined ? profile.data.data[0].avatar : null}
                                 />
                             </Paper>
                         </Grid>
@@ -175,7 +177,7 @@ function Dashboard() {
                                     className={classes.font}
                                     placeholder='Name'
                                 >
-                                    <h1>{profile.data != undefined ? profile.data.data[0].username:null}</h1>    
+                                    <h1>{profile.data != undefined ? profile.data.data[0].username : null}</h1>
                                     <li style={list}>"Ucing pala popom"</li>
                                 </TableCell>
 

@@ -5,6 +5,7 @@ import loginReducer from './loginReducer';
 import profileReducers from './profileReducers'
 import reviewReducers from './reviewReducers'
 // import reviewReducer from './reviewReducers';
+import mainReducers from './mainReducers'
 
 const allReducers = combineReducers({
     // menuDrawer : drawerReducer,
@@ -12,7 +13,9 @@ const allReducers = combineReducers({
     // existingUser : loginReducer,
     existingUser: userReducer,
     userProfile: profileReducers,
-    userReview : reviewReducers
+    userReview : reviewReducers,
+    tripView : mainReducers
+
 });
 
 export default allReducers;

@@ -146,7 +146,7 @@ export default function Dashboard() {
     const fixedHeightPaper1 = clsx(classes.paper, classes.table);
 
     const review = useSelector((state) => {
-        console.log(state);
+        console.log(state,"state review");
 
         return state.userReview;
 

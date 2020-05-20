@@ -25,7 +25,17 @@ const useStyles = makeStyles({
     },
 });
 
-export default function ImgMediaCard() {
+export default function ImgMediaCard(props) {
+
+    // console.log(props,"cek123");
+
+    // const review = useSelector((state) => {
+    //     console.log(state,"state review");
+
+    //     return state.userReview;
+
+    // });
+    
     const classes = useStyles();
 
     return (
@@ -40,10 +50,10 @@ export default function ImgMediaCard() {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        <LocationOnIcon /> Bali
+                        <LocationOnIcon /> {props.destination}
           </Typography>
           <Typography gutterBottom variant="h5" component="h2">
-                        Trip to Bali
+                        {props.description}
           </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
                     Hello! I am from Canada and going to Bali for about 2 weeks. I love surfing (even if I only did i...
