@@ -1,4 +1,3 @@
-
 import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -12,19 +11,10 @@ import Container from "@material-ui/core/Container";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
 import MaterialLink from "@material-ui/core/Link";
-import CallMergeIcon from '@material-ui/icons/CallMerge';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import LockIcon from '@material-ui/icons/Lock';
-// import { useDispatch, useSelector } from "react-redux"
-import Logo from '../components/logo/Tourist2.jpg'
-
-
-import { useSelector, useDispatch } from "react-redux"
-import { loginUser } from "../redux/actions/loginActions"
-import { getUser } from "../redux/actions/userActions"
-
-
+import Logo from "../components/logo/Tourist2.jpg";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../redux/actions/loginActions";
+import { useHistory } from "react-router-dom";
 
 function Copyright() {
     return (
@@ -46,7 +36,8 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        background:"linear-gradient(rgba(81, 86, 137),rgba(102, 151, 167),rgba(140, 205, 194),rgba(190, 218, 199),rgba(250, 235, 208),transparent)",
+        background:
+            "linear-gradient(rgba(81, 86, 137),rgba(102, 151, 167),rgba(140, 205, 194),rgba(190, 218, 199),rgba(250, 235, 208),transparent)",
         padding: 5,
     },
     avatar: {
@@ -59,31 +50,32 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
-        fontFamily: 'Comfortaa, cursive',
+        fontFamily: "Comfortaa, cursive",
         // fontFamily: 'Kalam, cursive',
         backgroundColor: "#8ccdc2",
-        background:"linear-gradient(rgba(81, 86, 137),rgba(102, 151, 167, 0.5),transparent)",
-        color: "whitesmoke"
+        background:
+            "linear-gradient(rgba(81, 86, 137),rgba(102, 151, 167, 0.5),transparent)",
+        color: "whitesmoke",
     },
     font: {
         // fontFamily: 'Kalam, cursive',
-        fontFamily: 'Comfortaa, cursive',
+        fontFamily: "Comfortaa, cursive",
         // backgroundColor: "whitesmoke"
     },
     font2: {
         // fontFamily: 'Kalam, cursive',
-        fontFamily: 'Comfortaa, cursive',
+        fontFamily: "Comfortaa, cursive",
         color: "whitesmoke",
         marginTop: 10,
     },
     font3: {
         // fontFamily: 'Kalam, cursive',
-        fontFamily: 'Comfortaa, cursive',
+        fontFamily: "Comfortaa, cursive",
         // color: "whitesmoke"
     },
     font4: {
         // fontFamily: 'Kalam, cursive',
-        fontFamily: 'Comfortaa, cursive',
+        fontFamily: "Comfortaa, cursive",
         color: "whitesmoke",
         marginBottom: 20,
     },
@@ -91,10 +83,10 @@ const useStyles = makeStyles((theme) => ({
         width: theme.spacing(20),
         height: theme.spacing(20),
         margin: 20,
-      },
-      floatingLabelFocusStyle: {
+    },
+    floatingLabelFocusStyle: {
         color: "#0c3854",
-        fontFamily: 'Comfortaa, cursive'
+        fontFamily: "Comfortaa, cursive",
     },
 }));
 
@@ -103,18 +95,28 @@ export default function SignIn() {
     // const existingUser = useSelector(state => state.existingUser)
     const dispatch = useDispatch();
 
+    const history = useHistory();
+
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
-                <Typography component="h1" variant="h4" className={classes.font2}>
+                <Typography
+                    component="h1"
+                    variant="h4"
+                    className={classes.font2}
+                >
                     SEARAH
                 </Typography>
                 <Avatar alt="Remy Sharp" src={Logo} className={classes.large} />
                 {/* <Avatar className={classes.avatar}>
                     <CallMergeIcon />
                 </Avatar> */}
-                <Typography component="h1" variant="h5" className={classes.font4}>
+                <Typography
+                    component="h1"
+                    variant="h5"
+                    className={classes.font4}
+                >
                     Sign in
                 </Typography>
                 <Formik
@@ -140,41 +142,8 @@ export default function SignIn() {
 
                         return errors;
                     }}
-                    onSubmit={async(values) => {
-                        const result = await dispatch(loginUser(values));
-
-                
-                        
-                        // console.log(values);
-                        
-                        // alert("Login is succsessful")
-                        // this.props.push('./main-page');
-
-
-                        // const existingUser = userList.find((element) => element.email === values.email);
-
-
-                        // if (existingUser === undefined) {
-                        //     alert('user tidak ditemukan');
-                        // } else if (
-                        //     existingUser.password !== values.password ||
-                        //     existingUser.email !== values.email
-                        // ) {
-                        //     alert('email/password salah');
-                        // } else if (
-                        //     existingUser.role === `admin`
-                        // ) {
-                        //     alert('selamat datang admin ');
-                        // } else if (
-                        //     existingUser.status === `pending`
-                        // ) {
-                        //     alert('mohon maaf silahkan tunggu dulu ea');
-                        // } else {
-                        //     localStorage.setItem('isLogin', true);
-                        //     localStorage.setItem('userData', JSON.stringify(existingUser));
-                        //     alert(`selamat datang kembali ${existingUser.name}`);
-                        //     this.props.history.push('/dashboard');
-                        // }
+                    onSubmit={async (values) => {
+                        await dispatch(loginUser(values, history));
                     }}
                 >
                     {({
@@ -197,15 +166,16 @@ export default function SignIn() {
                                     id="email"
                                     label="Email"
                                     fullWidth
-                                    name="email"     
+                                    name="email"
                                     type="email"
                                     autoComplete="current-email"
                                     onChange={handleChange}
                                     value={values.email}
                                     InputLabelProps={{
-                                        className: classes.floatingLabelFocusStyle,
+                                        className:
+                                            classes.floatingLabelFocusStyle,
                                     }}
-                                    
+
                                     // InputProps={{
                                     //     startAdornment: (
                                     //         <InputAdornment position="start">
@@ -237,7 +207,8 @@ export default function SignIn() {
                                     onChange={handleChange}
                                     value={values.password}
                                     InputLabelProps={{
-                                        className: classes.floatingLabelFocusStyle,
+                                        className:
+                                            classes.floatingLabelFocusStyle,
                                     }}
 
                                     // InputProps={{
@@ -262,7 +233,7 @@ export default function SignIn() {
                                     type="submit"
                                     fullWidth
                                     variant="contained"
-                                    color="danger"
+                                    color="primary"
                                     className={classes.submit}
                                     disabled={isSubmitting}
                                 >
@@ -283,10 +254,10 @@ export default function SignIn() {
                         );
                     }}
                 </Formik>
-            
-            <Box mt={8}>
-                <Copyright />
-            </Box>
+
+                <Box mt={8}>
+                    <Copyright />
+                </Box>
             </div>
         </Container>
     );

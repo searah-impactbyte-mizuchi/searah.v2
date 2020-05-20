@@ -1,5 +1,5 @@
-import React from 'react';
-import clsx from 'clsx';
+import React, { useEffect } from "react";
+// import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Box from '@material-ui/core/Box';
@@ -15,7 +15,7 @@ import '../App.css'
 import Cardgroup from '../components/Cardgroup'
 import RoomIcon from '@material-ui/icons/Room';
 import DateRangeIcon from '@material-ui/icons/DateRange';
-import Logo from '../components/logo/harry-potter-scaled.jpg'
+// import Logo from '../components/logo/harry-potter-scaled.jpg'
 import PermPhoneMsgIcon from '@material-ui/icons/PermPhoneMsg';
 import EmailIcon from '@material-ui/icons/Email';
 import Chip from '@material-ui/core/Chip';
@@ -23,6 +23,8 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Checkbox from '../components/Checkbox'
 import Rate from '../components/Rate'
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import { fetchReview } from "../redux/actions/reviewActions"
+import { useDispatch, useSelector } from "react-redux";
 
 
 
@@ -129,30 +131,40 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 30
         // background: "#1F618D",
         // color: "white",
-      },
-      members: {
+    },
+    members: {
         fontFamily: 'Comfortaa, cursive',
         padding: 50
-      },
-      checkbox: {
-          marginTop: 70,
-      },
+    },
+    checkbox: {
+        marginTop: 70,
+    },
 }));
 
 export default function Dashboard() {
     const classes = useStyles();
     // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-    const fixedHeightPaper1 = clsx(classes.paper, classes.table);
-    
-    
-    
+    // const fixedHeightPaper1 = clsx(classes.paper, classes.table);
+
+    const review = useSelector((state) => {
+        console.log(state,"state review");
+
+        return state.userReview;
+
+    });
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchReview());
+    }, [dispatch]);
+    // console.log(typeof review);
 
     return (
         <div >
             <CssBaseline />
             <main className={classes.content}>
 
-                <Header/>
+                <Header />
 
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
@@ -167,77 +179,68 @@ export default function Dashboard() {
 
                         <Grid item xs={12} md={9} lg={9}>
                             <Paper className={classes.paper}>
-                               
-                            <TableCell className = {classes.font}>
-                                <h1>Explore Bali</h1>
-                            </TableCell>
 
-                            <TableCell >
-                                <li className={classes.root}>
-                                <RoomIcon />
-                                <Typography className = {classes.font}>Denpasar city, Bali Island, Indonesia</Typography>
-                                </li>
-                                <li className={classes.root}>
-                                <DateRangeIcon />
-                                <Typography className = {classes.font}>May 12th, 2020</Typography>
-                                </li>
-                            </TableCell>
-                            
-                            <TableCell className = {classes.font}>
-                                <h3>Trip Details :</h3>
-                                <li className={classes.root}>
-                                    1. Dinding ba dinding oi dinding ba dinding
-                                </li>
-                                <li className={classes.root}>
-                                    2. Dinding ba dinding oi dinding ba dinding
-                                </li>
-                                <li className={classes.root}>
-                                    3. Dinding ba dinding oi dinding ba dinding
-                                </li>
-                                <li className={classes.root}>
-                                    4. Dinding ba dinding oi dinding ba dinding
-                                </li>
-                            </TableCell>
+                                <TableCell className={classes.font}>
+                                    <h1>{review.length > 0 && review[0].title}</h1>
+                                </TableCell>
 
-                            <TableCell className = {classes.font}>
-                                <h3>Meet up point</h3>
-                                <li className={classes.root}>
-                                <RoomIcon />
-                                <Typography className = {classes.font}>Ngurah Rai International Airport</Typography>
-                                </li>
-                            </TableCell>
+                                <TableCell >
+                                    <li className={classes.root}>
+                                        <RoomIcon />
+                                        <Typography className={classes.font}>{review.length > 0 && review[0].location}</Typography>
+                                    </li>
+                                    <li className={classes.root}>
+                                        <DateRangeIcon />
+                                        <Typography className={classes.font}>{review.length > 0 && review[0].from}</Typography>
+                                    </li>
+                                </TableCell>
 
-                            <TableCell className = {classes.font}>
-                            <h3>Trip Created by Popom</h3>
-                            <Grid container spacing={3} >
-                                <Grid>
-                                <img src={Logo} alt="" className={classes.pad}/>
-                                </Grid>
+                                <TableCell className={classes.font}>
+                                    <h3>Trip Details :</h3>
+                                    <li className={classes.root}>
+                                        {review.length > 0 && review[0].description}
+                                    </li>
+                                </TableCell>
 
-                                <Grid>
-                                <h4 >
-                                    Contact me :
+                                <TableCell className={classes.font}>
+                                    <h3>Meet up point</h3>
+                                    <li className={classes.root}>
+                                        <RoomIcon />
+                                        <Typography className={classes.font}> {review.length > 0 && review[0].meetupPoint}</Typography>
+                                    </li>
+                                </TableCell>
+
+                                <TableCell className={classes.font}>
+                                    <h3>Trip Created by Popom</h3>
+                                    <Grid container spacing={3} >
+                                        <Grid>
+                                            <img src={review.length > 0 && review[0].avatar} alt="" className={classes.pad} />
+                                        </Grid>
+
+                                        <Grid>
+                                            <h4 >
+                                                Contact me :
                                 </h4>
-                                <li className={classes.root}>
-                                <PermPhoneMsgIcon />
-                                <Typography className = {classes.font}>(+62)812-345-678</Typography>
-                                </li>
-                                <li className={classes.root}>
-                                <EmailIcon />
-                                <Typography className = {classes.font}>popom@gmail.com</Typography>
-                                </li>
-                                <Chip 
-                                    icon={<AccountCircleIcon/>}
-                                    label="View Profile" 
-                                    component="a" 
-                                    href="#chip" 
-                                    clickable
-                                    className={classes.button}
-                                    />
-                                </Grid>
-                            </Grid>
-                            </TableCell>
-                            <Speeddial/>
+                                            <li className={classes.root}>
+                                                <PermPhoneMsgIcon />
+                                                <Typography className={classes.font}>(+62)812-345-678</Typography>
+                                            </li>
+                                            <li className={classes.root}>
+                                                <EmailIcon />
+                                                <Typography className={classes.font}>popom@gmail.com</Typography>
+                                            </li>
+                                            <Chip
+                                                icon={<AccountCircleIcon />}
+                                                label="View Profile"
+                                                component="a"
+                                                href="#chip"
+                                                clickable
+                                                className={classes.button}
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                </TableCell>
+                                <Speeddial />
                             </Paper>
                         </Grid>
 
@@ -247,79 +250,38 @@ export default function Dashboard() {
                             </div>
                         </Grid>
 
-                        <h3 className = {classes.members}>Members :</h3>
+                        <h3 className={classes.members}>Members :</h3>
                         <Grid container spacing={3} >
-                            <Grid item xs={12} md={3} lg={2} >
-                            <div >
-                            <Cardgroup/>
-                            </div>
-                            </Grid>
+                            {review.length > 0 && review[0].members.map((item) => {
+                                return(
+                                <Grid item xs={6} md={3} lg={2} >
+                                    <Paper >
+                                        <Cardgroup 
+                                            username={item.username}
+                                            avatar={item.avatar}
+                                        />
+                                    </Paper>
+                                </Grid>)
+                            })}
 
-                            <Grid item xs={12} md={3} lg={2} >
-                            <div>
-                            <Cardgroup/>
-                            </div>
-                            </Grid>
+                        </Grid>
 
-                            <Grid item xs={12} md={3} lg={2} >
-                            <div>
-                            <Cardgroup/>
-                            </div>
-                            </Grid>
 
-                            <Grid item xs={12} md={3} lg={2} >
-                            <div>
-                            <Cardgroup/>
-                            </div>
-                            </Grid>
-
-                            <Grid item xs={12} md={3} lg={2} >
-                            <div>
-                            <Cardgroup/>
-                            </div>
-                            </Grid>
-
-                            <Grid item xs={12} md={3} lg={2} >
-                            <div>
-                            <Cardgroup/>
-                            </div>
-                            </Grid>
-
-                            <Grid item xs={12} md={3} lg={2} >
-                           <div>
-                            <Cardgroup/>
-                            </div>
-                            </Grid>
-
-                            <Grid item xs={12} md={3} lg={2} >
-                            <div>
-                            <Cardgroup/>
-                            </div>
-                            </Grid>
-
-                            <Grid item xs={12} md={3} lg={2} >
-                            <div>
-                            <Cardgroup/>
-                            </div>
-                            </Grid>
-                            </Grid>
-
-                            
-                            <div className={classes.checkbox}>
-                            <Checkbox/>
+                        <div className={classes.checkbox}>
+                            <Checkbox />
                             <h3 className={classes.font}>Review :</h3>
-                            <TextareaAutosize 
-                            aria-label="empty textarea" 
-                            rowsMax={5} 
-                            rowsMin={5}
-                            placeholder="How was your trip ?"
-                            className={classes.font} 
+                            <TextareaAutosize
+                                aria-label="empty textarea"
+                                rowsMax={5}
+                                rowsMin={5}
+                                placeholder="How was your trip ?"
+                                className={classes.font}
                             />
                             <h3 className={classes.font}>Rate this Trip :</h3>
-                            <Rate/>
-                            </div>
+                            <Rate />
+                        </div>
                     </Grid>
-                   
+
 
                     <Box pt={4}>
                         <Grid container spacing={1}>
