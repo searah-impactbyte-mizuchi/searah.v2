@@ -13,6 +13,8 @@ import CityCard from "../components/MainCard"
 import SearchInput from "../components/searchbar"
 import ReviewCard from "../components/ReviewCard"
 import SearchIcon from '@material-ui/icons/Search';
+import Logo from "../components/logo/background11.jpeg"
+import Carousel from "../components/Carousel2"
 
 const drawerWidth = 240;
 
@@ -122,7 +124,10 @@ export default function MainPage() {
                 <Header/>
 
                 <div className={classes.appBarSpacer} />
-                <Container maxWidth="lg" className={classes.container}>
+                <Container maxWidth="0" className={classes.container}>
+
+                <Carousel/>
+
                     <Grid container spacing={3} alignItems="center" justify="center" direction="column">
                         <Grid item xs={12} md={4} lg={4} >
                             <div className={classes.paper} style={{marginBottom: 50}}>
@@ -133,6 +138,17 @@ export default function MainPage() {
                             </div>
                         </Grid>
                         </Grid>
+
+
+
+
+                        
+
+
+
+
+
+
                    
 
                     <Grid container spacing={3}>

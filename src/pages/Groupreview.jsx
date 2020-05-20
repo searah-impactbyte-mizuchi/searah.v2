@@ -148,7 +148,7 @@ export default function Dashboard() {
     
 
     return (
-        <div className={classes.root}>
+        <div >
             <CssBaseline />
             <main className={classes.content}>
 
