@@ -223,11 +223,11 @@ export default function Dashboard() {
                                                     <Grid>
                                                         <img
                                                             src={
-                                                                (review.length >
+                                                                review.length >
                                                                     0 &&
-                                                                    review[0]
-                                                                        .avatar) ||
-                                                                null
+                                                                review[0][
+                                                                    "user.avatar"
+                                                                ]
                                                             }
                                                             alt=""
                                                             className={
@@ -266,19 +266,21 @@ export default function Dashboard() {
                                                                 popom@gmail.com
                                                             </Typography>
                                                         </li>
-                                                        <Chip
-                                                            icon={
-                                                                <AccountCircleIcon />
-                                                            }
-                                                            label="View Profile"
-                                                            component="a"
-                                                            href="#chip"
-                                                            clickable
-                                                            className={
-                                                                classes.button
-                                                            }
-                                                        />
                                                     </Grid>
+                                                </Grid>
+                                                <Grid>
+                                                    <Chip
+                                                        icon={
+                                                            <AccountCircleIcon />
+                                                        }
+                                                        label="View Profile"
+                                                        component="a"
+                                                        href="#chip"
+                                                        clickable
+                                                        className={
+                                                            classes.button
+                                                        }
+                                                    />
                                                 </Grid>
                                             </TableCell>
                                         </TableRow>

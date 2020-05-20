@@ -8,8 +8,9 @@ export const setReview = (payload) => {
 };
 
 export const fetchReview = () => (dispatch) => {
+    const URL = process.env.REACT_APP_API_URL;
     const token = localStorage.getItem("token");
-    const url = "https://searah.herokuapp.com/trips/41";
+    const url = `${URL}/trips/41`;
     const options = {
         headers: {
             Authorization: token,
