@@ -1,23 +1,24 @@
-import React from 'react';
-import { connect } from 'react-redux';
+ 
+import React from "react";
+import { connect } from "react-redux";
 
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import { makeStyles } from '@material-ui/core/styles';
-import Fab from '@material-ui/core/Fab';
-import EditIcon from '@material-ui/icons/Edit';
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import { makeStyles } from "@material-ui/core/styles";
+import Fab from "@material-ui/core/Fab";
+import EditIcon from "@material-ui/icons/Edit";
 
-import { updateUser,getUser } from '../redux/actions/userActions';
+import { updateUser, getUser } from "../redux/actions/userActions";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         height: 150,
-        transform: 'translateZ(0px)',
+        transform: "translateZ(0px)",
         flexGrow: 1,
 
         // '& > *': {
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
         // },
     },
     speedDial: {
-        position: 'absolute',
+        position: "absolute",
         bottom: theme.spacing(2),
         right: theme.spacing(2),
     },
@@ -37,11 +38,11 @@ const useStyles = makeStyles((theme) => ({
 function FormDialog({ updateUser }) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-    const [username, setName] = React.useState('');
-    const [avatar, setAvatar] = React.useState('');
-    const [from, setFrom] = React.useState('');
-    const [age, setAge] = React.useState(null);
-    const [about, setAbout] = React.useState('');
+    const [username, setName] = React.useState("");
+    const [avatar, setAvatar] = React.useState("");
+    const [from, setFrom] = React.useState("");
+    const [age, setAge] = React.useState("");
+    const [about, setAbout] = React.useState("");
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -52,13 +53,14 @@ function FormDialog({ updateUser }) {
     };
 
     const handleSave = async () => {
-        
-      
-        
+
         const Uid = localStorage.getItem('userid')
 
         localStorage.getItem('userid', JSON.stringify(Uid))
-      
+
+        console.log(Uid,"uid");
+        
+
         const userProfile = {
             id: Uid,
             username,
@@ -67,11 +69,12 @@ function FormDialog({ updateUser }) {
             age,
             about,
         };
-        
 
         updateUser(userProfile);
+
         console.log(userProfile);
         
+
         getUser(userProfile.id);
 
         setOpen(false);
@@ -80,8 +83,8 @@ function FormDialog({ updateUser }) {
     return (
         <div className={classes.root}>
             <Fab
-                color='secondary'
-                aria-label='edit'
+                color="secondary"
+                aria-label="edit"
                 onClick={handleClickOpen}
                 className={classes.speedDial}
             >
@@ -90,9 +93,9 @@ function FormDialog({ updateUser }) {
             <Dialog
                 open={open}
                 onClose={handleClose}
-                aria-labelledby='form-dialog-title'
+                aria-labelledby="form-dialog-title"
             >
-                <DialogTitle id='form-dialog-title'>
+                <DialogTitle id="form-dialog-title">
                     Create and Edit Profile
                 </DialogTitle>
                 <DialogContent>
@@ -102,56 +105,56 @@ function FormDialog({ updateUser }) {
                     </DialogContentText>
                     <TextField
                         autoFocus
-                        margin='dense'
-                        id='Name'
-                        label='Name'
-                        type='text'
+                        margin="dense"
+                        id="Name"
+                        label="Name"
+                        type="text"
                         fullWidth
                         value={username}
                         onChange={(e) => setName(e.target.value)}
                     />
                     <TextField
-                        margin='dense'
-                        id='City'
-                        label='City'
-                        type='text'
+                        margin="dense"
+                        id="City"
+                        label="City"
+                        type="text"
                         fullWidth
                         value={from}
                         onChange={(e) => setFrom(e.target.value)}
                     />
                     <TextField
-                        margin='dense'
-                        id='Age'
-                        label='Age'
-                        type='number'
+                        margin="dense"
+                        id="Age"
+                        label="Age"
+                        type="number"
                         fullWidth
                         value={age}
                         onChange={(e) => setAge(e.target.value)}
                     />
                     <TextField
-                        margin='dense'
-                        id='About'
-                        label='About'
-                        type='text'
+                        margin="dense"
+                        id="About"
+                        label="About"
+                        type="text"
                         fullWidth
                         value={about}
                         onChange={(e) => setAbout(e.target.value)}
                     />
-                          <TextField
-                        margin='dense'
-                        id='Avatar'
-                        label='Avatar'
-                        type='text'
+                    <TextField
+                        margin="dense"
+                        id="Avatar"
+                        label="Avatar"
+                        type="text"
                         fullWidth
                         value={avatar}
                         onChange={(e) => setAvatar(e.target.value)}
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color='primary'>
+                    <Button onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-                    <Button onClick={handleSave} color='primary'>
+                    <Button onClick={handleSave} color="primary">
                         Save
                     </Button>
                 </DialogActions>
