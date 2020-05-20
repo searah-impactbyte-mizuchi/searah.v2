@@ -12,18 +12,18 @@ import Container from "@material-ui/core/Container";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
 import MaterialLink from "@material-ui/core/Link";
-import CallMergeIcon from '@material-ui/icons/CallMerge';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import LockIcon from '@material-ui/icons/Lock';
+// import CallMergeIcon from '@material-ui/icons/CallMerge';
+// import InputAdornment from '@material-ui/core/InputAdornment';
+// import AccountCircle from '@material-ui/icons/AccountCircle';
+// import LockIcon from '@material-ui/icons/Lock';
 
 // import { useDispatch, useSelector } from "react-redux"
 import Logo from '../components/logo/Tourist2.jpg'
 
 
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { loginUser } from "../redux/actions/loginActions"
-import { getUser } from "../redux/actions/userActions"
+// import { getUser } from "../redux/actions/userActions"
 import { useHistory } from "react-router-dom"
 
 

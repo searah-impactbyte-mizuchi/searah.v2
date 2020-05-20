@@ -146,7 +146,7 @@ function Dashboard() {
     useEffect(() => {
         dispatch(fetchProfile(getProfile));
         // getUser(getProfile);
-        console.log(profile, "profile");
+        // console.log(profile, "profile");
 
     }, [dispatch]);
 
@@ -179,7 +179,7 @@ function Dashboard() {
                                     placeholder='Name'
                                 >
                                     <h1>{profile.data != undefined ? profile.data.data[0].username : null}</h1>
-                                    <li style={list}>"Ucing pala popom"</li>
+                                    {/* <li style={list}>"Ucing pala popom"</li> */}
                                 </TableCell>
 
                                 <TableCell>

@@ -5,7 +5,7 @@ export const fetchProfile = (id) => {
     return (dispatch) => {
         return axios.get(`${apiUrl}/${id}`)
             .then(response => {
-                console.log(response, "response");
+                // console.log(response, "response");
                 dispatch(fetchingSukses(response.data))
              } )
             

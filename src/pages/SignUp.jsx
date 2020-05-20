@@ -14,11 +14,11 @@ import { Link, useHistory } from "react-router-dom";
 import MaterialLink from "@material-ui/core/Link";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/actions/userActions";
-import CallMergeIcon from '@material-ui/icons/CallMerge';
+// import CallMergeIcon from '@material-ui/icons/CallMerge';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+// import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import Logo from '../components/logo/Tourist.jpg'
 
 
@@ -113,18 +113,18 @@ export default function SignUp() {
     const classes = useStyles();
     const dispatch = useDispatch();
     const history = useHistory();
-    const [state, setState] = React.useState({
-        gender: '',
-        name: '',
-    });
+    // const [state, setState] = React.useState({
+    //     gender: '',
+    //     name: '',
+    // });
 
-    const handleChange = (event) => {
-        const name = event.target.name;
-        setState({
-            ...state,
-            [name]: event.target.value,
-        });
-    };
+    // const handleChange = (event) => {
+    //     const name = event.target.name;
+    //     setState({
+    //         ...state,
+    //         [name]: event.target.value,
+    //     });
+    // };
 
     return (
         <Container component="main" maxWidth="xs">

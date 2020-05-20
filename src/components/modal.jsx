@@ -39,9 +39,10 @@ function FormDialog({ updateUser }) {
     const [open, setOpen] = React.useState(false);
     const [username, setName] = React.useState('');
     const [avatar, setAvatar] = React.useState('');
-    const [from, setFrom] = React.useState('');
+    // const [from, setFrom] = React.useState('');
     const [age, setAge] = React.useState(null);
     const [about, setAbout] = React.useState('');
+    const [city, setCity] = React.useState('');
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -53,16 +54,16 @@ function FormDialog({ updateUser }) {
 
     const handleSave = async () => {
         const userProfile = {
-            id: '1',
+            id: '11',
             username,
-            from,
             avatar,
             age,
             about,
+            city
         };
 
         updateUser(userProfile);
-        console.log(getUser);
+        // console.log(userProfile, "ini log get user");
         
         getUser(userProfile.id);
 
@@ -108,8 +109,8 @@ function FormDialog({ updateUser }) {
                         label='City'
                         type='text'
                         fullWidth
-                        value={from}
-                        onChange={(e) => setFrom(e.target.value)}
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
                     />
                     <TextField
                         margin='dense'

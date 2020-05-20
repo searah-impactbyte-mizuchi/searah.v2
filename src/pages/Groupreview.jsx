@@ -15,7 +15,7 @@ import '../App.css'
 import Cardgroup from '../components/Cardgroup'
 import RoomIcon from '@material-ui/icons/Room';
 import DateRangeIcon from '@material-ui/icons/DateRange';
-import Logo from '../components/logo/harry-potter-scaled.jpg'
+// import Logo from '../components/logo/harry-potter-scaled.jpg'
 import PermPhoneMsgIcon from '@material-ui/icons/PermPhoneMsg';
 import EmailIcon from '@material-ui/icons/Email';
 import Chip from '@material-ui/core/Chip';
@@ -144,7 +144,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
     const classes = useStyles();
     // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-    const fixedHeightPaper1 = clsx(classes.paper, classes.table);
+    // const fixedHeightPaper1 = clsx(classes.paper, classes.table);
 
     const review = useSelector((state) => {
         console.log(state,"state review");

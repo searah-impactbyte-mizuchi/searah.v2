@@ -29,7 +29,7 @@ const useStyles = makeStyles({
 
 export default function MediaCard(props) {
   const classes = useStyles();
-  console.log(props,"props");
+  // console.log(props,"props");
   
 
   return (
