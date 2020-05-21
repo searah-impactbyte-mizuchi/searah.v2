@@ -83,6 +83,11 @@ export default function Destination(props) {
                                 "aria-label": "change date",
                             }}
                         />
+                        <p style={{ color: "red", fontStyle: "italic" }}>
+                            {errors.from &&
+                                touched.from &&
+                                errors.from}
+                        </p>
                         <KeyboardDatePicker
                             margin="normal"
                             id="date-picker-dialog"
@@ -96,6 +101,11 @@ export default function Destination(props) {
                                 "aria-label": "change date",
                             }}
                         />
+                        <p style={{ color: "red", fontStyle: "italic" }}>
+                            {errors.to &&
+                                touched.to &&
+                                errors.to}
+                        </p>
                     </Grid>
                 </div>
             </MuiPickersUtilsProvider>

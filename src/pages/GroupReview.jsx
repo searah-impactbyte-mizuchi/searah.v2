@@ -256,7 +256,6 @@ export default function GroupReview() {
 
                                                     <Grid>
                                                         <h4>Contact me :</h4>
-
                                                         <li
                                                             className={
                                                                 classes.root

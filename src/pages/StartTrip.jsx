@@ -334,8 +334,8 @@ export default function Dashboard() {
                                     meetupPoint: "",
                                     user_id: Uid,
                                     members: "",
-                                    from: new Date("2020-05-01T21:11:54"),
-                                    to: new Date("2020-05-01T21:11:54"),
+                                    from: new Date("2020-05-22T21:11:54"),
+                                    to: new Date("2020-05-23T21:11:54"),
                                 }}
                                 validate={(values) => {
                                     const errors = {};
@@ -358,7 +358,7 @@ export default function Dashboard() {
                                     return errors;
                                 }}
                                 onSubmit={async (values) => {
-                                    // console.log(values);
+                                    console.log(values);
                                     await dispatch(addTrip(values));
                                     history.push("./review");
                                     // setTimeout(() => {
