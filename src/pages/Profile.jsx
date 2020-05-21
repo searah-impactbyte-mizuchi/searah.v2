@@ -128,6 +128,8 @@ function Dashboard() {
     const profile = useSelector((state) => {
         return state.userProfile;
     });
+    // console.log(profile, "log profile");
+
     const dispatch = useDispatch();
 
     const getProfile = localStorage.getItem("userid");
@@ -169,12 +171,9 @@ function Dashboard() {
                                                 <h1>
                                                     {profile.data !== undefined
                                                         ? profile.data.data[0]
-                                                              .username
+                                                            .username
                                                         : null}
                                                 </h1>
-                                                <li style={list}>
-                                                    "Ucing pala popom"
-                                                </li>
                                             </TableCell>
                                         </TableRow>
 
@@ -182,26 +181,29 @@ function Dashboard() {
                                             <TableCell>
                                                 <li className={classes.root}>
                                                     <PublicIcon />
-                                                    <Typography
-                                                        className={classes.font}
-                                                    >
-                                                        {/* {from} */}
+                                                    <Typography className={classes.font}>
+                                                        {profile.data !== undefined
+                                                            ? profile.data.data[0]
+                                                                .city
+                                                            : null}
                                                     </Typography>
                                                 </li>
                                                 <li className={classes.root}>
                                                     <InsertEmoticonRoundedIcon />
-                                                    <Typography
-                                                        className={classes.font}
-                                                    >
-                                                        Male
+                                                    <Typography className={classes.font}>
+                                                        {profile.data !== undefined
+                                                            ? profile.data.data[0]
+                                                                .gender
+                                                            : null}
                                                     </Typography>
                                                 </li>
                                                 <li className={classes.root}>
                                                     <AvTimerRoundedIcon />
-                                                    <Typography
-                                                        className={classes.font}
-                                                    >
-                                                        {/* Age {age} */}
+                                                    <Typography className={classes.font}>
+                                                        {profile.data !== undefined
+                                                            ? profile.data.data[0]
+                                                                .age
+                                                            : null}
                                                     </Typography>
                                                 </li>
                                                 <li className={classes.root}>
@@ -219,16 +221,10 @@ function Dashboard() {
                                             <TableCell className={classes.font}>
                                                 <h3>About :</h3>
                                                 <li className={classes.root}>
-                                                    Dinding ba dinding oi
-                                                    dinding ba dinding
-                                                </li>
-                                                <li className={classes.root}>
-                                                    Dinding ba dinding oi
-                                                    dinding ba dinding
-                                                </li>
-                                                <li className={classes.root}>
-                                                    Dinding ba dinding oi
-                                                    dinding ba dinding
+                                                    {profile.data !== undefined
+                                                        ? profile.data.data[0]
+                                                            .about
+                                                        : null}
                                                 </li>
                                             </TableCell>
                                         </TableRow>
