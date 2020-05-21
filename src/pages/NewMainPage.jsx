@@ -17,6 +17,7 @@ import Carousel from "../components/Carousel2"
 import { Paper, TableCell } from "@material-ui/core";
 
 
+
 const drawerWidth = 240;
 
 const ColoredLine = ({ color }) => (
@@ -108,10 +109,14 @@ const useStyles = makeStyles((theme) => ({
         // background: "lightblue",
         textAlign: "center",
         color: theme.palette.text.secondary,
+        
+        
     },
     fixedHeight: {
-        height: 180,
-        opacity: 0.5,
+        height: 450,
+        width: 350,
+        margin: 0,
+        
     },
 }));
 
@@ -127,7 +132,7 @@ export default function MainPage() {
     }, [dispatch]);
 
     const classes = useStyles();
-
+    
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -154,6 +159,16 @@ export default function MainPage() {
                         </Grid>
                     </Grid>
 
+
+                    <Grid container spacing={3}>
+                    <Grid item xs={12} md={12} lg={1}>
+                        <Paper >
+                            {/* pembatas */}
+                        </Paper>
+                    </Grid>
+
+                    <Grid item xs={12} md={12} lg={10}>
+                        <div>
                     <Grid container spacing={3}>
                         {result.data !== undefined &&
                             result.data.map((item) => {
@@ -174,7 +189,19 @@ export default function MainPage() {
                                     </Grid>
                                 );
                             })}
-                    </Grid>                        
+                    </Grid> 
+                    </div>
+                    </Grid>
+
+                    <Grid item xs={12} md={12} lg={1}>
+                        <Paper >
+                            {/* pembatas */}
+                        </Paper>
+                    </Grid>
+                    </Grid>
+
+
+                                        
 
                     <div style={{ marginTop: 100, marginBottom: 100}}>  
                     <h1
