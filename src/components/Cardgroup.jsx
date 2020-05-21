@@ -32,6 +32,10 @@ const useStyles = makeStyles({
 export default function MediaCard(props) {
     const classes = useStyles();
 
+    console.log(props.id,"propsd");
+    
+    
+
     return (
         <Card className={classes.root}>
             <div>
@@ -53,7 +57,7 @@ export default function MediaCard(props) {
                     <Chip
                         label="View Profile"
                         component="a"
-                        href="#chip"
+                        href="/profile/"
                         clickable
                         className={classes.button}
                     />

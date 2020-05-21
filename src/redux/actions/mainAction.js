@@ -31,6 +31,21 @@ export const fetchAllTrip = () => {
     };
 };
 
+export const joinTrip = (id,members) => {
+    return (dispatch) => {
+        return axios
+            .put(`${apiUrl}trips/addMember/${id}`, {member:members})
+            .then((response) => {
+                console.log(response,"response");
+                alert("udah join")
+                // dispatch(fetchTripSukses(response.data.data));
+            })
+            .catch((error) => {
+                throw error;
+            });
+    };
+};
+
 export const fetchTripSukses = (data) => {
     return {
         type: "SET_MAIN",

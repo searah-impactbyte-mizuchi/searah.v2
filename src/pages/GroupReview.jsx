@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+import {
+    useParams
+} from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Box from "@material-ui/core/Box";
@@ -133,19 +136,28 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Dashboard() {
+export default function GroupReview() {
+    const { id } = useParams();
+
     const classes = useStyles();
 
     const review = useSelector((state) => {
+
         return state.userReview;
+
     });
     const dispatch = useDispatch();
 
+
     useEffect(() => {
-        dispatch(fetchReview());
+        dispatch(fetchReview(id));
     }, [dispatch]);
 
+    console.log(review.length > 0 &&
+        review[0], "reviewaa");
+
     return (
+
         <div className={classes.root}>
             <CssBaseline />
             <main className={classes.content}>
@@ -183,8 +195,10 @@ export default function Dashboard() {
                                                         className={classes.font}
                                                     >
                                                         {review.length > 0 &&
-                                                            review[0].from}
+                                                            review[0].from} to {review.length > 0 &&
+                                                                review[0].to}
                                                     </Typography>
+
                                                 </li>
                                             </TableCell>
                                         </TableRow>
@@ -218,7 +232,10 @@ export default function Dashboard() {
 
                                         <TableRow>
                                             <TableCell className={classes.font}>
-                                                <h3>Trip Created by Popom</h3>
+                                                <h3>Trip Created by  {review.length > 0 &&
+                                                    review[0]['user.username']}
+
+                                                </h3>
                                                 <Grid container spacing={3}>
                                                     <Grid>
                                                         <img
@@ -226,7 +243,7 @@ export default function Dashboard() {
                                                                 (review.length >
                                                                     0 &&
                                                                     review[0][
-                                                                        "user.avatar"
+                                                                    "user.avatar"
                                                                     ]) ||
                                                                 null
                                                             }
@@ -239,20 +256,7 @@ export default function Dashboard() {
 
                                                     <Grid>
                                                         <h4>Contact me :</h4>
-                                                        <li
-                                                            className={
-                                                                classes.root
-                                                            }
-                                                        >
-                                                            <PermPhoneMsgIcon />
-                                                            <Typography
-                                                                className={
-                                                                    classes.font
-                                                                }
-                                                            >
-                                                                (+62)812-345-678
-                                                            </Typography>
-                                                        </li>
+
                                                         <li
                                                             className={
                                                                 classes.root
@@ -264,7 +268,9 @@ export default function Dashboard() {
                                                                     classes.font
                                                                 }
                                                             >
-                                                                popom@gmail.com
+                                                                {review.length > 0 &&
+                                                                    review[0]['user.email']}
+
                                                             </Typography>
                                                         </li>
                                                     </Grid>
@@ -276,7 +282,7 @@ export default function Dashboard() {
                                                         }
                                                         label="View Profile"
                                                         component="a"
-                                                        href="#chip"
+                                                        href="./profile"
                                                         clickable
                                                         className={
                                                             classes.button
@@ -307,6 +313,7 @@ export default function Dashboard() {
                                             <Cardgroup
                                                 username={item.username}
                                                 avatar={item.avatar}
+                                                id={item.id}
                                             />
                                         </Paper>
                                     </Grid>

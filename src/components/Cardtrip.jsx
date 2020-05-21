@@ -72,7 +72,7 @@ export default function MediaControlCard() {
         <Chip 
           label="View Details" 
           component="a" 
-          href="/review"
+          href="/"
           clickable
           className={classes.button}
           />

@@ -1,4 +1,10 @@
 import React from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -35,9 +41,8 @@ export default function ImgMediaCard(props) {
                     component="img"
                     alt="Contemplative Reptile"
                     height="240"
-                    image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTpG49OSZb11MZ9KX1aSFly9lnNxBbZck55f9uYpbYEzd9bHO9B&usqp=CAU"
+                    image={props.avatar}
                     title="Contemplative Reptile"
-                    href="/review"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -60,6 +65,11 @@ export default function ImgMediaCard(props) {
                 <Button size="small" color="primary" onClick={() => props.addMember(props.id)}>
                     Join
                 </Button>
+                <Link to={`/review/${props.id}`}>
+                    <Button size="small" color="primary" href="" onClick="">
+                        View
+                </Button>
+                </Link>
             </CardActions>
         </Card>
     );

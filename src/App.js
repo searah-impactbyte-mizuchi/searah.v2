@@ -17,8 +17,8 @@ function App() {
                     <Route exact path="/" component={SignIn} />
                     <Route exact path="/sign-up" component={SignUp} />
                     <Route exact path="/main-page" component={Mainpage} />
-                    <Route exact path="/profile" component={Profile} />
-                    <Route exact path="/review" component={GroupReview} />
+                    <Route exact path="/profile/:id" component={Profile} />
+                    <Route exact path="/review/:id" component={GroupReview} />
                     <Route exact path="/trips" component={StartTrip} />
                 </Switch>
             </Router>

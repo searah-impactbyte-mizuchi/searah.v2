@@ -11,7 +11,7 @@ import SearchInput from "../components/searchbar";
 import ReviewCard from "../components/ReviewCard";
 
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllTrip } from "../redux/actions/mainAction";
+import { fetchAllTrip, joinTrip } from "../redux/actions/mainAction";
 import { getUser } from "../redux/actions/userActions";
 
 const drawerWidth = 240;
@@ -112,10 +112,20 @@ export default function MainPage() {
     }, [dispatch]);
 
     const classes = useStyles();
+
+    const Uid = localStorage.getItem('userid')
+
+    localStorage.getItem('userid', JSON.stringify(Uid))
+
+    console.log(Uid,"test");
     
+    
+
     const addMember = (id) => {
-        console.log(id);
-        
+        dispatch(joinTrip(
+            id, 
+            Uid,
+        ))
     }
 
     return (
@@ -146,7 +156,6 @@ export default function MainPage() {
                     <Grid container spacing={3}>
                         {result.data !== undefined &&
                             result.data.map((item) => {
-                                console.log(result);
                                 
                                 return (
                                     <Grid
@@ -160,6 +169,7 @@ export default function MainPage() {
                                             <CityCard
                                                 destination={item.destination}
                                                 description={item.description}
+                                                avatar={item.user.avatar}
                                                 addMember={addMember}
                                                 id={item.id}
                                             />

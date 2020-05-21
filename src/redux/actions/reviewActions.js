@@ -8,10 +8,10 @@ export const setReview = (payload) => {
     };
 };
 
-export const fetchReview = () => (dispatch) => {
+export const fetchReview = (id) => (dispatch) => {
     const URL = process.env.REACT_APP_API_URL;
     const token = localStorage.getItem("token");
-    const url = `${URL}/trips/41`;
+    const url = `${URL}/trips/${id}`;
     const options = {
         headers: {
             Authorization: token,
@@ -20,6 +20,8 @@ export const fetchReview = () => (dispatch) => {
 
     fetch(url, options)
         .then((response) => {
+            console.log(response,"reponse");
+            
             return response.json();
         })
         .then((result) => {
