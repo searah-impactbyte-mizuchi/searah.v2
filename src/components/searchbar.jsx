@@ -32,7 +32,7 @@ function SearchInput() {
                     /* and other goodies */
                 }) => (
                     <form onSubmit={handleSubmit}>
-                        <h3>search disini</h3>
+                        <h3>Search here</h3>
                         <TextField
                             id="destination"
                             name="destination"
@@ -59,6 +59,7 @@ function SearchInput() {
                             variant="contained"
                             color="secondary"
                             type="submit"
+                            style={{ marginLeft: 16}}
                         >
                             Start your journey here <SearchIcon />
                         </Button>

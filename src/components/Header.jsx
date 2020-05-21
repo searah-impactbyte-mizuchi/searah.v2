@@ -22,20 +22,20 @@ const useStyles = makeStyles((theme) => ({
     },
     appBar: {
         borderBottom: `1px solid ${theme.palette.divider}`,
-        background: "#0c3854",
+        background: "#1F618D",
     },
     toolbar: {
         flexWrap: "wrap",
     },
     toolbarTitle: {
         flexGrow: 1,
-        color: "#fae7c5",
+        color: "white",
         fontFamily: "Fredericka the Great, cursive",
         fontSize: 40,
     },
     link: {
         margin: theme.spacing(1, 1.5),
-        color: "#fae7c5",
+        color: "white",
         fontFamily: "Comfortaa, cursive",
     },
     image: {
@@ -55,6 +55,7 @@ export default function Pricing() {
                     color="default"
                     elevation={0}
                     className={classes.appBar}
+                    
                 >
                     <Toolbar className={classes.toolbar}>
                         <Typography
@@ -90,6 +91,14 @@ export default function Pricing() {
                                 className={classes.link}
                             >
                                 Profile
+                            </Link>
+                            <Link
+                                variant="button"
+                                color="textPrimary"
+                                href="./profile"
+                                className={classes.link}
+                            >
+                                About us
                             </Link>
                             <Link
                                 variant="button"
