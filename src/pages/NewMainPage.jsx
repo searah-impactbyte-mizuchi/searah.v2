@@ -111,7 +111,7 @@ export default function MainPage() {
     }, [dispatch]);
 
     const classes = useStyles();
-
+    
     const addMember = (id) => {
         console.log(id);
         

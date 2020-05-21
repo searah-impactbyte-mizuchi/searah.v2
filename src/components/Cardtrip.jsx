@@ -73,7 +73,6 @@ export default function MediaControlCard() {
           label="View Details" 
           component="a" 
           href="/review"
-          onClick
           clickable
           className={classes.button}
           />

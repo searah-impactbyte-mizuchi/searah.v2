@@ -3,10 +3,14 @@ import axios from "axios";
 const apiUrl = "https://searah.herokuapp.com/";
 
 export const fetchTrip = (data) => {
-    return (dispatch) => {
+    console.log(data,"data");
+    return (dispatch) => {   
         return axios
             .get(`${apiUrl}trips/find/${data.destination}`, {})
-            .then((response) => {})
+            .then((response) => {
+                dispatch(fetchTripSukses(response.data.data));
+                
+            })
             .catch((error) => {
                 throw error;
             });

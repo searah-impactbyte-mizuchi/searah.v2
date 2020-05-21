@@ -41,7 +41,7 @@ export default function MediaCard(props) {
                 <Chip
                     label="Edit Image"
                     component="a"
-                    href="/http://localhost:3000/review"
+                    href="/review"
                     clickable
                     className={classes.button}
                 />
