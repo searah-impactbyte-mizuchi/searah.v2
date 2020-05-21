@@ -117,7 +117,7 @@ export default function MainPage() {
 
     localStorage.getItem('userid', JSON.stringify(Uid))
 
-    console.log(Uid,"test");
+    // console.log(Uid,"test");
     
     
 
