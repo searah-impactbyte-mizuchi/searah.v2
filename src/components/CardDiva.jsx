@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Logo from '../components/logo/profile.JPG'
+import Logo from '../components/logo/Diva.JPG'
 import { List } from '@material-ui/core';
 
 const list = {
@@ -23,9 +23,11 @@ const useStyles = makeStyles({
   },
   text: {
     textAlign: "center",
+    fontFamily: "Comfortaa, cursive",
   },
   text2: {
-    textAlign: "center"
+    textAlign: "center",
+    fontFamily: "Comfortaa, cursive",
   },
 });
 

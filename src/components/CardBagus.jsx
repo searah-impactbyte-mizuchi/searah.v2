@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Logo from '../components/logo/profile.JPG'
+import Logo from '../components/logo/Bagus2.JPG'
 import { List } from '@material-ui/core';
 
 const list = {
@@ -23,9 +23,11 @@ const useStyles = makeStyles({
   },
   text: {
     textAlign: "center",
+    fontFamily: "Comfortaa, cursive",
   },
   text2: {
-    textAlign: "center"
+    textAlign: "center",
+    fontFamily: "Comfortaa, cursive",
   },
 });
 
@@ -42,7 +44,7 @@ export default function MediaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" className={classes.text2}>
-            Bagus
+            Bagus Mahardika
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
            <li style={list} className={classes.text}>
