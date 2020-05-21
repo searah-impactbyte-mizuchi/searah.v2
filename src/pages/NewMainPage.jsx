@@ -104,6 +104,7 @@ export default function MainPage() {
         return state.tripView;
     });
 
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -145,6 +146,8 @@ export default function MainPage() {
                     <Grid container spacing={3}>
                         {result.data !== undefined &&
                             result.data.map((item) => {
+                                console.log(result);
+                                
                                 return (
                                     <Grid
                                         item
