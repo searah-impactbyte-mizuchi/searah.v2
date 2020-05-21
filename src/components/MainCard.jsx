@@ -37,6 +37,7 @@ export default function ImgMediaCard(props) {
                     height="240"
                     image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTpG49OSZb11MZ9KX1aSFly9lnNxBbZck55f9uYpbYEzd9bHO9B&usqp=CAU"
                     title="Contemplative Reptile"
+                    href="/review"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -56,8 +57,8 @@ export default function ImgMediaCard(props) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
-                    Click to go
+                <Button size="small" color="primary" onClick={() => props.addMember(props.id)}>
+                    Join
                 </Button>
             </CardActions>
         </Card>

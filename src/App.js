@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
-import GroupReview from "./pages/Groupreview";
+import GroupReview from "./pages/GroupReview";
 import Mainpage from "./pages/NewMainPage";
 import StartTrip from "./pages/StartTrip";
 import AboutUs from "./pages/Aboutus"
+
 
 function App() {
     return (
