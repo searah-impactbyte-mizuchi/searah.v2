@@ -1,3 +1,4 @@
+ 
 export const SET_REVIEW = "SET_REVIEW";
 
 export const setReview = (payload) => {
@@ -8,7 +9,7 @@ export const setReview = (payload) => {
 };
 
 export const fetchReview = () => (dispatch) => {
-    const URL = process.env.REACT_APP_API_APIURL
+    const URL = process.env.REACT_APP_API_URL;
     const token = localStorage.getItem("token");
     const url = `${URL}/trips/41`;
     const options = {

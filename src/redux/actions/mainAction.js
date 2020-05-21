@@ -8,8 +8,7 @@ export const fetchTrip = (data) => {
         return axios
             .get(`${apiUrl}trips/find/${data.destination}`, {})
             .then((response) => {
-                dispatch(fetchTripSukses(response.data.data));
-                
+                dispatch(fetchTripSukses(response.data.data)); 
             })
             .catch((error) => {
                 throw error;
@@ -22,6 +21,8 @@ export const fetchAllTrip = () => {
         return axios
             .get(`${apiUrl}trips/`, {})
             .then((response) => {
+                console.log(response);
+                
                 dispatch(fetchTripSukses(response.data.data));
             })
             .catch((error) => {
