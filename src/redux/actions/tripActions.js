@@ -2,7 +2,7 @@ import axios from "axios";
 
 // import { UPDATE_USER, GET_USER } from "./types";
 
-const apiUrl = "https://searah.herokuapp.com/trips";
+const apiUrl = "https://backend-searah.herokuapp.com/trips";
 
 // Get user data from API
 // export const getUser = (id) => {
@@ -41,6 +41,8 @@ export const addTrip = (values) => {
         return axios
             .post(`${apiUrl}`, {...values,members: localStorage.getItem('userid')})
             .then((response) => {
+                console.log(response,"response");
+                
                 dispatch(addTripSuccess(response.data));
             })
             .catch((error) => {

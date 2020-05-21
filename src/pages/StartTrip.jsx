@@ -24,7 +24,7 @@ import MeetupPoint from "./Trip/MeetupPoint";
 import Box from "@material-ui/core/Box";
 import Footer from "../components/Footer";
 import { Formik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { addTrip } from "../redux/actions/tripActions";
 
@@ -271,7 +271,8 @@ export default function Dashboard() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    
+
+ 
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -287,6 +288,10 @@ export default function Dashboard() {
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const Uid = localStorage.getItem('userid')
     localStorage.getItem('userid', JSON.stringify(Uid))
+    const trip = useSelector((state) => state.createTripView);
+    console.log(trip,"trips");
+    
+    
 
     return (
         <div
@@ -337,7 +342,8 @@ export default function Dashboard() {
                                     user_id: Uid,
                                     members: "",
                                     from: new Date("2020-05-22T21:11:54"),
-                                    to: new Date("2020-05-23T21:11:54"),
+                                    to: new Date("2020-05-23T21:11:54"),    
+                                    trips_created: "{trip.id}",
                                 }}
                                 validate={(values) => {
                                     const errors = {};
@@ -365,7 +371,7 @@ export default function Dashboard() {
                                     console.log(values);
                                     history.push("./profile");
                                     // setTimeout(() => {
-                                    // alert(JSON.stringify(values, null, 2));
+                                    alert(JSON.stringify(values, null, 2));
                                     // }, 400);
                                 }}
                             >

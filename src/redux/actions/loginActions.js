@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "https://searah.herokuapp.com/users";
+const apiUrl = "https://backend-searah.herokuapp.com/users";
 
 export const loginUser = (values, history) => {
     return (dispatch) => {

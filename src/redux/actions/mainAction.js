@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "https://searah.herokuapp.com/";
+const apiUrl = "https://backend-searah.herokuapp.com/";
 
 export const fetchTrip = (data) => {
     return (dispatch) => {   
