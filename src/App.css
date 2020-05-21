@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
-@import '~antd/dist/antd.css';
+/* @import '~antd/dist/antd.css'; */
 
 /* body {
   
@@ -16,9 +16,9 @@
     
 } */
 
-.ant-carousel .slick-slide {
+/* .ant-carousel .slick-slide {
     text-align: center;
-    /* height: 160px; */
+    height: 160px;
     max-height: 300px;
     background: #364d79;
     overflow: hidden;
@@ -27,4 +27,4 @@
   
   .ant-carousel .slick-slide h3 {
     color: #fff;
-  }
+  } */

@@ -206,37 +206,10 @@ export default function MainPage() {
                         }}
                     >
                         {" "}
-                        Review{" "}
+                        Explore{" "}
                     </h1>
                     <ColoredLine color="black" />
                     </div>
-
-                    <Grid container spacing={3}>
-                        <Grid item xs={12} md={4} lg={3}>
-                            <div className={classes.paper}>
-                                <ReviewCard />
-                            </div>
-                        </Grid>
-
-                        <Grid item xs={12} md={4} lg={3}>
-                            <div className={classes.paper}>
-                                <ReviewCard />
-                            </div>
-                        </Grid>
-
-                        <Grid item xs={12} md={4} lg={3}>
-                            <div className={classes.paper}>
-                                <ReviewCard />
-                            </div>
-                        </Grid>
-
-                        <Grid item xs={12} md={4} lg={3}>
-                            <div className={classes.paper}>
-                                <ReviewCard />
-                            </div>
-                        </Grid>
-                    </Grid>
-
 
                     {/* <Grid container spacing={3}>
                         <Grid item xs={12} md={6} lg={6}>

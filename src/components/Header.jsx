@@ -103,7 +103,7 @@ export default function Pricing() {
                             <Link
                                 variant="button"
                                 color="textPrimary"
-                                href="./profile"
+                                href="./"
                                 className={classes.link}
                             >
                                 Logout

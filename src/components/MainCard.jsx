@@ -48,16 +48,15 @@ export default function ImgMediaCard(props) {
                     <Typography gutterBottom variant="h5" component="h2">
                         <LocationOnIcon /> {props.destination}
                     </Typography>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    {/* <Typography gutterBottom variant="h5" component="h2">
                         {props.description}
-                    </Typography>
+                    </Typography> */}
                     <Typography
                         variant="body2"
                         color="textSecondary"
                         component="p"
                     >
-                        Hello! I am from Canada and going to Bali for about 2
-                        weeks. I love surfing (even if I only did i...
+                            {props.description}
                     </Typography>
                 </CardContent>
             </CardActionArea>

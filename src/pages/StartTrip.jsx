@@ -271,6 +271,8 @@ export default function Dashboard() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    
+
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
@@ -358,11 +360,12 @@ export default function Dashboard() {
                                     return errors;
                                 }}
                                 onSubmit={async (values) => {
-                                    console.log(values);
+                                    
                                     await dispatch(addTrip(values));
-                                    history.push("./review");
+                                    console.log(values);
+                                    history.push("./profile");
                                     // setTimeout(() => {
-                                    alert(JSON.stringify(values, null, 2));
+                                    // alert(JSON.stringify(values, null, 2));
                                     // }, 400);
                                 }}
                             >
