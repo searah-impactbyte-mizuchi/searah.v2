@@ -44,7 +44,7 @@ export default function MediaCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" className={classes.text2}>
-            Erfan
+            Erfan Noer Rochman
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
            <li style={list} className={classes.text}>
