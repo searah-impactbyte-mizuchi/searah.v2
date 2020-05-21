@@ -139,6 +139,8 @@ export default function Dashboard() {
     const review = useSelector((state) => {
         return state.userReview;
     });
+    console.log(review[0],"log review");
+    
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -239,7 +241,7 @@ export default function Dashboard() {
 
                                                     <Grid>
                                                         <h4>Contact me :</h4>
-                                                        <li
+                                                        {/* <li
                                                             className={
                                                                 classes.root
                                                             }
@@ -252,7 +254,7 @@ export default function Dashboard() {
                                                             >
                                                                 (+62)812-345-678
                                                             </Typography>
-                                                        </li>
+                                                        </li> */}
                                                         <li
                                                             className={
                                                                 classes.root
@@ -264,7 +266,12 @@ export default function Dashboard() {
                                                                     classes.font
                                                                 }
                                                             >
-                                                                popom@gmail.com
+                                                                {(review.length >
+                                                                    0 &&
+                                                                    // review[0]["user.email"]
+                                                                    review[0].user
+                                                                        ) ||
+                                                                null}
                                                             </Typography>
                                                         </li>
                                                     </Grid>
@@ -276,7 +283,7 @@ export default function Dashboard() {
                                                         }
                                                         label="View Profile"
                                                         component="a"
-                                                        href="#chip"
+                                                        href="./profile"
                                                         clickable
                                                         className={
                                                             classes.button
