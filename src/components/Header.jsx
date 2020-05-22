@@ -3,7 +3,8 @@ import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
+// import Link from "@material-ui/core/Link";
+import {Link} from "react-router-dom"
 import { makeStyles } from "@material-ui/core/styles";
 import "../App.css";
 
@@ -43,8 +44,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Pricing() {
+export default function Header() {
     const classes = useStyles();
+    const Uid = localStorage.getItem('userid');
 
     return (
         <div className={classes.root}>
@@ -71,7 +73,7 @@ export default function Pricing() {
                             <Link
                                 variant="button"
                                 color="textPrimary"
-                                href="./main-page"
+                                to="/main-page"
                                 className={classes.link}
                             >
                                 Home
@@ -79,7 +81,7 @@ export default function Pricing() {
                             <Link
                                 variant="button"
                                 color="textPrimary"
-                                href="./trips"
+                                to="/trips"
                                 className={classes.link}
                             >
                                 Start a trip
@@ -87,7 +89,7 @@ export default function Pricing() {
                             <Link
                                 variant="button"
                                 color="textPrimary"
-                                href="./profile"
+                                to={`/profile/${Uid}`}
                                 className={classes.link}
                             >
                                 Profile
@@ -95,7 +97,7 @@ export default function Pricing() {
                             <Link
                                 variant="button"
                                 color="textPrimary"
-                                href="./profile"
+                                to="/about"
                                 className={classes.link}
                             >
                                 About us
@@ -103,7 +105,7 @@ export default function Pricing() {
                             <Link
                                 variant="button"
                                 color="textPrimary"
-                                href="./"
+                                to="/"
                                 className={classes.link}
                             >
                                 Logout

@@ -1,8 +1,9 @@
 import axios from "axios";
-
+import { useHistory } from "react-router-dom";
 // import { UPDATE_USER, GET_USER } from "./types";
 
 const apiUrl = "https://backend-searah.herokuapp.com/trips";
+
 
 // Get user data from API
 // export const getUser = (id) => {
@@ -36,14 +37,13 @@ const apiUrl = "https://backend-searah.herokuapp.com/trips";
 // };
 
 // Post new user data to API
-export const addTrip = (values) => {
+export const addTrip = (values, history) => {
     return (dispatch) => {
         return axios
             .post(`${apiUrl}`, {...values,members: localStorage.getItem('userid')})
             .then((response) => {
-                console.log(response,"response");
-                
-                dispatch(addTripSuccess(response.data));
+                dispatch(addTripSuccess(response.data));     
+                history.push(`/review/${response.data.data.id}`);
             })
             .catch((error) => {
                 throw error;
@@ -62,6 +62,31 @@ export const addTripSuccess = (data) => {
     };
 };
 
+
+export const fetchTripById = (id) => {
+    return (dispatch) => {
+        return axios
+            .get(`${apiUrl}/byuser/${id}`)
+            .then((response) => {
+                dispatch(getTripId(response.data));
+                // console.log(response);
+                
+            })
+            .catch((error) => {
+                throw error;
+            });
+    };
+};
+
+export const getTripId = (data) => {
+    
+    return {
+        type: "GET_TRIP",
+        payload: {
+            data,
+        },
+    };
+};
 // Edit user data and send it to API
 // export const updateUser = (userProfile) => async (dispatch) => {
 //     const { id } = userProfile;

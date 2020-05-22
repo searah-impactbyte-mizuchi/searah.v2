@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import {
-    useParams
+    useParams,
+    Link
 } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -107,9 +108,6 @@ const useStyles = makeStyles((theme) => ({
         // background: "#fafafa"
     },
     fixedHeight: {
-        height: 1000,
-    },
-    font: {
         fontFamily: "Comfortaa, cursive",
     },
     table: {
@@ -148,6 +146,8 @@ export default function GroupReview() {
     });
     const dispatch = useDispatch();
 
+    const Uid = localStorage.getItem('userid')
+
 
     useEffect(() => {
         dispatch(fetchReview(id));
@@ -176,9 +176,6 @@ export default function GroupReview() {
                                                         review[0].title}
                                                 </h1>
                                             </TableCell>
-                                        </TableRow>
-
-                                        <TableRow>
                                             <TableCell>
                                                 <li className={classes.root}>
                                                     <RoomIcon />
@@ -274,20 +271,23 @@ export default function GroupReview() {
                                                         </li>
                                                     </Grid>
                                                 </Grid>
-                                                <Grid>
-                                                    <Chip
-                                                        icon={
-                                                            <AccountCircleIcon />
-                                                        }
-                                                        label="View Profile"
-                                                        component="a"
-                                                        href="./profile"
-                                                        clickable
-                                                        className={
-                                                            classes.button
-                                                        }
-                                                    />
-                                                </Grid>
+                                                {/* <Grid>
+                                                    <Link
+                                                        to={`/profile/${Uid}`}
+                                                    >
+                                                        <Chip
+                                                            icon={
+                                                                <AccountCircleIcon />
+                                                            }
+                                                            label="View Profile"
+                                                            component="a"
+                                                            clickable
+                                                            className={
+                                                                classes.button
+                                                            }
+                                                        />
+                                                    </Link>
+                                                </Grid> */}
                                             </TableCell>
                                         </TableRow>
                                     </TableBody>
@@ -300,6 +300,8 @@ export default function GroupReview() {
                     <Grid container spacing={3}>
                         {review.length > 0 &&
                             review[0].members.map((item) => {
+                                // console.log(item,"ini isi item review");
+                                
                                 return (
                                     <Grid
                                         item
@@ -321,8 +323,8 @@ export default function GroupReview() {
                     </Grid>
 
                     <div className={classes.checkbox}>
-                        <Checkbox />
-                        <h3 className={classes.font}>Review :</h3>
+                        {/* <Checkbox /> */}
+                        {/* <h3 className={classes.font}>Review :</h3>
                         <TextareaAutosize
                             aria-label="empty textarea"
                             rowsMax={5}
@@ -331,7 +333,7 @@ export default function GroupReview() {
                             className={classes.font}
                         />
                         <h3 className={classes.font}>Rate this Trip :</h3>
-                        <Rate />
+                        <Rate /> */}
                     </div>
 
                     <Box pt={4}>
