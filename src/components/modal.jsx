@@ -79,10 +79,10 @@ function FormDialog({ updateUser }) {
         getUser(userProfile.id);
 
         setOpen(false);
-        // setTimeout(() => {
-        //     window.location.reload()
+        setTimeout(() => {
+            window.location.reload()
         
-        // }, 1000 );
+        }, 1000 );
     }
 
     return (
