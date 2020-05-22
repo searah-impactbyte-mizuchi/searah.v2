@@ -8,6 +8,7 @@ import Logo from "./logo/profile.JPG";
 import "../App.css";
 import Chip from "@material-ui/core/Chip";
 import { Typography } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
     root: {
@@ -29,12 +30,12 @@ const useStyles = makeStyles({
     },
 });
 
-export default function MediaCard(props) {
+export default function CardGroup(props) {
     const classes = useStyles();
 
-    console.log(props.id,"propsd");
-    
-    
+    console.log(props, "propsd");
+
+
 
     return (
         <Card className={classes.root}>
@@ -54,13 +55,14 @@ export default function MediaCard(props) {
                     {props.username}
                 </Typography>
                 <CardActions>
-                    <Chip
-                        label="View Profile"
-                        component="a"
-                        href="/profile/"
-                        clickable
-                        className={classes.button}
-                    />
+                    <Link to={`/profile/${props.id}`} style={{textDecoration: "none"}}>
+                        <Chip
+                            label="View Profile"
+                            component="a"
+                            clickable
+                            className={classes.button}
+                        />
+                    </Link>
                 </CardActions>
             </div>
         </Card>

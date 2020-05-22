@@ -271,7 +271,7 @@ export default function GroupReview() {
                                                         </li>
                                                     </Grid>
                                                 </Grid>
-                                                <Grid>
+                                                {/* <Grid>
                                                     <Link
                                                         to={`/profile/${Uid}`}
                                                     >
@@ -287,7 +287,7 @@ export default function GroupReview() {
                                                             }
                                                         />
                                                     </Link>
-                                                </Grid>
+                                                </Grid> */}
                                             </TableCell>
                                         </TableRow>
                                     </TableBody>
@@ -300,6 +300,8 @@ export default function GroupReview() {
                     <Grid container spacing={3}>
                         {review.length > 0 &&
                             review[0].members.map((item) => {
+                                // console.log(item,"ini isi item review");
+                                
                                 return (
                                     <Grid
                                         item
@@ -321,8 +323,8 @@ export default function GroupReview() {
                     </Grid>
 
                     <div className={classes.checkbox}>
-                        <Checkbox />
-                        <h3 className={classes.font}>Review :</h3>
+                        {/* <Checkbox /> */}
+                        {/* <h3 className={classes.font}>Review :</h3>
                         <TextareaAutosize
                             aria-label="empty textarea"
                             rowsMax={5}
@@ -331,7 +333,7 @@ export default function GroupReview() {
                             className={classes.font}
                         />
                         <h3 className={classes.font}>Rate this Trip :</h3>
-                        <Rate />
+                        <Rate /> */}
                     </div>
 
                     <Box pt={4}>
