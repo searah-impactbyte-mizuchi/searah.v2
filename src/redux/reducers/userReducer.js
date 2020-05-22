@@ -9,7 +9,7 @@ const userReducer = (state = initialState, action) => {
         case GET_USER:
             return action.payload;
         case "POST_USER":
-            return [...state, action.payload];
+            return action.payload;
         case UPDATE_USER:
             return {
                 user: action.payload,

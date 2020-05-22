@@ -147,6 +147,7 @@ function Dashboard() {
         dispatch(fetchProfile(getProfile))
         dispatch(fetchTripById(id))
     }, [dispatch, getProfile]);
+    
 
     return (
         <div className={classes.root}>

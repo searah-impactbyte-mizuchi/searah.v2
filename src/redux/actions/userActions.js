@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { UPDATE_USER, GET_USER } from "./types";
 
-const apiUrl = "https://searah.herokuapp.com/users";
+const apiUrl = "https://searah.herokuapp.com/users/";
 
 // Get user data from API
 export const getUser = (id) => {
@@ -36,12 +36,13 @@ export const getUserSuccess = (users) => {
 };
 
 // Post new user data to API
-export const addUser = (values) => {
+export const addUser = (values,history) => {
     return (dispatch) => {
         return axios
             .post(`${apiUrl}`, values)
             .then((response) => {
                 dispatch(addUserSuccess(response.data));
+                history.push(`/`);
             })
             .catch((error) => {
                 throw error;

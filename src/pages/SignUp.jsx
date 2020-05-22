@@ -163,9 +163,9 @@ export default function SignUp() {
 
                         return errors;
                     }}
-                    onSubmit={async (values) => {
-                        await dispatch(addUser(values));
-                        history.push("/");
+                    onSubmit={async (values,) => {
+                        await dispatch(addUser(values, history));
+            
                     }}
                 >
                     {({

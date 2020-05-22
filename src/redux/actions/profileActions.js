@@ -7,6 +7,8 @@ export const fetchProfile = (id) => {
             .get(`${apiUrl}/${id}`)
             .then((response) => {
                 dispatch(fetchingSukses(response.data));
+                console.log(response,"response");
+                
             })
 
             .catch((error) => {
