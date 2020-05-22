@@ -15,6 +15,7 @@ import { fetchAllTrip, joinTrip } from "../redux/actions/mainAction";
 import { getUser } from "../redux/actions/userActions";
 import Carousel from "../components/Carousel2"
 import { Paper, TableCell } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 
 const drawerWidth = 240;
@@ -129,6 +130,8 @@ export default function MainPage() {
 
     const classes = useStyles();
 
+    const history = useHistory();
+
     const Uid = localStorage.getItem('userid')
 
     localStorage.getItem('userid', JSON.stringify(Uid))
@@ -141,6 +144,7 @@ export default function MainPage() {
         dispatch(joinTrip(
             id, 
             Uid,
+            history,
         ))
     }
 

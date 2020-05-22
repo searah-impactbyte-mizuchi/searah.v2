@@ -16,7 +16,9 @@ export const loginUser = (values, history) => {
                 }
             })
             .catch((error) => {
-                alert(error.message);
+                // console.log(error.response.data.message,"errorini");
+                
+                alert(error.response.data.message);
                 throw error;
             });
     };

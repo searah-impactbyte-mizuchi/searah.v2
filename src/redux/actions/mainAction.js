@@ -31,13 +31,14 @@ export const fetchAllTrip = () => {
     };
 };
 
-export const joinTrip = (id,members) => {
+export const joinTrip = (id,members,history) => {
     return (dispatch) => {
         return axios
             .put(`${apiUrl}trips/addMember/${id}`, {member:members})
             .then((response) => {
-                console.log(response,"response");
-                alert("udah join")
+                // console.log(response,"response");
+                alert("You have succsessfully join this trip")
+                history.push(`/review/${id}`)
                 // dispatch(fetchTripSukses(response.data.data));
             })
             .catch((error) => {

@@ -300,7 +300,7 @@ export default function GroupReview() {
                     <Grid container spacing={3}>
                         {review.length > 0 &&
                             review[0].members.map((item) => {
-                                // console.log(item,"ini isi item review");
+                                console.log(item,"ini isi item review");
                                 
                                 return (
                                     <Grid

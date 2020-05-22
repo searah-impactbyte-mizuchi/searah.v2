@@ -141,12 +141,15 @@ function Dashboard() {
     const dispatch = useDispatch();
 
     const getProfile = localStorage.getItem("userid");
-    const { id } = useParams();
+    const { id,userid } = useParams();
 
     useEffect(() => {
-        dispatch(fetchProfile(getProfile))
+        dispatch(fetchProfile(id))
         dispatch(fetchTripById(id))
     }, [dispatch, getProfile]);
+
+    console.log(profile,"getprofile");
+    
     
 
     return (
@@ -263,7 +266,14 @@ function Dashboard() {
                                         })}
                                 </Grid>
 
-                                <Modal />
+                                <Modal  
+                                    nameprops={profile.data != undefined && profile.data.data[0].username}
+                                    cityprops={profile.data != undefined && profile.data.data[0].city}
+                                    aboutprops={profile.data != undefined && profile.data.data[0].about}
+                                    ageprops={profile.data != undefined && profile.data.data[0].age}
+                                    avatarprops={profile.data != undefined && profile.data.data[0].avatar}
+                                
+                                />
                             </Paper>
                         </Grid>
                     </Grid>

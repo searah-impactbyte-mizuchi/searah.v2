@@ -79,7 +79,11 @@ function FormDialog({ updateUser }) {
         getUser(userProfile.id);
 
         setOpen(false);
-    };
+        setTimeout(() => {
+            window.location.reload()
+        
+        }, 1000 );
+    }
 
     return (
         <div className={classes.root}>
@@ -113,6 +117,7 @@ function FormDialog({ updateUser }) {
                         fullWidth
                         value={username}
                         onChange={(e) => setName(e.target.value)}
+                    
                     />
                     <TextField
                         margin="dense"
@@ -155,7 +160,7 @@ function FormDialog({ updateUser }) {
                     <Button onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-                    <Button onClick={handleSave} color="primary">
+                    <Button onClick={handleSave} color="primary" >
                         Save
                     </Button>
                 </DialogActions>

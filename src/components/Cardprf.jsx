@@ -37,7 +37,7 @@ export default function MediaCard(props) {
                     title="Contemplative Reptile"
                 />
             </CardActionArea>
-            <CardActions>
+            {/* <CardActions>
                 <Chip
                     label="Edit Image"
                     component="a"
@@ -45,7 +45,7 @@ export default function MediaCard(props) {
                     clickable
                     className={classes.button}
                 />
-            </CardActions>
+            </CardActions> */}
         </Card>
     );
 }
