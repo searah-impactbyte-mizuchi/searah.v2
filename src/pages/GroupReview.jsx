@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import {
-    useParams
+    useParams,
+    Link
 } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -107,9 +108,6 @@ const useStyles = makeStyles((theme) => ({
         // background: "#fafafa"
     },
     fixedHeight: {
-        height: 1000,
-    },
-    font: {
         fontFamily: "Comfortaa, cursive",
     },
     table: {
@@ -148,6 +146,8 @@ export default function GroupReview() {
     });
     const dispatch = useDispatch();
 
+    const Uid = localStorage.getItem('userid')
+
 
     useEffect(() => {
         dispatch(fetchReview(id));
@@ -176,9 +176,6 @@ export default function GroupReview() {
                                                         review[0].title}
                                                 </h1>
                                             </TableCell>
-                                        </TableRow>
-
-                                        <TableRow>
                                             <TableCell>
                                                 <li className={classes.root}>
                                                     <RoomIcon />
@@ -275,18 +272,21 @@ export default function GroupReview() {
                                                     </Grid>
                                                 </Grid>
                                                 <Grid>
-                                                    <Chip
-                                                        icon={
-                                                            <AccountCircleIcon />
-                                                        }
-                                                        label="View Profile"
-                                                        component="a"
-                                                        href="./profile"
-                                                        clickable
-                                                        className={
-                                                            classes.button
-                                                        }
-                                                    />
+                                                    <Link
+                                                        to={`/profile/${Uid}`}
+                                                    >
+                                                        <Chip
+                                                            icon={
+                                                                <AccountCircleIcon />
+                                                            }
+                                                            label="View Profile"
+                                                            component="a"
+                                                            clickable
+                                                            className={
+                                                                classes.button
+                                                            }
+                                                        />
+                                                    </Link>
                                                 </Grid>
                                             </TableCell>
                                         </TableRow>

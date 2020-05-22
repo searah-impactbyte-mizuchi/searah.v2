@@ -3,11 +3,12 @@ const initialState = {
 };
 
 const tripReducer = (state = initialState, action) => {
+    
     switch (action.type) {
-        // case GET_TRIP:
-        //     return action.payload;
+        case "GET_TRIP":
+            return action.payload;
         case "POST_TRIP":
-            return [...state, action.payload];
+            return action.payload;
         // case UPDATE_USER:
         //     return {
         //         user: action.payload,

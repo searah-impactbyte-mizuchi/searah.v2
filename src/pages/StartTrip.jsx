@@ -359,11 +359,11 @@ export default function Dashboard() {
 
                                     return errors;
                                 }}
-                                onSubmit={async (values) => {
+                                onSubmit={ (values) => {
                                     
-                                    await dispatch(addTrip(values));
-                                    console.log(values);
-                                    history.push("./profile");
+                                     dispatch(addTrip(values,history));
+                                    console.log(values, "ini values start trip");
+                                    // history.push("./review/${id}");
                                     // setTimeout(() => {
                                     // alert(JSON.stringify(values, null, 2));
                                     // }, 400);

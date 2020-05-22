@@ -20,8 +20,10 @@ import CheckCircleOutlineRoundedIcon from "@material-ui/icons/CheckCircleOutline
 import "../App.css";
 import Cardtrip from "../components/Cardtrip";
 import Modal from "../components/modal";
-import { fetchProfile } from "../redux/actions/profileActions";
+import { fetchProfile, } from "../redux/actions/profileActions";
+import { fetchTripById, } from "../redux/actions/tripActions";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 const list = {
     listStyle: "none",
@@ -128,14 +130,22 @@ function Dashboard() {
     const profile = useSelector((state) => {
         return state.userProfile;
     });
-    // console.log(profile, "log profile");
+    const trips = useSelector((state) => {
+        return state.getTrip
+
+    });
+
+    console.log(trips, "ini trips");
+
 
     const dispatch = useDispatch();
 
     const getProfile = localStorage.getItem("userid");
+    const { id } = useParams();
 
     useEffect(() => {
-        dispatch(fetchProfile(getProfile));
+        dispatch(fetchProfile(getProfile))
+        dispatch(fetchTripById(id))
     }, [dispatch, getProfile]);
 
     return (
@@ -234,23 +244,22 @@ function Dashboard() {
                                 <h3 className={classes.font2}>Trips Created</h3>
 
                                 <Grid container spacing={3}>
-                                    <Grid item xs={12} md={4} lg={6}>
-                                        <Paper className={classes.trip}>
-                                            <Cardtrip />
-                                        </Paper>
-                                    </Grid>
+                                    {trips.data !== undefined &&
+                                        trips.data.data.map((item) => {
+                                            return (
+                                                <Grid item xs={12} md={4} lg={6}>
+                                                    <Paper className={classes.trip}>
+                                                        <Cardtrip
+                                                            description={item.description}
+                                                            destination={item.destination}
+                                                            from={item.from}
+                                                            id={item.id}
+                                                        />
+                                                    </Paper>
+                                                </Grid>
+                                            )
 
-                                    <Grid item xs={12} md={4} lg={6}>
-                                        <Paper className={classes.trip}>
-                                            <Cardtrip />
-                                        </Paper>
-                                    </Grid>
-
-                                    <Grid item xs={12} md={4} lg={6}>
-                                        <Paper className={classes.trip}>
-                                            <Cardtrip />
-                                        </Paper>
-                                    </Grid>
+                                        })}
                                 </Grid>
 
                                 <Modal />

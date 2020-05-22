@@ -5,6 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import '../App.css'
 import Chip from '@material-ui/core/Chip';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   details: {
     display: 'flex',
     flexDirection: 'column',
-    
+
   },
   content: {
     flex: '1 0 auto',
@@ -38,11 +39,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 10,
   },
   fontSize: {
-      fontSize: 15,
-      fontFamily: 'Comfortaa, cursive',
+    fontSize: 15,
+    fontFamily: 'Comfortaa, cursive',
   },
   pad: {
-      padding: 10,
+    padding: 10,
   },
   button: {
     fontFamily: 'Comfortaa, cursive',
@@ -52,32 +53,33 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function MediaControlCard() {
+export default function MediaControlCard(props) {
   const classes = useStyles();
- 
+
 
   return (
     <Card className={classes.root}>
       <div className={classes.details}>
         <CardContent className={classes.content}>
-          <Typography component="h6" variant="h6" className= {classes.fontSize}>
-            Explore Bali
+          <Typography component="h6" variant="h6" className={classes.fontSize}>
+            {props.description}
           </Typography>
-          <Typography variant="subtitle1" color="textSecondary" className= {classes.font}>
-            <li className= {classes.root}>Bali</li>
-            <li className= {classes.root}>May 12th, 2020</li>
+          <Typography variant="subtitle1" color="textSecondary" className={classes.font}>
+            <li className={classes.root}>{props.destination}</li>
+            <li className={classes.root}>{props.from}</li>
           </Typography>
         </CardContent>
-        <div className = {classes.pad}>
-        <Chip 
-          label="View Details" 
-          component="a" 
-          href="/"
-          clickable
-          className={classes.button}
-          />
-      </div>
+        <div className={classes.pad}>
+          <Link to={`/review/${props.id}`} style={{textDecoration: "none"}}>
+            <Chip
+              label="View Details"
+              component="a"
+              clickable
+              className={classes.button}
+            />
+          </Link>
         </div>
+      </div>
     </Card>
   );
 }
